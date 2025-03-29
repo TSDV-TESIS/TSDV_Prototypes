@@ -1365,68 +1365,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7696948209445906597, guid: e06396ee4317ed44b95b1b84e244fe20, type: 3}
   m_PrefabInstance: {fileID: 967169264}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &991910645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
-  m_PrefabInstance: {fileID: 12470230278717804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &991910646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
   m_PrefabInstance: {fileID: 12470230278717804}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &991910649
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991910645}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &991910650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991910645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab59d13082fbcbb4d85e3a7ddc8ee048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: 12
-  handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
---- !u!114 &991910651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991910645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ff5ce2e3920134592bbda77ba72c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
 --- !u!1001 &1118912100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2063,7 +2006,7 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.59, y: 0.47}
+      Size: {x: 0.59, y: 0.3001883}
     HardLimits:
       Enabled: 0
       Size: {x: 3, y: 2.9872205}
@@ -2581,10 +2524,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2429463417879874617, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 4a0ea5b3e3fb7e649ac95b5affc54fd8, type: 2}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2905969
@@ -2625,23 +2564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8751619164965568720, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 82348fea5bbeb4a49af858cfde296b7f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 991910649}
-    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 991910650}
-    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 991910651}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
 --- !u!1001 &693751939961154975
 PrefabInstance:
@@ -2651,6 +2577,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player.InputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3312395684589361783, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
       propertyPath: m_Name
       value: PlayerInput
