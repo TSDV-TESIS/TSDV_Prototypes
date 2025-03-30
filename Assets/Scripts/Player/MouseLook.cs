@@ -24,7 +24,6 @@ public class MouseLook : MonoBehaviour
         viewPortPos -= new Vector2(0.5f, 0.5f);
 
         _angle = Mathf.Atan2(viewPortPos.x, viewPortPos.y) * Mathf.Rad2Deg;
-        Debug.Log($"viewport coords: {viewPortPos}, angle: {_angle}");
         transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
     }
 }
