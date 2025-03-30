@@ -9,7 +9,9 @@ namespace Player
     {
         public UnityEvent<Vector2> OnPlayerMove;
         public UnityEvent OnPlayerAttack;
-        
+        public UnityEvent<Vector2> OnPlayerLook;
+        public UnityEvent OnPlayerHook;
+
         public void OnMove(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
@@ -22,6 +24,20 @@ namespace Player
             if (context.performed)
             {
                 OnPlayerAttack?.Invoke();
+            }
+        }
+
+        public void OnLook(InputAction.CallbackContext context)
+        {
+            Vector2 lookDir = context.ReadValue<Vector2>();
+            OnPlayerLook?.Invoke(lookDir);
+        }
+
+        public void OnHook(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                OnPlayerHook?.Invoke();
             }
         }
     }
