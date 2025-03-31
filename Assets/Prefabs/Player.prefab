@@ -31,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 8968048939514465584}
   - {fileID: 257960726705842}
-  - {fileID: 7114650615281122614}
   m_Father: {fileID: 3477019598821024034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694611373442602405
@@ -47,6 +46,7 @@ GameObject:
   - component: {fileID: 6876050862332813108}
   - component: {fileID: 2768916804911066733}
   - component: {fileID: 4343861683668237329}
+  - component: {fileID: 8503018390710429996}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -68,6 +68,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8075028965834026590}
+  - {fileID: 7114650615281122614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &583095707935067711
@@ -136,9 +137,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackObject: {fileID: 5988945897739191288}
-  handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
+  handler: {fileID: 0}
+  health: {fileID: 8503018390710429996}
   attackDurationSeconds: 0.5
   attackDurationCooldownSeconds: 0.2
+  attackUsageDamage: 5
+  attackDamage: 50
+--- !u!114 &8503018390710429996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694611373442602405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0063095bd6a03ad4ab305c8993510814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScaleDivision: 20
+  hitFrameTime: 0.1
+  timeUntilFrameActivate: 0.1
+  maxHealth: 100
+  initHealth: 100
+  canTakeDamage: 1
+  shouldFreeze: 0
+  onDeathEvent: {fileID: 0}
+  onTakeDamageEvent: {fileID: 11400000, guid: 907783a8cffc33e4ebffa90d6b4df275, type: 2}
+  onSumHealthEvent: {fileID: 0}
+  onResetPointsEvent: {fileID: 0}
+  onInitializeHealthEvent: {fileID: 11400000, guid: 33fe87b244882df48aff772321fe6d6d, type: 2}
+  onInitializeMaxHealthEvent: {fileID: 11400000, guid: 4ac72940bde634c4585a3ff3c5336e83, type: 2}
+  onDamageAvoidedEvent: {fileID: 0}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onInternalDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onInternalResetEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onInternalTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onInternalInitializeMaxHealthEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4685533334165972235
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +414,7 @@ GameObject:
   - component: {fileID: 2011686536208706169}
   - component: {fileID: 1050428013205861279}
   - component: {fileID: 2411201520783793527}
+  - component: {fileID: 4052750135442741528}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -384,12 +430,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5988945897739191288}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 2.1}
-  m_LocalScale: {x: 3.0595, y: 3.0595, z: 3.0595}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.1000004}
+  m_LocalScale: {x: 3.0595002, y: 3.0595, z: 3.0595002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8075028965834026590}
+  m_Father: {fileID: 3477019598821024034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2011686536208706169
 MeshFilter:
@@ -465,3 +511,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4052750135442741528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988945897739191288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343374e32dd7c044a8fbbfa2ad36cff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50

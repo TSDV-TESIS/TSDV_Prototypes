@@ -10,9 +10,10 @@ namespace Player
     
         private CharacterController _characterController;
         private Vector3 _moveDirection;
-    
+        private bool _canWalk;
         void OnEnable()
         {
+            _canWalk = true;
             _characterController ??= GetComponent<CharacterController>();
             _moveDirection = Vector3.zero;
         
@@ -26,12 +27,18 @@ namespace Player
 
         void Update()
         {
-            _characterController.Move(_moveDirection * (Time.deltaTime * velocity));
+            if(_canWalk)
+                _characterController.Move(_moveDirection * (Time.deltaTime * velocity));
         }
 
         private void HandleMove(Vector2 movement)
         {
             _moveDirection = new Vector3(movement.x, 0, movement.y);
+        }
+
+        public void SetCanWalk(bool canWalk)
+        {
+            _canWalk = canWalk;
         }
     }
 }
