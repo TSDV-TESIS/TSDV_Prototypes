@@ -1,6 +1,7 @@
 using System.Collections;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CharacterController))]
 public class Hook : MonoBehaviour
@@ -14,6 +15,7 @@ public class Hook : MonoBehaviour
 
     [Header("Displacement")]
     [SerializeField] private float speed;
+    [SerializeField] private AnimationCurve accelerationCurve;
 
     private float lastHookTime = 0;
     private CharacterController _characterController;
@@ -68,7 +70,7 @@ public class Hook : MonoBehaviour
 
         while (timer < travelDuration)
         {
-            Vector3 movement = Vector3.Lerp(initialPosition, endPosition, timer / travelDuration);
+            Vector3 movement = Vector3.Lerp(initialPosition, endPosition, accelerationCurve.Evaluate(timer / travelDuration));
             _characterController.Move(movement - transform.position);
             timer = Time.time - startTime;
             yield return null;
