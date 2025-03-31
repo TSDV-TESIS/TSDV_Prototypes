@@ -3399,6 +3399,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
   m_PrefabInstance: {fileID: 12470230278717804}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1388045396 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6876050862332813108, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+  m_PrefabInstance: {fileID: 12470230278717804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388045393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab59d13082fbcbb4d85e3a7ddc8ee048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1388045398 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8503018390710429996, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+  m_PrefabInstance: {fileID: 12470230278717804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388045393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0063095bd6a03ad4ab305c8993510814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1388045399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3427,6 +3449,25 @@ MonoBehaviour:
   healthTakenPerTick: 15
   secondsPerTick: 2
   shouldTick: 1
+--- !u!114 &1388045401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388045393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b7622b8777fe24e939d70ef46262bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
+  healthPoints: {fileID: 1388045398}
+  OnInternalPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  movement: {fileID: 1388045396}
+  waitSeconds: 0.5
 --- !u!1001 &1427597014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4652,6 +4693,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 365806396}
     - target: {fileID: 8503018390710429996, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      propertyPath: onDeathEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
+    - target: {fileID: 8503018390710429996, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: onSumHealthEvent
       value: 
       objectReference: {fileID: 11400000, guid: 84372648de01f7d41a1f7238606514f9, type: 2}
@@ -4665,6 +4710,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1388045400}
+    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1388045401}
   m_SourcePrefab: {fileID: 100100000, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
 --- !u!1001 &693751939961154975
 PrefabInstance:

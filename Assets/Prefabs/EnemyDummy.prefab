@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1021959409291245028}
   - component: {fileID: 294149342326178854}
   - component: {fileID: 3848838115853542127}
+  - component: {fileID: 6192338590914362991}
   m_Layer: 0
   m_Name: EnemyDummy
   m_TagString: Untagged
@@ -254,6 +255,35 @@ MonoBehaviour:
   healthBar: {fileID: 3754943246211120779}
   healthRewardOnDeath: 40
   OnEnemyDeath: {fileID: 11400000, guid: 9ab2348d68fe8e041bcd88bda4b0dc54, type: 2}
+--- !u!114 &6192338590914362991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807858569939740197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b7622b8777fe24e939d70ef46262bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
+  healthPoints: {fileID: 294149342326178854}
+  OnInternalPlayerDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3848838115853542127}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnPlayerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1050454677088136632
 GameObject:
   m_ObjectHideFlags: 0
