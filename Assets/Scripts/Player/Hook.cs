@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Events.Scriptables;
 using Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -22,11 +23,13 @@ public class Hook : MonoBehaviour
     [Header("Visuals")]
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private float throwSpeed;
+    [SerializeField] private FloatEventChannel onCoolDown;
 
     private float lastHookTime = 0;
     private CharacterController _characterController;
     private Coroutine _displacement;
     private Coroutine _hookVisual;
+    private bool _isHooked;
 
     private void OnEnable()
     {
@@ -39,11 +42,6 @@ public class Hook : MonoBehaviour
         handler.OnPlayerHook.AddListener(HandleHook);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void HandleHook()
     {
         if (CanHook())
@@ -52,7 +50,7 @@ public class Hook : MonoBehaviour
 
     private void ThrowHook()
     {
-        lastHookTime = Time.time;
+        _isHooked = true;
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, maxDistance, rayLayerMask))
         {
             if (_displacement != null)
@@ -69,7 +67,7 @@ public class Hook : MonoBehaviour
 
     private bool CanHook()
     {
-        return Time.time - lastHookTime > coolDown;
+        return Time.time - lastHookTime > coolDown && !_isHooked;
     }
 
     private IEnumerator ShootHook(Vector3 position, bool shouldDecay)
@@ -89,7 +87,12 @@ public class Hook : MonoBehaviour
         }
 
         if (shouldDecay)
+        {
+            _isHooked = false;
+            lastHookTime = Time.time;
+            onCoolDown.RaiseEvent(coolDown);
             lineRenderer.enabled = false;
+        }
     }
 
     private IEnumerator MoveTowards(Vector3 endPosition)
@@ -112,6 +115,9 @@ public class Hook : MonoBehaviour
             yield return null;
         }
 
+        _isHooked = false;
+        lastHookTime = Time.time;
+        onCoolDown.RaiseEvent(coolDown);
         lineRenderer.enabled = false;
     }
 }
