@@ -33,7 +33,7 @@ namespace Player
 
         private void HandleMove(Vector2 movement)
         {
-            _moveDirection = new Vector3(movement.x, 0, movement.y);
+            _moveDirection = new Vector3(movement.x, movement.y, 0);
         }
 
         public void SetCanWalk(bool canWalk)
