@@ -12,7 +12,8 @@ namespace Player
         public UnityEvent<Vector2> OnPlayerLook;
         public UnityEvent OnPlayerHook;
         public UnityEvent OnInteract;
-
+        public UnityEvent OnPlayerClick;
+        
         public void OnMove(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
@@ -46,6 +47,14 @@ namespace Player
             if (context.performed)
             {
                 OnInteract?.Invoke();
+            }
+        }
+
+        public void OnClick(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                OnPlayerClick?.Invoke();
             }
         }
     }

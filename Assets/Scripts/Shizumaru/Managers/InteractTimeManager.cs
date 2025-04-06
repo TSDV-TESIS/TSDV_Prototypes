@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using Events;
+using Events.Scriptables;
 using Player;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -11,6 +11,7 @@ namespace Shizumaru.Managers
     {
         [SerializeField] private InputHandler handler;
         [SerializeField] private CinemachineCamera normalCamera;
+        [SerializeField] private GameObject canvas;
         
         [Header("Time blend settings")]
         [SerializeField] private AnimationCurve timeBlendStop;
@@ -20,8 +21,7 @@ namespace Shizumaru.Managers
         
         [Header("Events")]
         [SerializeField] private VoidEventChannelSO onInteractActionStarted;
-        [SerializeField] private VoidEventChannelSO onInteractActionLocked;
-        [SerializeField] private VoidEventChannelSO onInteractActionFinished;
+        [SerializeField] private BoolEventSO onInteractActionLocked;
 
         private bool _isInteracting;
         private bool _canInteract;
@@ -47,7 +47,6 @@ namespace Shizumaru.Managers
             
             if(_interactCoroutine != null) StopCoroutine(_interactCoroutine);
 
-            Debug.Log("Here?");
             _interactCoroutine = StartCoroutine(InteractCoroutine());
         }
 
@@ -67,7 +66,6 @@ namespace Shizumaru.Managers
             onInteractActionStarted?.RaiseEvent();
             normalCamera.gameObject.SetActive(!_isInteracting);
             float timeBlending = Time.unscaledTime;
-            Debug.Log("PRE WHILE");
             while (Time.unscaledTime - timeBlending < durationSeconds + waitSeconds)
             {
                 if (Time.unscaledTime - timeBlending < waitSeconds)
@@ -75,13 +73,14 @@ namespace Shizumaru.Managers
                     yield return null;
                     continue;
                 }
-                Debug.Log($"WHILE! {timeBlending - Time.unscaledTime}");
-                Time.timeScale = (_isInteracting ? timeBlendStop : timeBlendIn).Evaluate(Time.unscaledTime - timeBlending - waitSeconds);
+                Debug.Log((Time.unscaledTime - timeBlending) / durationSeconds);
+                Time.timeScale = (_isInteracting ? timeBlendStop : timeBlendIn).Evaluate((Time.unscaledTime - timeBlending - waitSeconds) / durationSeconds);
                 
                 yield return null;
             }
 
-            onInteractActionLocked?.RaiseEvent();
+            canvas.SetActive(_isInteracting);
+            onInteractActionLocked?.RaiseEvent(_isInteracting);
             _isInteractionBlending = false;
         }
     }
