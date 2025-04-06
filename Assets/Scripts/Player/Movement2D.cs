@@ -34,8 +34,12 @@ namespace Player
 
         void Update()
         {
+            Vector3 prevPos = transform.position;
             if (_canWalk)
                 _characterController.Move(_moveDirection * (Time.deltaTime * velocity));
+
+            if (transform.position.z != 0)
+                transform.position = prevPos;
         }
 
         private void HandleMove(Vector2 movement)

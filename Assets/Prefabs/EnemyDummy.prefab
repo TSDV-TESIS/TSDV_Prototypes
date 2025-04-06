@@ -284,6 +284,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  movement: {fileID: 0}
+  waitSeconds: 0.5
 --- !u!1 &1050454677088136632
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +382,7 @@ RectTransform:
   m_GameObject: {fileID: 2103776553090905920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51229167, y: 0.3192563, z: 0.4845219}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8063149299420238020}
@@ -388,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.465}
+  m_AnchoredPosition: {x: 0, y: 1.23}
   m_SizeDelta: {x: 18.95, y: 2.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2478525254961882093
