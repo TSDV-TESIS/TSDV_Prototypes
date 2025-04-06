@@ -12,6 +12,12 @@ namespace Player
         private Vector3 _moveDirection;
         private bool _canWalk;
 
+        public float Velocity
+        {
+            get { return velocity; }
+            set { velocity = value; }
+        }
+
         void OnEnable()
         {
             _canWalk = true;

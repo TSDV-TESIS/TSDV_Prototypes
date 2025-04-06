@@ -11,6 +11,7 @@ namespace Player
         public UnityEvent OnPlayerAttack;
         public UnityEvent<Vector2> OnPlayerLook;
         public UnityEvent OnPlayerHook;
+        public UnityEvent OnPlayerShadowStep;
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -39,6 +40,12 @@ namespace Player
             {
                 OnPlayerHook?.Invoke();
             }
+        }
+
+        public void OnShadowStep(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnPlayerShadowStep.Invoke();
         }
     }
 }
