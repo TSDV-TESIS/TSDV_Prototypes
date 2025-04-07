@@ -11,16 +11,19 @@ namespace Player
         [SerializeField] private Collider playerCollider;
         [SerializeField] private float shadowVelocity;
         [SerializeField] private float healthDecayPerSecond;
-
+        [SerializeField] private LayerMask trespassableColliders;
+        
         [Header("Visuals")]
         [SerializeField] private MeshRenderer playerRenderer;
         [SerializeField] private Material shadowMat;
 
         private Movement2D _playerMovement;
+        private CharacterController _characterController;
         private HealthPoints _healthPoints;
         private bool _isShadow = false;
         private float _prevSpeed;
         private Material _prevMaterial;
+        private LayerMask _defaultLayerMask;
 
         private float accumulatedDecay = 0;
 
@@ -28,9 +31,11 @@ namespace Player
         {
             input.OnPlayerShadowStep.AddListener(ShadowStepToggle);
             _playerMovement ??= GetComponent<Movement2D>();
+            _characterController ??= GetComponent<CharacterController>();
             _healthPoints ??= GetComponent<HealthPoints>();
             _prevMaterial = playerRenderer.material;
             _prevSpeed = _playerMovement.Velocity;
+            _defaultLayerMask = _characterController.excludeLayers;
         }
 
         private void Update()
@@ -53,11 +58,13 @@ namespace Player
             {
                 playerRenderer.material = shadowMat;
                 _playerMovement.Velocity = shadowVelocity;
+                _characterController.excludeLayers = trespassableColliders;
             }
             else
             {
                 playerRenderer.material = _prevMaterial;
                 _playerMovement.Velocity = _prevSpeed;
+                _characterController.excludeLayers = _defaultLayerMask;
             }
 
             playerCollider.isTrigger = _isShadow;
