@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Beatem.unity
     guid: d57fff08e30efe74bb491ddb155ac76c
+  - enabled: 1
+    path: Assets/Scenes/Shizumaru.unity
+    guid: 906cf8601e7350e44995f6dc5c53db83
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
