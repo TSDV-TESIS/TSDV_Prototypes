@@ -7,7 +7,8 @@ namespace Shizumaru
     public class PlayerRotation : MonoBehaviour
     {
         [SerializeField] private InputHandler handler;
-
+        [SerializeField] private GameObject model;
+        
         private Vector2 _movement;
 
         private void OnEnable()
@@ -24,13 +25,9 @@ namespace Shizumaru
         {
             if (movement.x == 0) return;
 
-            Quaternion rotation = gameObject.transform.rotation;
+            Quaternion rotation = model.transform.rotation;
             rotation.eulerAngles = new Vector3(0, movement.x > 0 ? 90 : -90, 0);
-            gameObject.transform.rotation = rotation;
-        }
-        
-        void Update()
-        {
+            model.transform.rotation = rotation;
         }
     }
 }
