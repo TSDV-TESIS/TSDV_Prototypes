@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Events;
 using Health;
 using Unity.Mathematics;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace Player
         [SerializeField] private GameObject shadowPrefab;
         [SerializeField] private float spawnRate;
         [SerializeField] private float shadowDecayDelay;
+        [SerializeField] private VoidEventChannelSO onPlayerDeath;
 
         [Header("Visuals")]
         [SerializeField] private MeshRenderer playerRenderer;
@@ -48,6 +50,8 @@ namespace Player
             _prevMaterial = playerRenderer.material;
             _prevSpeed = _playerMovement.Velocity;
             _defaultLayerMask = _characterController.excludeLayers;
+
+            onPlayerDeath.onEvent.AddListener(HandlePlayerDeath);
         }
 
         private void Update()
@@ -87,6 +91,15 @@ namespace Player
             playerCollider.isTrigger = _isShadow;
         }
 
+        private void HandlePlayerDeath()
+        {
+            if (_isShadow)
+            {
+                StopCoroutine(_spawnShadows);
+                StartCoroutine(CollapseShadows());
+            }
+        }
+
         private IEnumerator SpawnShadows()
         {
             ClearShadows();
@@ -106,9 +119,14 @@ namespace Player
                 yield return null;
             }
 
+            yield return CollapseShadows();
+        }
+
+        private IEnumerator CollapseShadows()
+        {
             for (int i = 0; i < _shadows.Count; i++)
             {
-                Destroy(_shadows[i]);
+                _shadows[i].GetComponent<ShadowExplosion>().Explode();
                 yield return new WaitForSeconds(shadowDecayDelay);
             }
 
