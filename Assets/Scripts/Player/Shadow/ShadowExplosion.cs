@@ -5,17 +5,20 @@ using Events;
 using Health;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class ShadowExplosion : MonoBehaviour
 {
-    [SerializeField] private float explosionTime;
+    [SerializeField] private float explosionDuration;
+    [SerializeField] private MeshRenderer meshRenderer;
     private Collider _collider;
+    private Rigidbody _rb;
 
     private Coroutine _explosion;
 
     private void Awake()
     {
         _collider ??= GetComponent<Collider>();
+        _rb ??= GetComponent<Rigidbody>();
     }
 
     public void Explode()
@@ -29,8 +32,10 @@ public class ShadowExplosion : MonoBehaviour
     private IEnumerator Explosion()
     {
         _collider.enabled = true;
-        yield return new WaitForSeconds(explosionTime);
-        Destroy(gameObject);
+        meshRenderer.enabled = false;
+        yield return new WaitForSeconds(explosionDuration);
+        _rb.detectCollisions = false;
+        Destroy(gameObject,0.1f);
     }
 
     private void OnTriggerEnter(Collider other)
