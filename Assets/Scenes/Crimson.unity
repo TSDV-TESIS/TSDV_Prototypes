@@ -1046,6 +1046,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
     - target: {fileID: 2230639419180364887, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: onReviveEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 759bf030b0f37734e82f041ac9950e9e, type: 2}
+    - target: {fileID: 2230639419180364887, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: onSumHealthEvent
       value: 
       objectReference: {fileID: 11400000, guid: 84372648de01f7d41a1f7238606514f9, type: 2}
@@ -1206,6 +1210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 6
   handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
+  onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
+  onPlayerRevive: {fileID: 11400000, guid: 759bf030b0f37734e82f041ac9950e9e, type: 2}
 --- !u!114 &822745195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,15 +1226,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
   playerCollider: {fileID: 822745199}
-  shadowVelocity: 15
-  healthDecayPerSecond: 10
+  shadowVelocity: 10
+  healthDecayPerSecond: 30
   trespassableColliders:
     serializedVersion: 2
     m_Bits: 128
   shadowPrefab: {fileID: 6694883190123719090, guid: ad926b3022d419c43b7ed2bdaf27363b, type: 3}
   spawnRate: 0.05
   shadowDecayDelay: 0.02
-  onPlayerDeath: {fileID: 0}
+  onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
   playerRenderer: {fileID: 1057749772}
   shadowMat: {fileID: 2100000, guid: 2c6e1b277d39d7c48a2200c9a0e4a16a, type: 2}
 --- !u!114 &822745196

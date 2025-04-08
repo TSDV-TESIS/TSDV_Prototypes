@@ -19,6 +19,7 @@ namespace Health
 
         [Header("events")]
         [SerializeField] private VoidEventChannelSO onDeathEvent;
+        [SerializeField] private VoidEventChannelSO onReviveEvent;
         [SerializeField] private IntEventChannelSO onTakeDamageEvent;
         [SerializeField] private IntEventChannelSO onSumHealthEvent;
         [SerializeField] private IntEventChannelSO onResetPointsEvent;
@@ -101,7 +102,7 @@ namespace Health
 
             if (shouldFreeze)
                 StartCoroutine(StunTime());
-            
+
             if (IsDead() && !_hasBeenDead)
             {
                 _hasBeenDead = true;
@@ -147,6 +148,11 @@ namespace Health
 
         public void SumHealth(int wonHealth)
         {
+            if (IsDead())
+            {
+                onReviveEvent.RaiseEvent();
+            }
+
             CurrentHp = math.min(maxHealth, wonHealth + CurrentHp);
             onSumHealthEvent?.RaiseEvent(CurrentHp);
         }

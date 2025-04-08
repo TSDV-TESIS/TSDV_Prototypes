@@ -97,6 +97,7 @@ namespace Player
             {
                 StopCoroutine(_spawnShadows);
                 StartCoroutine(CollapseShadows());
+                ShadowStepToggle();
             }
         }
 

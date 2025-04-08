@@ -1,3 +1,4 @@
+using Events;
 using UnityEngine;
 
 namespace Player
@@ -7,6 +8,9 @@ namespace Player
     {
         [SerializeField] private float velocity;
         [SerializeField] private InputHandler handler;
+
+        [SerializeField] private VoidEventChannelSO onPlayerDeath;
+        [SerializeField] private VoidEventChannelSO onPlayerRevive;
 
         private CharacterController _characterController;
         private Vector3 _moveDirection;
@@ -25,6 +29,8 @@ namespace Player
             _moveDirection = Vector3.zero;
 
             handler.OnPlayerMove.AddListener(HandleMove);
+            onPlayerDeath.onEvent.AddListener(HandleDeath);
+            onPlayerRevive.onEvent.AddListener(HandleRevive);
         }
 
         private void OnDisable()
@@ -50,6 +56,16 @@ namespace Player
         public void SetCanWalk(bool canWalk)
         {
             _canWalk = canWalk;
+        }
+
+        private void HandleDeath()
+        {
+            SetCanWalk(false);
+        }
+
+        private void HandleRevive()
+        {
+            SetCanWalk(true);
         }
     }
 }
