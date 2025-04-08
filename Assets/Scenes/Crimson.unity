@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.024613485
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1221,6 +1221,9 @@ MonoBehaviour:
   trespassableColliders:
     serializedVersion: 2
     m_Bits: 128
+  shadowPrefab: {fileID: 6694883190123719090, guid: ad926b3022d419c43b7ed2bdaf27363b, type: 3}
+  spawnRate: 0.05
+  shadowDecayDelay: 0.02
   playerRenderer: {fileID: 1057749772}
   shadowMat: {fileID: 2100000, guid: 2c6e1b277d39d7c48a2200c9a0e4a16a, type: 2}
 --- !u!114 &822745196

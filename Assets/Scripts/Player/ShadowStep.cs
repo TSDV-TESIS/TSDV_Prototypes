@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Health;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Player
@@ -12,7 +15,12 @@ namespace Player
         [SerializeField] private float shadowVelocity;
         [SerializeField] private float healthDecayPerSecond;
         [SerializeField] private LayerMask trespassableColliders;
-        
+
+        [Header("Shadow")]
+        [SerializeField] private GameObject shadowPrefab;
+        [SerializeField] private float spawnRate;
+        [SerializeField] private float shadowDecayDelay;
+
         [Header("Visuals")]
         [SerializeField] private MeshRenderer playerRenderer;
         [SerializeField] private Material shadowMat;
@@ -25,7 +33,11 @@ namespace Player
         private Material _prevMaterial;
         private LayerMask _defaultLayerMask;
 
-        private float accumulatedDecay = 0;
+        private float _accumulatedDecay = 0;
+
+
+        private List<GameObject> _shadows = new List<GameObject>();
+        private Coroutine _spawnShadows;
 
         void OnEnable()
         {
@@ -43,11 +55,11 @@ namespace Player
             if (!_isShadow)
                 return;
 
-            accumulatedDecay += healthDecayPerSecond * Time.deltaTime;
-            if (accumulatedDecay > 1)
+            _accumulatedDecay += healthDecayPerSecond * Time.deltaTime;
+            if (_accumulatedDecay > 1)
             {
-                _healthPoints.TryTakeDamage(Mathf.FloorToInt(accumulatedDecay));
-                accumulatedDecay -= 1;
+                _healthPoints.TryTakeDamage(Mathf.FloorToInt(_accumulatedDecay));
+                _accumulatedDecay -= 1;
             }
         }
 
@@ -59,6 +71,11 @@ namespace Player
                 playerRenderer.material = shadowMat;
                 _playerMovement.Velocity = shadowVelocity;
                 _characterController.excludeLayers = trespassableColliders;
+
+                if (_spawnShadows != null)
+                    StopCoroutine(_spawnShadows);
+
+                _spawnShadows = StartCoroutine(SpawnShadows());
             }
             else
             {
@@ -68,6 +85,44 @@ namespace Player
             }
 
             playerCollider.isTrigger = _isShadow;
+        }
+
+        private IEnumerator SpawnShadows()
+        {
+            ClearShadows();
+            float timer = spawnRate;
+            float startTime = Time.time;
+            _shadows.Add(Instantiate(shadowPrefab, transform.position, quaternion.identity));
+
+            while (_isShadow)
+            {
+                timer = Time.time - startTime;
+                if (timer > spawnRate)
+                {
+                    startTime = Time.time;
+                    _shadows.Add(Instantiate(shadowPrefab, transform.position, quaternion.identity));
+                }
+
+                yield return null;
+            }
+
+            for (int i = 0; i < _shadows.Count; i++)
+            {
+                Destroy(_shadows[i]);
+                yield return new WaitForSeconds(shadowDecayDelay);
+            }
+
+            _shadows.Clear();
+        }
+
+        private void ClearShadows()
+        {
+            for (int i = 0; i < _shadows.Count; i++)
+            {
+                Destroy(_shadows[i]);
+            }
+
+            _shadows.Clear();
         }
     }
 }
