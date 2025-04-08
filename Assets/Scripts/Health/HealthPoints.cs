@@ -151,6 +151,7 @@ namespace Health
             if (IsDead())
             {
                 onReviveEvent.RaiseEvent();
+                _hasBeenDead = false;
             }
 
             CurrentHp = math.min(maxHealth, wonHealth + CurrentHp);

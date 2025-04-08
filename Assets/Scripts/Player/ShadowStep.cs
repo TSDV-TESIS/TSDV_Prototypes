@@ -21,6 +21,7 @@ namespace Player
         [SerializeField] private GameObject shadowPrefab;
         [SerializeField] private float spawnRate;
         [SerializeField] private float shadowDecayDelay;
+        [SerializeField] private VoidEventChannelSO onPlayerShouldDie;
         [SerializeField] private VoidEventChannelSO onPlayerDeath;
 
         [Header("Visuals")]
@@ -51,7 +52,7 @@ namespace Player
             _prevSpeed = _playerMovement.Velocity;
             _defaultLayerMask = _characterController.excludeLayers;
 
-            onPlayerDeath.onEvent.AddListener(HandlePlayerDeath);
+            onPlayerShouldDie.onEvent.AddListener(HandlePlayerDeath);
         }
 
         private void Update()
@@ -96,8 +97,11 @@ namespace Player
             if (_isShadow)
             {
                 StopCoroutine(_spawnShadows);
-                StartCoroutine(CollapseShadows());
-                ShadowStepToggle();
+                StartCoroutine(DeathCollapse());
+            }
+            else
+            {
+                onPlayerDeath.RaiseEvent();
             }
         }
 
@@ -132,6 +136,16 @@ namespace Player
             }
 
             _shadows.Clear();
+        }
+
+        private IEnumerator DeathCollapse()
+        {
+            ShadowStepToggle();
+            yield return CollapseShadows();
+            if (_healthPoints.IsDead())
+            {
+                onPlayerDeath.RaiseEvent();
+            }
         }
 
         private void ClearShadows()

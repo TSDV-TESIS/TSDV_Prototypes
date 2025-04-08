@@ -13,6 +13,8 @@ namespace Player
         public UnityEvent OnPlayerHook;
         public UnityEvent OnPlayerShadowStep;
 
+        public UnityEvent OnRestartScene;
+
         public void OnMove(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
@@ -46,6 +48,12 @@ namespace Player
         {
             if (context.performed)
                 OnPlayerShadowStep.Invoke();
+        }
+
+        public void OnReset(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnRestartScene.Invoke();
         }
     }
 }
