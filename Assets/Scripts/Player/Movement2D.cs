@@ -1,3 +1,4 @@
+using System.Collections;
 using Events;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,17 +9,26 @@ namespace Player
     public class Movement2D : MonoBehaviour
     {
         [SerializeField] private InputHandler input;
-        [SerializeField] private float speed;
+        [SerializeField] private float acceleration;
+        [SerializeField] private float friction;
+        [SerializeField] private float maxSpeed;
         [SerializeField] private float gravity;
         [SerializeField] private float jumpForce;
 
         [SerializeField] private VoidEventChannelSO onPlayerDeath;
         [SerializeField] private VoidEventChannelSO onPlayerRevive;
 
-        [Header("GroundCheck")]
+        [Header("Ground Check")]
         [SerializeField] private Transform feetPivot;
         [SerializeField] private float checkDistance;
         [SerializeField] private LayerMask whatIsGround;
+
+        [Header("Wall Check")]
+        [SerializeField] private float wallCheckDistance;
+        [SerializeField] private LayerMask whatIsWall;
+
+        [Header("Wall Slide")]
+        [SerializeField] private float lockDuration;
 
         private CharacterController _characterController;
         private Vector3 _moveDirection;
@@ -26,11 +36,12 @@ namespace Player
 
 
         private Vector2 _velocity;
+        private Coroutine velocityLock;
 
-        public float Speed
+        public float MaxSpeed
         {
-            get { return speed; }
-            set { speed = value; }
+            get { return maxSpeed; }
+            set { maxSpeed = value; }
         }
 
         void OnEnable()
@@ -44,7 +55,7 @@ namespace Player
 
             onPlayerDeath.onEvent.AddListener(HandleDeath);
             onPlayerRevive.onEvent.AddListener(HandleRevive);
-            _velocity = new Vector2(speed, 0);
+            _velocity = new Vector2(maxSpeed, 0);
         }
 
         private void OnDisable()
@@ -59,14 +70,17 @@ namespace Player
         void Update()
         {
             Vector3 prevPos = transform.position;
-            _velocity.y -= gravity * Time.deltaTime;
+            _velocity.y -= IsWallSliding() ? gravity / 2 * Time.deltaTime : gravity * Time.deltaTime;
             if (IsGrounded() && _velocity.y < 0)
                 _velocity.y = 0;
 
-            _characterController.Move(Vector3.up * (_velocity.y * Time.deltaTime));
-
             if (_canWalk)
-                _characterController.Move(_moveDirection * (Time.deltaTime * _velocity.x));
+                _velocity.x = Mathf.Clamp(_velocity.x + (_moveDirection.x * acceleration * Time.deltaTime), -maxSpeed, maxSpeed);
+
+            if (_moveDirection.x == 0 && IsGrounded())
+                _velocity.x = Mathf.Sign(_velocity.x) * Mathf.Clamp(Mathf.Abs(_velocity.x) - friction * Time.deltaTime, 0, maxSpeed);
+
+            _characterController.Move(_velocity * Time.deltaTime);
 
             if (transform.position.z != 0)
                 transform.position = prevPos;
@@ -83,6 +97,15 @@ namespace Player
                 return;
 
             _velocity.y = jumpForce;
+
+            if (IsWallSliding() && !IsGrounded())
+            {
+                _velocity.x = jumpForce / 2 * Mathf.Sign(_moveDirection.x) * -1;
+                if (velocityLock != null)
+                    StopCoroutine(velocityLock);
+
+                velocityLock = StartCoroutine(LockAfterWallJump());
+            }
         }
 
         public void SetCanWalk(bool canWalk)
@@ -108,9 +131,21 @@ namespace Player
             return false;
         }
 
+        private bool IsWallSliding()
+        {
+            return _moveDirection.x != 0 && Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(_moveDirection.x), wallCheckDistance, whatIsWall);
+        }
+
         private bool CanJump()
         {
-            return IsGrounded();
+            return IsGrounded() || IsWallSliding();
+        }
+
+        private IEnumerator LockAfterWallJump()
+        {
+            _canWalk = false;
+            yield return new WaitForSeconds(lockDuration);
+            _canWalk = true;
         }
     }
 }
