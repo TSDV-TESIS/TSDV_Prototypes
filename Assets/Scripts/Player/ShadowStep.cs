@@ -49,7 +49,7 @@ namespace Player
             _characterController ??= GetComponent<CharacterController>();
             _healthPoints ??= GetComponent<HealthPoints>();
             _prevMaterial = playerRenderer.material;
-            _prevSpeed = _playerMovement.Velocity;
+            _prevSpeed = _playerMovement.Speed;
             _defaultLayerMask = _characterController.excludeLayers;
 
             onPlayerShouldDie.onEvent.AddListener(HandlePlayerDeath);
@@ -74,7 +74,7 @@ namespace Player
             if (_isShadow)
             {
                 playerRenderer.material = shadowMat;
-                _playerMovement.Velocity = shadowVelocity;
+                _playerMovement.Speed = shadowVelocity;
                 _characterController.excludeLayers = trespassableColliders;
 
                 if (_spawnShadows != null)
@@ -85,7 +85,7 @@ namespace Player
             else
             {
                 playerRenderer.material = _prevMaterial;
-                _playerMovement.Velocity = _prevSpeed;
+                _playerMovement.Speed = _prevSpeed;
                 _characterController.excludeLayers = _defaultLayerMask;
             }
 
