@@ -9,19 +9,20 @@ namespace Enemy
     public class EnemyPatrol : MonoBehaviour
     {
         [SerializeField] private List<Transform> patrolPoints;
-        [SerializeField] private float idleSeconds;
         [Tooltip("How much distance to patrol point should the enemy be so it can stop")]
         [SerializeField] private float distanceToPatrolPoint = 0.5f;
+        
+        [Header("Idle seconds")]
+        [SerializeField] private float minIdleSeconds = 1;
+        [SerializeField] private float maxIdleSeconds = 4;
         
         private NavMeshAgent _navMeshAgent;
 
         private List<Vector3> _freezedPatrolPoints;
         private int _actualPatrolPointIndex;
-        private bool _shouldPatrol;
         private Coroutine _idleCoroutine;
         void OnEnable()
         {
-            _shouldPatrol = true;
             _navMeshAgent ??= GetComponent<NavMeshAgent>();
             
             _freezedPatrolPoints = new List<Vector3>();
@@ -29,8 +30,7 @@ namespace Enemy
             {
                 _freezedPatrolPoints.Add(new Vector3(patrolPoint.position.x, patrolPoint.position.y, patrolPoint.position.z));
             }
-
-            Debug.Log(_freezedPatrolPoints[0]);
+            
             _actualPatrolPointIndex = 0;
         }
 
@@ -38,9 +38,19 @@ namespace Enemy
         {
             _navMeshAgent.destination = _freezedPatrolPoints[_actualPatrolPointIndex];
             if ((transform.position - _freezedPatrolPoints[_actualPatrolPointIndex]).magnitude > distanceToPatrolPoint) return;
-
+            
             _actualPatrolPointIndex++;
             if (_actualPatrolPointIndex >= _freezedPatrolPoints.Count) _actualPatrolPointIndex = 0;
+            
+            if(_idleCoroutine != null) StopCoroutine(_idleCoroutine);
+            StartCoroutine(IdleCoroutine());
+        }
+
+        private IEnumerator IdleCoroutine()
+        {
+            _navMeshAgent.isStopped = true;
+            yield return new WaitForSeconds(Random.Range(minIdleSeconds, maxIdleSeconds));
+            _navMeshAgent.isStopped = false;
         }
     }
 }
