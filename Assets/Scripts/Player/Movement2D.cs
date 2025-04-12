@@ -80,7 +80,7 @@ namespace Player
             if (_moveDirection.x == 0 && IsGrounded())
                 _velocity.x = Mathf.Sign(_velocity.x) * Mathf.Clamp(Mathf.Abs(_velocity.x) - friction * Time.deltaTime, 0, maxSpeed);
 
-            _characterController.Move(_velocity * Time.deltaTime);
+            Debug.Log(_characterController.Move(_velocity * Time.deltaTime));
 
             if (transform.position.z != 0)
                 transform.position = prevPos;
