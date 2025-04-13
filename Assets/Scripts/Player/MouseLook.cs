@@ -23,7 +23,8 @@ public class MouseLook : MonoBehaviour
     private void HandleLookDir(Vector2 cursorPos)
     {
         Vector2 viewPortPos = Camera.main.ScreenToViewportPoint(cursorPos);
-        viewPortPos -= new Vector2(0.5f, 0.5f);
+        Vector2 playerPosOnViewport = Camera.main.WorldToViewportPoint(transform.position);
+        viewPortPos -= new Vector2(playerPosOnViewport.x, playerPosOnViewport.y);
 
         _angle = Mathf.Atan2(viewPortPos.x, viewPortPos.y) * Mathf.Rad2Deg;
         if (is2D)
