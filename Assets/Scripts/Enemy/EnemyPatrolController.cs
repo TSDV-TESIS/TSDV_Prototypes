@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Enemy
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EnemyPatrol : MonoBehaviour
+    public class EnemyPatrolController : MonoBehaviour
     {
         [SerializeField] private List<Transform> patrolPoints;
         [Tooltip("How much distance to patrol point should the enemy be so it can stop")]
@@ -34,7 +34,7 @@ namespace Enemy
             _actualPatrolPointIndex = 0;
         }
 
-        private void Update()
+        public void HandleUpdate()
         {
             _navMeshAgent.destination = _freezedPatrolPoints[_actualPatrolPointIndex];
             if ((transform.position - _freezedPatrolPoints[_actualPatrolPointIndex]).magnitude > distanceToPatrolPoint) return;
