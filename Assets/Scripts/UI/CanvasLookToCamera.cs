@@ -6,7 +6,7 @@ namespace UI
     {
         void Update()
         {
-            transform.LookAt(transform.position + Vector3.back);
+            transform.LookAt(transform.position + Vector3.forward);
         }
     }
 }

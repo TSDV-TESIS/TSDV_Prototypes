@@ -39,6 +39,12 @@ namespace Enemy
             _actualPatrolPointIndex = 0;
         }
 
+        public void HandleEnter()
+        {
+            if(_surprisedCoroutine != null) StopCoroutine(_surprisedCoroutine);
+            if(_idleCoroutine != null) StopCoroutine(_idleCoroutine);
+        }
+        
         public void HandleUpdate()
         {
               if (_visionHandler.CanSeeObjective())
@@ -46,16 +52,16 @@ namespace Enemy
                  Debug.Log("SEEN!");
                  _enemyAgent.ChangeStateToChase();
                  return;
-             }
+              }
             
-            _navMeshAgent.destination = _freezedPatrolPoints[_actualPatrolPointIndex];
-            if ((transform.position - _freezedPatrolPoints[_actualPatrolPointIndex]).magnitude > properties.distanceToPatrolPoint) return;
+              _navMeshAgent.destination = _freezedPatrolPoints[_actualPatrolPointIndex];
+              if ((transform.position - _freezedPatrolPoints[_actualPatrolPointIndex]).magnitude > properties.distanceToPatrolPoint) return;
             
-            _actualPatrolPointIndex++;
-            if (_actualPatrolPointIndex >= _freezedPatrolPoints.Count) _actualPatrolPointIndex = 0;
+              _actualPatrolPointIndex++;
+              if (_actualPatrolPointIndex >= _freezedPatrolPoints.Count) _actualPatrolPointIndex = 0;
             
-            if(_idleCoroutine != null) StopCoroutine(_idleCoroutine);
-            StartCoroutine(IdleCoroutine());
+              if(_idleCoroutine != null) StopCoroutine(_idleCoroutine);
+              StartCoroutine(IdleCoroutine());
         }
 
         public void HandleExit()
