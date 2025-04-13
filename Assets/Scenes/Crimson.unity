@@ -1376,6 +1376,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1117833222909342987, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
+      propertyPath: visionLength
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117833222909342987, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
+      propertyPath: shouldDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1340293689029608981, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1402,7 +1410,7 @@ PrefabInstance:
       objectReference: {fileID: 767184691}
     - target: {fileID: 4586134685408757019, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 12.55
       objectReference: {fileID: 0}
     - target: {fileID: 4586134685408757019, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1410,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4586134685408757019, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7836265501952539627, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2382,7 +2390,7 @@ Transform:
   m_GameObject: {fileID: 1347146909}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -2.6, z: -6.76}
+  m_LocalPosition: {x: 6.76, y: -2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2602,6 +2610,14 @@ PrefabInstance:
     - target: {fileID: 941483721342945062, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117833222909342987, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
+      propertyPath: visionLength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117833222909342987, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
+      propertyPath: shouldDrawGizmos
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1340293689029608981, guid: b61219ef6c0b6c947957b8ebe76daf49, type: 3}
       propertyPath: m_AnchorMax.x

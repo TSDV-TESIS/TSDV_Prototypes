@@ -526,6 +526,7 @@ MonoBehaviour:
   feetPivot: {fileID: 8911859625685359466}
   onPlayerDeath: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
   onPlayerRevive: {fileID: 11400000, guid: 759bf030b0f37734e82f041ac9950e9e, type: 2}
+  playerTransform: {fileID: 11400000, guid: 33cff94758fa9be458f6c60e98048cb4, type: 2}
 --- !u!114 &6540393279558681873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +586,6 @@ MonoBehaviour:
   attackDurationSeconds: 0.5
   attackDurationCooldownSeconds: 0.2
   attackUsageDamage: 15
-  attackDamage: 150
 --- !u!136 &2262308662148885198
 CapsuleCollider:
   m_ObjectHideFlags: 0

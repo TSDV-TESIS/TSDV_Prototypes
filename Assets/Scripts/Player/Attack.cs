@@ -15,7 +15,6 @@ namespace Player
         [SerializeField] private float attackDurationSeconds = 0.5f;
         [SerializeField] private float attackDurationCooldownSeconds = 0.2f;
         [SerializeField] private int attackUsageDamage = 5;
-        [SerializeField] private int attackDamage = 50;
 
         private Coroutine _attackCoroutine;
         private bool _isAttacking;

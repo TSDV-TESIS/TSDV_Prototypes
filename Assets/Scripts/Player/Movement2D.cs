@@ -11,18 +11,22 @@ namespace Player
     [RequireComponent(typeof(CharacterController))]
     public class Movement2D : MonoBehaviour
     {
-        [Header("Input Handler")] [SerializeField]
-        private InputHandler input;
+        [Header("Input Handler")] 
+        [SerializeField] private InputHandler input;
 
-        [Header("Movement Properties")] [SerializeField]
-        private PlayerMovementProperties playerMovementProperties;
+        [Header("Movement Properties")] 
+        [SerializeField] private PlayerMovementProperties playerMovementProperties;
 
-        [Header("Feet pivot")] [SerializeField]
-        private Transform feetPivot;
+        [Header("Feet pivot")] 
+        [SerializeField] private Transform feetPivot;
 
-        [Header("Events")] [SerializeField] private VoidEventChannelSO onPlayerDeath;
+        [Header("Events")] 
+        [SerializeField] private VoidEventChannelSO onPlayerDeath;
         [SerializeField] private VoidEventChannelSO onPlayerRevive;
 
+        [Header("Save properties")] 
+        [SerializeField] private PlayerTransform playerTransform;
+        
         private CharacterController _characterController;
         private Vector3 _moveDirection;
         private bool _canWalk;
@@ -42,6 +46,8 @@ namespace Player
             _canWalk = true;
             _characterController ??= GetComponent<CharacterController>();
             _moveDirection = Vector3.zero;
+
+            if (playerTransform != null) playerTransform.playerTransform = transform;
 
             input.OnPlayerMove.AddListener(HandleMove);
             input.OnPlayerJump.AddListener(HandleJump);
