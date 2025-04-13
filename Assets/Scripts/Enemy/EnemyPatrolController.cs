@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemy.Properties;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,15 +10,9 @@ namespace Enemy
     public class EnemyPatrolController : MonoBehaviour
     {
         [SerializeField] private List<Transform> patrolPoints;
-        [Tooltip("How much distance to patrol point should the enemy be so it can stop")]
-        [SerializeField] private float distanceToPatrolPoint = 0.5f;
-        
-        [Header("Idle seconds")]
-        [SerializeField] private float minIdleSeconds = 1;
-        [SerializeField] private float maxIdleSeconds = 4;
+        [SerializeField] private EnemyPatrolProperties properties;
         
         private NavMeshAgent _navMeshAgent;
-
         private List<Vector3> _freezedPatrolPoints;
         private int _actualPatrolPointIndex;
         private Coroutine _idleCoroutine;
@@ -37,7 +32,7 @@ namespace Enemy
         public void HandleUpdate()
         {
             _navMeshAgent.destination = _freezedPatrolPoints[_actualPatrolPointIndex];
-            if ((transform.position - _freezedPatrolPoints[_actualPatrolPointIndex]).magnitude > distanceToPatrolPoint) return;
+            if ((transform.position - _freezedPatrolPoints[_actualPatrolPointIndex]).magnitude > properties.distanceToPatrolPoint) return;
             
             _actualPatrolPointIndex++;
             if (_actualPatrolPointIndex >= _freezedPatrolPoints.Count) _actualPatrolPointIndex = 0;
@@ -49,7 +44,7 @@ namespace Enemy
         private IEnumerator IdleCoroutine()
         {
             _navMeshAgent.isStopped = true;
-            yield return new WaitForSeconds(Random.Range(minIdleSeconds, maxIdleSeconds));
+            yield return new WaitForSeconds(Random.Range(properties.minIdleSeconds, properties.maxIdleSeconds));
             _navMeshAgent.isStopped = false;
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.ScriptableObjects
+namespace Player.Properties
 {
     [CreateAssetMenu(fileName = "PlayerMovementProperties", menuName = "Scriptable Objects/PlayerMovementProperties")]
     public class PlayerMovementProperties : ScriptableObject

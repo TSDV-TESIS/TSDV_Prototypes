@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using Events;
-using Player.ScriptableObjects;
+using Player.Properties;
 using UnityEngine;
 using UnityEngine.Serialization;
 
