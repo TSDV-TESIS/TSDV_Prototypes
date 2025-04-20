@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 1117833222909342987}
   - component: {fileID: 7090663827376669088}
   - component: {fileID: 1961683120119573904}
+  - component: {fileID: 4074296848691201418}
   m_Layer: 7
   m_Name: EnemyDummy
   m_TagString: Untagged
@@ -647,6 +648,24 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &4074296848691201418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807858569939740197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dcf8e1f5189e504e9468f1b42bc8291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onBloodlustStart: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
+  onBloodlustEnd: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
+  onHeartbeatStart: {fileID: 11400000, guid: 792599aec4b441a49aa52840199da3e8, type: 2}
+  onHeartbeatEnd: {fileID: 11400000, guid: c81a90a07e2a3fc4e88ca50daac4d6c9, type: 2}
+  IsInBloodlust: 0
+  IsInHeartBeat: 0
 --- !u!1 &1050454677088136632
 GameObject:
   m_ObjectHideFlags: 0

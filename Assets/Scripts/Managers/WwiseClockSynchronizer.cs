@@ -76,7 +76,6 @@ namespace Managers
 
         private void HandleCustomCues(string heartbeatInfoUserCueName)
         {
-            Debug.Log($"Received: {heartbeatInfoUserCueName}");
             if (heartbeatInfoUserCueName == startHeartbeatCueName)
             {
                 onHeartbeatStart?.RaiseEvent();

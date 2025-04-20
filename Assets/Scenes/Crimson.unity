@@ -1352,6 +1352,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1017526273433889760, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: onBloodlustEnd
+      value: 
+      objectReference: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
+    - target: {fileID: 1017526273433889760, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: onHeartbeatEnd
+      value: 
+      objectReference: {fileID: 11400000, guid: c81a90a07e2a3fc4e88ca50daac4d6c9, type: 2}
+    - target: {fileID: 1017526273433889760, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: onBloodlustStart
+      value: 
+      objectReference: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
+    - target: {fileID: 1017526273433889760, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: onHeartbeatStart
+      value: 
+      objectReference: {fileID: 11400000, guid: 792599aec4b441a49aa52840199da3e8, type: 2}
+    - target: {fileID: 1017526273433889760, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: decapitationEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 10d7f1989e5f2c94b85438e9e61f6e10, type: 2}
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.78
@@ -2001,65 +2021,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
---- !u!1 &1063725793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1063725794}
-  - component: {fileID: 1063725795}
-  m_Layer: 0
-  m_Name: WwiseClockSync
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1063725794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063725793}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.759865, y: 2.9464073, z: 3.0085056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1063725795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063725793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79d8a8eae58bce4fb2ddadfe7d461c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
-  playHeartbeatEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 85e5010570f6b4d46b8aa7fdf4bb6b4f, type: 2}
-  stopHeartbeatEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4fa623c5c2f571d4ea1bc5012457dfda, type: 2}
-  onBloodlustStart: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
-  onBloodlustEnd: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
-  onHeartbeatStart: {fileID: 11400000, guid: 792599aec4b441a49aa52840199da3e8, type: 2}
-  onHeartbeatEnd: {fileID: 11400000, guid: c81a90a07e2a3fc4e88ca50daac4d6c9, type: 2}
-  startHeartbeatCueName: startHeartbeat
-  endHeartbeatCueName: endHeartbeat
 --- !u!1001 &1078680501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2339,7 +2300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Crimson 0.0.2
+  m_text: 'Crimson 0.0.4
 
 '
   m_isRightToLeft: 0
@@ -3131,7 +3092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.45}
   m_AnchorMax: {x: 0.95, y: 0.45}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -12.6}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730554349
@@ -3160,8 +3121,10 @@ MonoBehaviour:
 
     ShadowStep - Shift / RMB
 
-    Reset
-    - F3'
+    Bloodlust
+    - E
+
+    Reset - F3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3188,11 +3151,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 28.22
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 28.22
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -3998,6 +3961,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1586631816}
   m_SourcePrefab: {fileID: 100100000, guid: 8b15974aa94bef34bbcf67a03fc6c060, type: 3}
+--- !u!1001 &5441410168043535086
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.759865
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9464073
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.0085056
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330575648606341397, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_Name
+      value: WwiseClockSync
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4015,5 +4035,5 @@ SceneRoots:
   - {fileID: 363355050}
   - {fileID: 541742561}
   - {fileID: 1932489914}
-  - {fileID: 1063725794}
+  - {fileID: 5441410168043535086}
   - {fileID: 605681152}

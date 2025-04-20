@@ -28,6 +28,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PlayDecapitation" ID="{C56C708C-2331-47CA-A621-46FF5AFE5190}">
+					<ChildrenList>
+						<Action Name="" ID="{3DA70B49-0CB7-469C-B8D9-846932272064}" ShortID="668607129">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="decapitationSound" ID="{1D915858-5328-4EF8-8F92-558C449514F6}" WorkUnitID="{DBADD511-D655-479A-AE34-ED1B932BABBA}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopDecapitation" ID="{6C190B4C-4E32-48FE-935C-AE5DFF0973D8}">
+					<ChildrenList>
+						<Action Name="" ID="{BCD0DF00-8179-4BA8-B935-344C6F289D4B}" ShortID="492652100">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="decapitationSound" ID="{1D915858-5328-4EF8-8F92-558C449514F6}" WorkUnitID="{DBADD511-D655-479A-AE34-ED1B932BABBA}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

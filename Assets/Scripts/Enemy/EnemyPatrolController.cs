@@ -49,7 +49,6 @@ namespace Enemy
         {
               if (_visionHandler.CanSeeObjective())
               {
-                 Debug.Log("SEEN!");
                  _enemyAgent.ChangeStateToChase();
                  return;
               }
