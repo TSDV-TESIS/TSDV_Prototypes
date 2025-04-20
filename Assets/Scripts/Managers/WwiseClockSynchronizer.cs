@@ -3,6 +3,7 @@ using Events;
 using Player;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
@@ -15,9 +16,12 @@ namespace Managers
         [SerializeField] private AK.Wwise.Event playHeartbeatEvent;
         [SerializeField] private AK.Wwise.Event stopHeartbeatEvent;
 
+        
         [Header("Cue Events")] 
-        [SerializeField] private VoidEventChannelSO OnHeartbeatStart;
-        [SerializeField] private VoidEventChannelSO OnHeartbeatEnd;
+        [SerializeField] private VoidEventChannelSO onBloodlustStart;
+        [SerializeField] private VoidEventChannelSO onBloodlustEnd;
+        [SerializeField] private VoidEventChannelSO onHeartbeatStart;
+        [SerializeField] private VoidEventChannelSO onHeartbeatEnd;
 
         [Header("Cue names (MUST BE THE SAME AS IN WWISE)")] 
         [SerializeField] private string startHeartbeatCueName;
@@ -40,6 +44,7 @@ namespace Managers
             if (_isPlaying)
             {
                 stopHeartbeatEvent.Post(gameObject);
+                onBloodlustStart?.RaiseEvent();
                 _isPlaying = false;
             }
             else
@@ -48,6 +53,7 @@ namespace Managers
                     (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition),
                     HandleCallbacks
                 );
+                onBloodlustEnd?.RaiseEvent();
                 _isPlaying = true;
             }
         }
@@ -73,9 +79,9 @@ namespace Managers
             Debug.Log($"Received: {heartbeatInfoUserCueName}");
             if (heartbeatInfoUserCueName == startHeartbeatCueName)
             {
-                OnHeartbeatStart?.RaiseEvent();
+                onHeartbeatStart?.RaiseEvent();
             }
-            if(heartbeatInfoUserCueName == endHeartbeatCueName) OnHeartbeatEnd?.RaiseEvent();
+            if(heartbeatInfoUserCueName == endHeartbeatCueName) onHeartbeatEnd?.RaiseEvent();
         }
     }
 }
