@@ -2602,30 +2602,6 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 0.04832497
-      outSlope: 0.04832497
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.22164948
-    - serializedVersion: 3
-      time: 1
-      value: 0.2
-      inSlope: 0.69429183
-      outSlope: 0.69429183
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.17177671
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  onAlphaCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
       value: 0.2
       inSlope: 0
       outSlope: 0
@@ -2645,7 +2621,31 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  tweenSeconds: 0.2
+  onAlphaCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: 0.5523487
+      outSlope: 0.5523487
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33363664
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  tweenSeconds: 0.01
   onBloodlustStart: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
   onBloodlustEnd: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
   imagePanel: {fileID: 1221840987}

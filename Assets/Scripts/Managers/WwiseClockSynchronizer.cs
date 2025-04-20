@@ -44,7 +44,7 @@ namespace Managers
             if (_isPlaying)
             {
                 stopHeartbeatEvent.Post(gameObject);
-                onBloodlustStart?.RaiseEvent();
+                onBloodlustEnd?.RaiseEvent();
                 _isPlaying = false;
             }
             else
@@ -53,7 +53,7 @@ namespace Managers
                     (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition),
                     HandleCallbacks
                 );
-                onBloodlustEnd?.RaiseEvent();
+                onBloodlustStart?.RaiseEvent();
                 _isPlaying = true;
             }
         }
