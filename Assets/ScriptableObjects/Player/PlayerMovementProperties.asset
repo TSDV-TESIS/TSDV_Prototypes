@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 150
   friction: 100
-  maxSpeed: 9
+  maxSpeed: 15
   gravity: 75
   jumpForce: 22
   checkDistance: 0.25
@@ -24,8 +24,9 @@ MonoBehaviour:
   wallCheckDistance: 0.6
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 1792
   lockDuration: 0.2
   wallFriction: 2
   maxSlopeAngle: 45
   shouldDrawGizmos: 0
+  maxWallrideFalldownVelocity: -2

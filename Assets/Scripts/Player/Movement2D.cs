@@ -98,12 +98,20 @@ namespace Player
         {
             if (IsOnSlope()) return;
             // Wallsliding logic for falldown feeling
-            _velocity.y -= IsWallSliding()
-                ? playerMovementProperties.gravity / playerMovementProperties.wallFriction * Time.deltaTime
-                : playerMovementProperties.gravity * Time.deltaTime;
+            _velocity.y = IsWallSliding()
+                ? HandleWallSlideVelocity(_velocity)
+                : _velocity.y - playerMovementProperties.gravity * Time.deltaTime;
 
             if (IsGrounded() && _velocity.y < 0)
                 _velocity.y = 0;
+        }
+
+        private float HandleWallSlideVelocity(Vector2 velocity)
+        {
+            return Mathf.Max(
+                    velocity.y - playerMovementProperties.gravity / playerMovementProperties.wallFriction *
+                    Time.deltaTime,
+                    playerMovementProperties.maxWallrideFalldownVelocity);
         }
 
         private void SetZPosition(Vector3 prevPos)

@@ -30,5 +30,7 @@ namespace Player.Properties
         
         [Header("Gizmos")] 
         public bool shouldDrawGizmos = false;
+
+        public float maxWallrideFalldownVelocity;
     }
 }
