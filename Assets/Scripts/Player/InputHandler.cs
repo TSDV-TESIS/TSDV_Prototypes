@@ -15,6 +15,8 @@ namespace Player
         public UnityEvent OnPlayerShadowStep;
         public UnityEvent OnPlayerBloodlust;
         public UnityEvent OnRestartScene;
+        public UnityEvent<bool> OnZoomIn;
+        public UnityEvent<bool> OnZoomOut;
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -66,6 +68,18 @@ namespace Player
         {
             if(context.performed)
                 OnPlayerBloodlust?.Invoke();
+        }
+
+        public void OnZoomInEvent(InputAction.CallbackContext context)
+        {
+            if(context.performed) OnZoomIn.Invoke(true);
+            else if(context.canceled) OnZoomIn.Invoke(false);
+        }
+        
+        public void OnZoomOutEvent(InputAction.CallbackContext context)
+        {
+            if(context.performed) OnZoomOut.Invoke(true);
+            else if(context.canceled) OnZoomOut.Invoke(false);
         }
     }
 }
