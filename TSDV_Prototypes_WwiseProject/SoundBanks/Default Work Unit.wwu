@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="HeartBeat" ID="{1C5387D3-EC7D-4676-8A6B-545B2C6BB2E8}">
 					<ObjectInclusionList>
+						<ObjectRef Name="StopAll" ID="{6C15E8C9-405A-42CD-A618-1FA87F1305B2}" WorkUnitID="{3E1C7913-A2C7-405E-8C11-8082D7DF99E3}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="InteractiveHeartBeatContainer" ID="{ED385554-5605-4352-9301-C44C62ED3187}" WorkUnitID="{DBADD511-D655-479A-AE34-ED1B932BABBA}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayDecapitation" ID="{C56C708C-2331-47CA-A621-46FF5AFE5190}" WorkUnitID="{3E1C7913-A2C7-405E-8C11-8082D7DF99E3}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="StopDecapitation" ID="{6C190B4C-4E32-48FE-935C-AE5DFF0973D8}" WorkUnitID="{3E1C7913-A2C7-405E-8C11-8082D7DF99E3}" Origin="Manual" Filter="7"/>

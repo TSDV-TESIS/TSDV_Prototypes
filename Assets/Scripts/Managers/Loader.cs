@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Loader : MonoBehaviour
 {
     [SerializeField] private InputHandler input;
-
+    
     void Start()
     {
         input.OnRestartScene.AddListener(RestartScene);

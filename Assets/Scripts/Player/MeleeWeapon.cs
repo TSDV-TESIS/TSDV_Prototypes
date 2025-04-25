@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Enemy;
 using Events;
+using Events.Scriptables;
 using Health;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace Player.Weapon
         [SerializeField] private VoidEventChannelSO onBloodlustEnd;
         [SerializeField] private VoidEventChannelSO onHeartbeatStart;
         [SerializeField] private VoidEventChannelSO onHeartbeatEnd;
+        [SerializeField] private AkWwiseEventChannelSO onPlayEvent;
         [SerializeField] private AK.Wwise.Event decapitationEvent;    
         
         private List<Collider> _hittedEnemies = new List<Collider>();
@@ -73,8 +75,7 @@ namespace Player.Weapon
 
                 if (other.gameObject.TryGetComponent<EnemyBeatHandler>(out EnemyBeatHandler enemyBeatHandler) && enemyBeatHandler.IsInHeartBeat && enemyBeatHandler.IsInBloodlust)
                 {
-                    Debug.Log("HERE!!!!!!");
-                    decapitationEvent.Post(gameObject);
+                    onPlayEvent?.RaiseEvent(decapitationEvent);
                 }
             }
         }

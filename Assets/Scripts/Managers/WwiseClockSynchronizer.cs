@@ -1,5 +1,6 @@
 using System;
 using Events;
+using Events.Scriptables;
 using Player;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,7 +23,9 @@ namespace Managers
         [SerializeField] private VoidEventChannelSO onBloodlustEnd;
         [SerializeField] private VoidEventChannelSO onHeartbeatStart;
         [SerializeField] private VoidEventChannelSO onHeartbeatEnd;
-
+        [SerializeField] private AkWwiseEventChannelSO onPlayEvent;
+        [SerializeField] private AkWwiseEventWithCallbackChannelSO onPlayWithCallbackEvent;
+        
         [Header("Cue names (MUST BE THE SAME AS IN WWISE)")] 
         [SerializeField] private string startHeartbeatCueName;
         [SerializeField] private string endHeartbeatCueName;
@@ -43,16 +46,13 @@ namespace Managers
         {
             if (_isPlaying)
             {
-                stopHeartbeatEvent.Post(gameObject);
+                onPlayEvent?.RaiseEvent(stopHeartbeatEvent);
                 onBloodlustEnd?.RaiseEvent();
                 _isPlaying = false;
             }
             else
             {
-                playHeartbeatEvent.Post(gameObject,
-                    (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition),
-                    HandleCallbacks
-                );
+                onPlayWithCallbackEvent?.RaiseEvent(playHeartbeatEvent, HandleCallbacks);
                 onBloodlustStart?.RaiseEvent();
                 _isPlaying = true;
             }

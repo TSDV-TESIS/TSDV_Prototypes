@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID PLAYDECAPITATION = 110328308U;
         static const AkUniqueID PLAYHEARTBEAT = 4284960165U;
+        static const AkUniqueID STOPALL = 3086540886U;
         static const AkUniqueID STOPDECAPITATION = 1680636502U;
         static const AkUniqueID STOPHEARTBEAT = 111480559U;
     } // namespace EVENTS

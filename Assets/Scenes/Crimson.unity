@@ -843,6 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 605681152}
   - component: {fileID: 605681151}
+  - component: {fileID: 605681153}
   m_Layer: 0
   m_Name: Banks
   m_TagString: Untagged
@@ -890,6 +891,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605681153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605681150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815b075c6ffdc9a49825ed4451ec7ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopAllSoundEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 142e8720b4120e74db086b7dbfa1ceab, type: 2}
+  onPlayEvent: {fileID: 11400000, guid: d81697f8835a04c42aa91bb535d74400, type: 2}
+  onStopEvent: {fileID: 11400000, guid: a574df59ea7f45f489eda4edb77accb8, type: 2}
+  onPlayEventWithCallback: {fileID: 11400000, guid: fa2c8f82e1c2d0a42bd1757a0b86666b, type: 2}
 --- !u!1 &613830772
 GameObject:
   m_ObjectHideFlags: 0
