@@ -1,47 +1,44 @@
+using System;
 using System.Collections;
 using Events;
+using Player.Properties;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Player
 {
+    // TODO Handle this with an FSM, this script is large!
     [RequireComponent(typeof(CharacterController))]
     public class Movement2D : MonoBehaviour
     {
+        [Header("Input Handler")] 
         [SerializeField] private InputHandler input;
-        [SerializeField] private float acceleration;
-        [SerializeField] private float friction;
-        [SerializeField] private float maxSpeed;
-        [SerializeField] private float gravity;
-        [SerializeField] private float jumpForce;
 
+        [Header("Movement Properties")] 
+        [SerializeField] private PlayerMovementProperties playerMovementProperties;
+
+        [Header("Feet pivot")] 
+        [SerializeField] private Transform feetPivot;
+
+        [Header("Events")] 
         [SerializeField] private VoidEventChannelSO onPlayerDeath;
         [SerializeField] private VoidEventChannelSO onPlayerRevive;
 
-        [Header("Ground Check")]
-        [SerializeField] private Transform feetPivot;
-        [SerializeField] private float checkDistance;
-        [SerializeField] private LayerMask whatIsGround;
-
-        [Header("Wall Check")]
-        [SerializeField] private float wallCheckDistance;
-        [SerializeField] private LayerMask whatIsWall;
-
-        [Header("Wall Slide")]
-        [SerializeField] private float lockDuration;
-
+        [Header("Save properties")] 
+        [SerializeField] private PlayerTransform playerTransform;
+        
         private CharacterController _characterController;
         private Vector3 _moveDirection;
         private bool _canWalk;
-
-
         private Vector2 _velocity;
-        private Coroutine velocityLock;
+        private Coroutine _velocityLock;
+
+        private RaycastHit _groundHit;
 
         public float MaxSpeed
         {
-            get { return maxSpeed; }
-            set { maxSpeed = value; }
+            get => playerMovementProperties.maxSpeed;
+            set => playerMovementProperties.maxSpeed = value;
         }
 
         void OnEnable()
@@ -50,12 +47,14 @@ namespace Player
             _characterController ??= GetComponent<CharacterController>();
             _moveDirection = Vector3.zero;
 
+            if (playerTransform != null) playerTransform.playerTransform = transform;
+
             input.OnPlayerMove.AddListener(HandleMove);
             input.OnPlayerJump.AddListener(HandleJump);
 
             onPlayerDeath.onEvent.AddListener(HandleDeath);
             onPlayerRevive.onEvent.AddListener(HandleRevive);
-            _velocity = new Vector2(maxSpeed, 0);
+            _velocity = new Vector2(playerMovementProperties.maxSpeed, 0);
         }
 
         private void OnDisable()
@@ -70,18 +69,45 @@ namespace Player
         void Update()
         {
             Vector3 prevPos = transform.position;
-            _velocity.y -= IsWallSliding() ? gravity / 2 * Time.deltaTime : gravity * Time.deltaTime;
-            if (IsGrounded() && _velocity.y < 0)
-                _velocity.y = 0;
+            HandleYVelocityWithWalkSliding();
 
-            if (_canWalk)
-                _velocity.x = Mathf.Clamp(_velocity.x + (_moveDirection.x * acceleration * Time.deltaTime), -maxSpeed, maxSpeed);
-
-            if (_moveDirection.x == 0 && IsGrounded())
-                _velocity.x = Mathf.Sign(_velocity.x) * Mathf.Clamp(Mathf.Abs(_velocity.x) - friction * Time.deltaTime, 0, maxSpeed);
+            HandleWalk();
 
             _characterController.Move(_velocity * Time.deltaTime);
 
+            SetZPosition(prevPos);
+        }
+
+        private void HandleWalk()
+        {
+            _moveDirection = GetSlopeMovementDirection();
+
+            if (_canWalk)
+                _velocity.x =
+                    Mathf.Clamp(
+                        _velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
+                        -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
+
+            if (_moveDirection.x == 0 && IsGrounded())
+                _velocity.x = Mathf.Sign(_velocity.x) *
+                              Mathf.Clamp(Mathf.Abs(_velocity.x) - playerMovementProperties.friction * Time.deltaTime,
+                                  0, playerMovementProperties.maxSpeed);
+        }
+
+        private void HandleYVelocityWithWalkSliding()
+        {
+            if (IsOnSlope()) return;
+            // Wallsliding logic for falldown feeling
+            _velocity.y -= IsWallSliding()
+                ? playerMovementProperties.gravity / playerMovementProperties.wallFriction * Time.deltaTime
+                : playerMovementProperties.gravity * Time.deltaTime;
+
+            if (IsGrounded() && _velocity.y < 0)
+                _velocity.y = 0;
+        }
+
+        private void SetZPosition(Vector3 prevPos)
+        {
             if (transform.position.z != 0)
                 transform.position = prevPos;
         }
@@ -96,15 +122,15 @@ namespace Player
             if (!CanJump())
                 return;
 
-            _velocity.y = jumpForce;
+            _velocity.y = playerMovementProperties.jumpForce;
 
             if (IsWallSliding() && !IsGrounded())
             {
-                _velocity.x = jumpForce / 2 * Mathf.Sign(_moveDirection.x) * -1;
-                if (velocityLock != null)
-                    StopCoroutine(velocityLock);
+                _velocity.x = playerMovementProperties.jumpForce / 2 * Mathf.Sign(_moveDirection.x) * -1;
+                if (_velocityLock != null)
+                    StopCoroutine(_velocityLock);
 
-                velocityLock = StartCoroutine(LockAfterWallJump());
+                _velocityLock = StartCoroutine(LockAfterWallJump());
             }
         }
 
@@ -125,15 +151,33 @@ namespace Player
 
         private bool IsGrounded()
         {
-            if (Physics.Raycast(feetPivot.position, Vector3.down, checkDistance, whatIsGround))
-                return true;
+            return Physics.Raycast(feetPivot.position, Vector3.down, out _groundHit,
+                playerMovementProperties.checkDistance, playerMovementProperties.whatIsGround);
+        }
 
-            return false;
+        private bool IsOnSlope()
+        {
+            if (!IsGrounded()) return false;
+
+            float angle = Vector3.Angle(Vector3.up, _groundHit.normal);
+
+            return angle < playerMovementProperties.maxSlopeAngle && !Mathf.Approximately(angle, 0);
+        }
+
+        private Vector3 GetSlopeMovementDirection()
+        {
+            return Vector3.ProjectOnPlane(_moveDirection, _groundHit.normal).normalized;
         }
 
         private bool IsWallSliding()
         {
-            return _moveDirection.x != 0 && Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(_moveDirection.x), wallCheckDistance, whatIsWall);
+            return _moveDirection.x != 0 &&
+                   Physics.Raycast(
+                       transform.position,
+                       Vector3.right * Mathf.Sign(_moveDirection.x),
+                       playerMovementProperties.wallCheckDistance,
+                       playerMovementProperties.whatIsWall
+                   );
         }
 
         private bool CanJump()
@@ -144,8 +188,19 @@ namespace Player
         private IEnumerator LockAfterWallJump()
         {
             _canWalk = false;
-            yield return new WaitForSeconds(lockDuration);
+            yield return new WaitForSeconds(playerMovementProperties.lockDuration);
             _canWalk = true;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (playerMovementProperties.shouldDrawGizmos)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(feetPivot.position,
+                    feetPivot.position + Vector3.down * playerMovementProperties.checkDistance);
+                Gizmos.DrawLine(transform.position, transform.position + _moveDirection * 10f);
+            }
         }
     }
 }

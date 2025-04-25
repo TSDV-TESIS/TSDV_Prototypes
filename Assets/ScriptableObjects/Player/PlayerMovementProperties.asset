@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efffc1ad49e5884f8f6b465f8514502, type: 3}
+  m_Name: PlayerMovementProperties
+  m_EditorClassIdentifier: 
+  acceleration: 150
+  friction: 100
+  maxSpeed: 9
+  gravity: 75
+  jumpForce: 22
+  checkDistance: 0.25
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  wallCheckDistance: 0.6
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 1280
+  lockDuration: 0.2
+  wallFriction: 2
+  maxSlopeAngle: 45
+  shouldDrawGizmos: 0

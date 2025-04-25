@@ -19,7 +19,6 @@ namespace Player
         public void OnMove(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
-            Debug.Log(movement);
             OnPlayerMove?.Invoke(movement);
         }
 
