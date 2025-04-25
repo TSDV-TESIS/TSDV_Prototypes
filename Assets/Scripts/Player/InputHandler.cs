@@ -13,7 +13,7 @@ namespace Player
         public UnityEvent OnPlayerHook;
         public UnityEvent OnPlayerJump;
         public UnityEvent OnPlayerShadowStep;
-
+        public UnityEvent OnPlayerBloodlust;
         public UnityEvent OnRestartScene;
 
         public void OnMove(InputAction.CallbackContext context)
@@ -60,6 +60,12 @@ namespace Player
         {
             if (context.performed)
                 OnRestartScene.Invoke();
+        }
+
+        public void OnBloodlust(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnPlayerBloodlust?.Invoke();
         }
     }
 }
