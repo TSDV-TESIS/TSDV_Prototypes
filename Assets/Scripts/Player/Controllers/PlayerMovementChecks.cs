@@ -13,6 +13,9 @@ namespace Player.Controllers
 
         private RaycastHit _groundHit;
 
+        private bool _isWallSliding;
+        private float _wallSlideDirection;
+
         public bool IsGrounded()
         {
             return Physics.Raycast(feetPivot.position, Vector3.down, out _groundHit,
@@ -24,15 +27,21 @@ namespace Player.Controllers
             return moveDirection.y < 0;
         }
 
-        public bool IsWallSliding(Vector3 moveDirection)
+        public bool ShouldWallSlide(Vector3 moveDirection)
         {
-            return moveDirection.x != 0 &&
-                   Physics.Raycast(
-                   transform.position,
-                   Vector3.right * Mathf.Sign(moveDirection.x),
-                   playerMovementProperties.wallCheckDistance,
-                   playerMovementProperties.whatIsWall
-                   );
+            if (_isWallSliding)
+            {
+                _isWallSliding = Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(_wallSlideDirection), playerMovementProperties.wallCheckDistance, playerMovementProperties.whatIsWall);
+
+                if (moveDirection.x != 0 && Mathf.Sign(moveDirection.x) != Mathf.Sign(_wallSlideDirection))
+                    _isWallSliding = false;
+
+                return _isWallSliding;
+            }
+
+            _isWallSliding = moveDirection.x != 0 && Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(moveDirection.x), playerMovementProperties.wallCheckDistance, playerMovementProperties.whatIsWall);
+            _wallSlideDirection = _isWallSliding ? moveDirection.x : 0;
+            return _isWallSliding;
         }
 
         public bool IsOnSlope()

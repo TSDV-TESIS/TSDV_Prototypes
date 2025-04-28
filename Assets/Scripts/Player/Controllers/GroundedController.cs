@@ -24,6 +24,9 @@ namespace Player.Controllers
         public override void OnUpdate()
         {
             _playerMovement.OnUpdate();
+
+            if (!agent.Checks.IsGrounded())
+                agent.ChangeStateToFalling();
         }
 
         private void OnJump()

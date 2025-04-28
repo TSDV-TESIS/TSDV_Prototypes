@@ -69,8 +69,6 @@ namespace Player
         public void OnUpdate()
         {
             Vector3 prevPos = transform.position;
-            HandleYVelocityWithWallSliding();
-
             HandleWalk();
 
             _characterController.Move(_velocity * Time.deltaTime);
@@ -92,17 +90,22 @@ namespace Player
             _velocity.x = Mathf.Sign(_velocity.x) * Mathf.Clamp(Mathf.Abs(_velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
         }
 
-        private void HandleYVelocityWithWallSliding()
+        public void FreeFall()
         {
-            if (playerMovementChecks.IsOnSlope()) return;
-
-            // Wallsliding logic for falldown feeling
-            _velocity.y -= playerMovementChecks.IsWallSliding(moveDirection)
-                ? playerMovementProperties.gravity / playerMovementProperties.wallFriction * Time.deltaTime
-                : playerMovementProperties.gravity * Time.deltaTime;
+            _velocity.y -= playerMovementProperties.gravity * Time.deltaTime;
 
             if (playerMovementChecks.IsGrounded() && _velocity.y < 0)
                 _velocity.y = 0;
+        }
+
+        public void WallSlide()
+        {
+            _velocity.y = Mathf.Clamp(_velocity.y - playerMovementProperties.wallSlideGravity * Time.deltaTime, -playerMovementProperties.maxWallSlideVerticalVelocity, 0);
+
+            if (playerMovementChecks.IsGrounded() && _velocity.y < 0)
+                _velocity.y = 0;
+
+            _characterController.Move(_velocity * Time.deltaTime);
         }
 
         private void SetZPosition(Vector3 prevPos)

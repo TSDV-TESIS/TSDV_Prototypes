@@ -26,6 +26,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1280
   lockDuration: 0.2
-  wallFriction: 2
+  wallSlideGravity: 15
+  maxWallSlideVerticalVelocity: 5
   maxSlopeAngle: 45
   shouldDrawGizmos: 0
