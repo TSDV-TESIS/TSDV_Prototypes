@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5462608956511900444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3573875634159805741}
+  - component: {fileID: 3508367875099953905}
+  m_Layer: 0
+  m_Name: SceneHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3573875634159805741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462608956511900444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.2261705, y: 3.4872258, z: 2.6267276}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3508367875099953905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462608956511900444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59e7c6b62f0c6d41b60ecbb255d0381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenesToSubscribeTo: []
+  sceneName: 
+  optionalScenes: []
+  setAsActiveOnBoot: 0
+  musicEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  onLoadSceneEvent: {fileID: 11400000, guid: 228ea904a6a455444b88e8abdc87ee4e, type: 2}
+  onUnloadSceneEvent: {fileID: 11400000, guid: 522cc09c2ee941149b1e010d219d2ac3, type: 2}
+  onSetActiveSceneEvent: {fileID: 11400000, guid: 87cd6bdc33f2f364e80b7962dc60faf2, type: 2}
+  onSubscribeToSceneEvent: {fileID: 11400000, guid: c9514de3af275fb4393ff2aa9b3edf29, type: 2}
+  onUnSubscribeToSceneEvent: {fileID: 11400000, guid: 8c9fa81489791ed43bbc8ece5dd1816c, type: 2}
+  onSceneUnloadedEvent: {fileID: 0}
+  onHandleCanvasesEvents: []
