@@ -14,6 +14,7 @@ namespace Player.Controllers
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
             inputHandler.OnPlayerJump.AddListener(OnJump);
+            agent.Checks.ClearSlidedWall();
         }
 
         private void OnDisable()

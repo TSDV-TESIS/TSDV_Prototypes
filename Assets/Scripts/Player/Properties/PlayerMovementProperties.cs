@@ -13,6 +13,8 @@ namespace Player.Properties
         [Header("Jumping properties")]
         public float gravity;
         public float jumpForce;
+        public float maxGravityVelocity;
+        public float maxJumpVelocity;
 
         [Header("Grounding properties")]
         [Tooltip("Distance from where it should start checking that player is grounded")]
@@ -25,13 +27,12 @@ namespace Player.Properties
         public float lockDuration;
         public float wallSlideGravity;
         public float maxWallSlideVerticalVelocity;
+        public Vector2 wallJumpForce;
 
         [Header("Slope properties")]
         public float maxSlopeAngle = 45f;
 
         [Header("Gizmos")]
         public bool shouldDrawGizmos = false;
-
-        public float maxWallrideFalldownVelocity;
     }
 }

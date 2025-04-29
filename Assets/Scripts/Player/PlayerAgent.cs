@@ -105,21 +105,25 @@ namespace Player
 
         public void ChangeStateToGrounded()
         {
+            Debug.Log("Change state to grounded");
             Fsm.ChangeState(_groundedState);
         }
 
         public void ChangeStateToJumping()
         {
+            Debug.Log("Change state to jumping");
             Fsm.ChangeState(_jumpingState);
         }
 
         public void ChangeStateToFalling()
         {
+            Debug.Log("Change state to falling");
             Fsm.ChangeState(_fallingState);
         }
 
         public void ChangeStateToWallSlide()
         {
+            Debug.Log("Change state to wallslide");
             Fsm.ChangeState(_wallSlideState);
         }
 

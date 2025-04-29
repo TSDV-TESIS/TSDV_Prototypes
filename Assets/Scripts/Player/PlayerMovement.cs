@@ -81,18 +81,19 @@ namespace Player
             moveDirection = playerMovementChecks.GetSlopeMovementDirection(moveDirection);
 
             if (_canWalk)
+            {
                 _velocity.x =
                     Mathf.Clamp(
                     _velocity.x + (moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
                     -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
-
-            //if (_moveDirection.x == 0 && IsGrounded())
-            _velocity.x = Mathf.Sign(_velocity.x) * Mathf.Clamp(Mathf.Abs(_velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
+            }
+            if(playerMovementChecks.IsGrounded())
+                _velocity.x = Mathf.Sign(_velocity.x) * Mathf.Clamp(Mathf.Abs(_velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
         }
 
         public void FreeFall()
         {
-            _velocity.y -= playerMovementProperties.gravity * Time.deltaTime;
+            _velocity.y = Mathf.Clamp(_velocity.y - playerMovementProperties.gravity * Time.deltaTime, -playerMovementProperties.maxGravityVelocity, playerMovementProperties.maxJumpVelocity);
 
             if (playerMovementChecks.IsGrounded() && _velocity.y < 0)
                 _velocity.y = 0;
@@ -100,6 +101,7 @@ namespace Player
 
         public void WallSlide()
         {
+            _velocity.x = 0;
             _velocity.y = Mathf.Clamp(_velocity.y - playerMovementProperties.wallSlideGravity * Time.deltaTime, -playerMovementProperties.maxWallSlideVerticalVelocity, 0);
 
             if (playerMovementChecks.IsGrounded() && _velocity.y < 0)
@@ -117,7 +119,6 @@ namespace Player
         private void HandleMove(Vector2 movement)
         {
             moveDirection = new Vector3(movement.x, 0, 0);
-            Debug.Log(moveDirection);
         }
 
         public void Jump()
@@ -127,7 +128,9 @@ namespace Player
 
         public void WallJump()
         {
-            _velocity.x = playerMovementProperties.jumpForce / 2 * Mathf.Sign(moveDirection.x) * -1;
+            _velocity.y = playerMovementProperties.wallJumpForce.y;
+            _velocity.x = playerMovementProperties.wallJumpForce.x * Mathf.Sign(moveDirection.x) * -1;
+            Debug.Log(_velocity.x);
             if (_velocityLock != null)
                 StopCoroutine(_velocityLock);
 
@@ -154,6 +157,11 @@ namespace Player
             _canWalk = false;
             yield return new WaitForSeconds(playerMovementProperties.lockDuration);
             _canWalk = true;
+        }
+
+        public void StopWallSlide()
+        {
+            _velocity.y = 0;
         }
     }
 }
