@@ -1,0 +1,128 @@
+using System;
+using System.Collections;
+using Player.Properties;
+using UnityEngine;
+
+namespace Player.Controllers
+{
+    public class PlayerMovementChecks : MonoBehaviour
+    {
+        [SerializeField] private float stopCheckWallSeconds = 0.5f;
+
+        [Header("Movement Properties")] [SerializeField]
+        private PlayerMovementProperties playerMovementProperties;
+
+        [Header("Feet pivot")] [SerializeField]
+        private Transform feetPivot;
+
+        private RaycastHit _groundHit;
+
+        private bool _isWallSliding;
+        private float _wallSlideDirection;
+
+        private bool _shouldCheckWall;
+        private Coroutine _shouldCheckWallCoroutine;
+        private GameObject _lastSlidedWall;
+
+        private void OnEnable()
+        {
+            _shouldCheckWall = true;
+            _lastSlidedWall = null;
+        }
+
+        public bool IsGrounded()
+        {
+            return Physics.Raycast(feetPivot.position, Vector3.down, out _groundHit,
+                playerMovementProperties.checkDistance, playerMovementProperties.whatIsGround);
+        }
+
+        public bool IsFalling(Vector3 moveDirection)
+        {
+            return moveDirection.y < 0;
+        }
+
+        public bool ShouldWallSlide(Vector3 moveDirection)
+        {
+            if (!_shouldCheckWall) return false;
+            if (_isWallSliding)
+            {
+                _isWallSliding = Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(_wallSlideDirection),
+                     playerMovementProperties.wallCheckDistance,
+                    playerMovementProperties.whatIsWall);
+
+                if (moveDirection.x != 0 &&
+                    Mathf.Sign(moveDirection.x) != Mathf.Sign(_wallSlideDirection))
+                {
+                    _isWallSliding = false;
+                }
+
+                return _isWallSliding;
+            }
+
+            RaycastHit wallHitInfo = new RaycastHit();
+            _isWallSliding = moveDirection.x != 0 &&
+                             Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(moveDirection.x),
+                                 out wallHitInfo, playerMovementProperties.wallCheckDistance,
+                                 playerMovementProperties.whatIsWall) &&
+                             wallHitInfo.transform.gameObject != _lastSlidedWall;
+            if (wallHitInfo.transform != null)
+            {
+                _lastSlidedWall = wallHitInfo.transform.gameObject;
+            }
+
+            _wallSlideDirection = _isWallSliding ? moveDirection.x : 0;
+            return _isWallSliding;
+        }
+
+        public void ClearSlidedWall()
+        {
+            _lastSlidedWall = null;
+        }
+        
+        public bool IsOnSlope()
+        {
+            if (!IsGrounded()) return false;
+
+            float angle = Vector3.Angle(Vector3.up, _groundHit.normal);
+
+            return angle < playerMovementProperties.maxSlopeAngle && !Mathf.Approximately(angle, 0);
+        }
+
+        public Vector3 GetSlopeMovementDirection(Vector3 moveDirection)
+        {
+            return Vector3.ProjectOnPlane(moveDirection, _groundHit.normal).normalized;
+        }
+
+        public void StopCheckingWall()
+        {
+            if (_shouldCheckWallCoroutine != null) StopCoroutine(_shouldCheckWallCoroutine);
+            _shouldCheckWallCoroutine = StartCoroutine(HandleStopCheckWall());
+        }
+
+        private IEnumerator HandleStopCheckWall()
+        {
+            _shouldCheckWall = false;
+            _isWallSliding = false;
+            yield return new WaitForSeconds(stopCheckWallSeconds);
+            _shouldCheckWall = true;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (playerMovementProperties.shouldDrawGizmos)
+            {
+                // Draw feet raycast
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(feetPivot.position,
+                    feetPivot.position + Vector3.down * playerMovementProperties.checkDistance);
+
+                // Wall raycast
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(transform.position,
+                    transform.position + Vector3.right * playerMovementProperties.wallCheckDistance);
+                Gizmos.DrawLine(transform.position,
+                    transform.position + Vector3.left * playerMovementProperties.wallCheckDistance);
+            }
+        }
+    }
+}

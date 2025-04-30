@@ -16,17 +16,20 @@ MonoBehaviour:
   friction: 100
   maxSpeed: 15
   gravity: 75
-  jumpForce: 22
-  checkDistance: 0.25
+  jumpForce: 30
+  maxGravityVelocity: 30
+  maxJumpVelocity: 40
+  checkDistance: 0.61
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
-  wallCheckDistance: 0.6
+  wallCheckDistance: 0.83
   whatIsWall:
     serializedVersion: 2
     m_Bits: 1792
   lockDuration: 0.2
-  wallFriction: 2
+  wallSlideGravity: 15
+  maxWallSlideVerticalVelocity: 5
+  wallJumpForce: {x: 20, y: 30}
   maxSlopeAngle: 45
-  shouldDrawGizmos: 0
-  maxWallrideFalldownVelocity: -2
+  shouldDrawGizmos: 1

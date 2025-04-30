@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Player
 {
-    [RequireComponent(typeof(Movement2D), typeof(HealthPoints))]
+    [RequireComponent(typeof(PlayerMovement), typeof(HealthPoints))]
     public class ShadowStep : MonoBehaviour
     {
         [SerializeField] private InputHandler input;
@@ -28,7 +28,7 @@ namespace Player
         [SerializeField] private MeshRenderer playerRenderer;
         [SerializeField] private Material shadowMat;
 
-        private Movement2D _playerMovement;
+        private PlayerMovement _playerPlayerMovement;
         private CharacterController _characterController;
         private HealthPoints _healthPoints;
         private bool _isShadow = false;
@@ -45,11 +45,11 @@ namespace Player
         void OnEnable()
         {
             input.OnPlayerShadowStep.AddListener(ShadowStepToggle);
-            _playerMovement ??= GetComponent<Movement2D>();
+            _playerPlayerMovement ??= GetComponent<PlayerMovement>();
             _characterController ??= GetComponent<CharacterController>();
             _healthPoints ??= GetComponent<HealthPoints>();
             _prevMaterial = playerRenderer.material;
-            _prevSpeed = _playerMovement.MaxSpeed;
+            _prevSpeed = _playerPlayerMovement.MaxSpeed;
             _defaultLayerMask = _characterController.excludeLayers;
 
             onPlayerShouldDie.onEvent.AddListener(HandlePlayerDeath);
@@ -74,7 +74,7 @@ namespace Player
             if (_isShadow)
             {
                 playerRenderer.material = shadowMat;
-                _playerMovement.MaxSpeed = shadowVelocity;
+                _playerPlayerMovement.MaxSpeed = shadowVelocity;
                 _characterController.excludeLayers = trespassableColliders;
 
                 if (_spawnShadows != null)
@@ -85,7 +85,7 @@ namespace Player
             else
             {
                 playerRenderer.material = _prevMaterial;
-                _playerMovement.MaxSpeed = _prevSpeed;
+                _playerPlayerMovement.MaxSpeed = _prevSpeed;
                 _characterController.excludeLayers = _defaultLayerMask;
             }
 

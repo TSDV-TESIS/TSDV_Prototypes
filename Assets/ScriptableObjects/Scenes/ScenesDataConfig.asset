@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: ScenesDataConfig
   m_EditorClassIdentifier: 
   scenes:
-  - sceneName: Crimson
-    sceneGuid: bab75e48104245741ae3813bf25ee89d
+  - sceneName: Boot
+    sceneGuid: 10e7f678516a0d54d984c7b2129e97a9
     index: 0
+    onLoad:
+      m_PersistentCalls:
+        m_Calls: []
+    onUnload:
+      m_PersistentCalls:
+        m_Calls: []
+  - sceneName: Level1
+    sceneGuid: 09a45c5b9ca9afb40845e9308a863503
+    index: 1
     onLoad:
       m_PersistentCalls:
         m_Calls: []
