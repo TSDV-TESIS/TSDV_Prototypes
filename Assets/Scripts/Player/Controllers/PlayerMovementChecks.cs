@@ -22,12 +22,10 @@ namespace Player.Controllers
 
         private bool _shouldCheckWall;
         private Coroutine _shouldCheckWallCoroutine;
-        private GameObject _lastSlidedWall;
 
         private void OnEnable()
         {
             _shouldCheckWall = true;
-            _lastSlidedWall = null;
         }
 
         public bool IsGrounded()
@@ -59,25 +57,15 @@ namespace Player.Controllers
                 return _isWallSliding;
             }
 
-            RaycastHit wallHitInfo = new RaycastHit();
             _isWallSliding = moveDirection.x != 0 &&
                              Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(moveDirection.x),
-                                 out wallHitInfo, playerMovementProperties.wallCheckDistance,
-                                 playerMovementProperties.whatIsWall) &&
-                             wallHitInfo.transform.gameObject != _lastSlidedWall;
-            if (wallHitInfo.transform != null)
-            {
-                _lastSlidedWall = wallHitInfo.transform.gameObject;
-            }
+                                 playerMovementProperties.wallCheckDistance,
+                                 playerMovementProperties.whatIsWall);
 
             _wallSlideDirection = _isWallSliding ? moveDirection.x : 0;
             return _isWallSliding;
         }
-
-        public void ClearSlidedWall()
-        {
-            _lastSlidedWall = null;
-        }
+        
         
         public bool IsOnSlope()
         {
