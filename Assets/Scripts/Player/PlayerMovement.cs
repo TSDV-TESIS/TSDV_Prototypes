@@ -102,7 +102,7 @@ namespace Player
         public void WallSlide()
         {
             _velocity.x = 0;
-            _velocity.y = Mathf.Clamp(_velocity.y - playerMovementProperties.wallSlideGravity * Time.deltaTime, -playerMovementProperties.maxWallSlideVerticalVelocity, 0);
+            _velocity.y = Mathf.Clamp(_velocity.y - playerMovementProperties.wallSlideGravity * Time.deltaTime, -playerMovementProperties.maxWallSlideVerticalVelocity, _velocity.y);
 
             if (playerMovementChecks.IsGrounded() && _velocity.y < 0)
                 _velocity.y = 0;

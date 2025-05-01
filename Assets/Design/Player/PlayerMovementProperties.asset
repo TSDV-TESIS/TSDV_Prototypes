@@ -15,7 +15,7 @@ MonoBehaviour:
   acceleration: 150
   friction: 100
   maxSpeed: 15
-  gravity: 75
+  gravity: 60
   jumpForce: 30
   maxGravityVelocity: 30
   maxJumpVelocity: 40
@@ -28,7 +28,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1792
   lockDuration: 0.2
-  wallSlideGravity: 15
+  wallSlideGravity: 65
   maxWallSlideVerticalVelocity: 5
   wallJumpForce: {x: 20, y: 30}
   maxSlopeAngle: 45
