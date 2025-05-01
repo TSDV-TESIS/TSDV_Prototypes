@@ -40,7 +40,7 @@ namespace Player.Controllers
                 agent.ChangeStateToGrounded();
             }
 
-            if (!agent.Checks.ShouldWallSlide(_movement.MoveDirection))
+            if (agent.Checks.ShouldUnboundWallslide(_movement.MoveDirection))
                 agent.ChangeStateToFalling();
         }
 
@@ -52,7 +52,7 @@ namespace Player.Controllers
 
         private void OnJump()
         {
-            _movement.WallJump();
+            _movement.WallJump(agent.Checks.WallSlideDirection);
             agent.Checks.StopCheckingWall();
             agent.ChangeStateToJumping();
         }

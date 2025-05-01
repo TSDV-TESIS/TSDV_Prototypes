@@ -28,11 +28,16 @@ namespace Player.Properties
         public float wallSlideGravity;
         public float maxWallSlideVerticalVelocity;
         public Vector2 wallJumpForce;
+        [Tooltip("Time buffer with which the player has to input the unbound button")]
+        public float unboundTime = 0.5f;
+        [Tooltip("Min velocity with which it automatically checks for wallslide")]
+        public float wallVelocityCheck = 20f;
 
         [Header("Slope properties")]
         public float maxSlopeAngle = 45f;
 
         [Header("Gizmos")]
         public bool shouldDrawGizmos = false;
+
     }
 }

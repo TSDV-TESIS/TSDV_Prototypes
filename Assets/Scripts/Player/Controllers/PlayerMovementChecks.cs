@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using Player.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player.Controllers
 {
@@ -18,14 +20,17 @@ namespace Player.Controllers
         private RaycastHit _groundHit;
 
         private bool _isWallSliding;
-        private float _wallSlideDirection;
+        [NonSerialized] public float WallSlideDirection;
 
         private bool _shouldCheckWall;
+        private bool _shouldUnboundWall;
         private Coroutine _shouldCheckWallCoroutine;
+        private Coroutine _unboundWallCoroutine;
 
         private void OnEnable()
         {
             _shouldCheckWall = true;
+            _shouldUnboundWall = false;
         }
 
         public bool IsGrounded()
@@ -39,33 +44,68 @@ namespace Player.Controllers
             return moveDirection.y < 0;
         }
 
-        public bool ShouldWallSlide(Vector3 moveDirection)
+        private void StopUnbounding()
         {
-            if (!_shouldCheckWall) return false;
-            if (_isWallSliding)
+            if(_unboundWallCoroutine != null)
+                StopCoroutine(_unboundWallCoroutine);
+            _unboundWallCoroutine = null;
+        }
+
+        public bool ShouldUnboundWallslide(Vector3 moveDirection)
+        {
+            Debug.Log($"VALUES: {_shouldCheckWall} {_shouldUnboundWall} {_isWallSliding} {_unboundWallCoroutine != null}");
+            if (!_shouldCheckWall)
             {
-                _isWallSliding = Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(_wallSlideDirection),
-                     playerMovementProperties.wallCheckDistance,
-                    playerMovementProperties.whatIsWall);
-
-                if (moveDirection.x != 0 &&
-                    Mathf.Sign(moveDirection.x) != Mathf.Sign(_wallSlideDirection))
-                {
-                    _isWallSliding = false;
-                }
-
-                return _isWallSliding;
+                StopUnbounding();
+                _shouldUnboundWall = false;
+                return true;
+            }
+            
+            if (Mathf.Sign(moveDirection.x) == Mathf.Sign(WallSlideDirection))
+            {
+                StopUnbounding();
+                return false;
             }
 
-            _isWallSliding = moveDirection.x != 0 &&
-                             Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(moveDirection.x),
-                                 playerMovementProperties.wallCheckDistance,
-                                 playerMovementProperties.whatIsWall);
+            if (_shouldUnboundWall)
+            {
+                _shouldUnboundWall = false;
+                _isWallSliding = false;
+                StopUnbounding();
+                return true;
+            }
 
-            _wallSlideDirection = _isWallSliding ? moveDirection.x : 0;
+            _unboundWallCoroutine ??= StartCoroutine(UnboundWallCoroutine());
+            return false;
+        }
+
+        private IEnumerator UnboundWallCoroutine()
+        {
+            yield return new WaitForSeconds(playerMovementProperties.unboundTime);
+            _shouldUnboundWall = true;
+        }
+
+        public bool ShouldWallSlide(Vector3 moveDirection, Vector2 velocity)
+        {
+            if (!_shouldCheckWall) return false;
+
+            int signToCheck = Math.Sign(Math.Abs(velocity.x) > playerMovementProperties.wallVelocityCheck
+                ? velocity.x
+                : moveDirection.x);
+            _isWallSliding = moveDirection.x != 0 && WallRaycast(signToCheck);
+
+            WallSlideDirection = _isWallSliding ? signToCheck : 0;
             return _isWallSliding;
         }
-        
+
+        public bool WallRaycast(int signToCheck)
+        {
+            
+            
+            return Physics.Raycast(transform.position, Vector3.right * signToCheck,
+                playerMovementProperties.wallCheckDistance,
+                playerMovementProperties.whatIsWall);
+        }
         
         public bool IsOnSlope()
         {
@@ -84,6 +124,7 @@ namespace Player.Controllers
         public void StopCheckingWall()
         {
             if (_shouldCheckWallCoroutine != null) StopCoroutine(_shouldCheckWallCoroutine);
+            StopUnbounding();
             _shouldCheckWallCoroutine = StartCoroutine(HandleStopCheckWall());
         }
 

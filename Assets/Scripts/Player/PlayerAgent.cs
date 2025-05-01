@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FSM;
 using Health;
@@ -8,6 +9,7 @@ namespace Player
 {
     public class PlayerAgent : Agent
     {
+        [SerializeField] private bool logChanges;
         [SerializeField] private HealthPoints healthPoints;
         [SerializeField] private PlayerMovementChecks playerMovementChecks;
 
@@ -105,31 +107,39 @@ namespace Player
 
         public void ChangeStateToGrounded()
         {
-            Debug.Log("Change state to grounded");
+            LogMessage("Change state to grounded");
             Fsm.ChangeState(_groundedState);
         }
 
         public void ChangeStateToJumping()
         {
-            Debug.Log("Change state to jumping");
+            LogMessage("Change state to jumping");
             Fsm.ChangeState(_jumpingState);
         }
 
         public void ChangeStateToFalling()
         {
-            Debug.Log("Change state to falling");
+            LogMessage("Change state to falling");
             Fsm.ChangeState(_fallingState);
         }
 
         public void ChangeStateToWallSlide()
         {
-            Debug.Log("Change state to wallslide");
+            LogMessage("Change state to wallslide");
             Fsm.ChangeState(_wallSlideState);
         }
 
         public void ChangeStateToShadowStep()
         {
             Fsm.ChangeState(_shadowStepState);
+        }
+
+        public void LogMessage(String message)
+        {
+            if (logChanges)
+            {
+                Debug.Log(message);
+            }
         }
     }
 }

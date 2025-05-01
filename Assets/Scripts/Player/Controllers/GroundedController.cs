@@ -9,6 +9,7 @@ namespace Player.Controllers
     {
         private PlayerMovement _playerMovement;
         [SerializeField] private InputHandler inputHandler;
+        [SerializeField] private float unboundWallBufferSeconds = 0.75f;
 
         private void OnEnable()
         {

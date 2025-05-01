@@ -25,7 +25,7 @@ namespace Player.Controllers
             if (agent.Checks.IsGrounded())
                 agent.ChangeStateToGrounded();
 
-            if (agent.Checks.ShouldWallSlide(_playerMovement.MoveDirection))
+            if (agent.Checks.ShouldWallSlide(_playerMovement.MoveDirection, _playerMovement.Velocity))
                 agent.ChangeStateToWallSlide();
         }
 
