@@ -1,6 +1,7 @@
 using System;
 using FSM;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Player.Controllers
@@ -10,6 +11,9 @@ namespace Player.Controllers
     {
         [SerializeField] private InputHandler input;
         private PlayerMovement _movement;
+
+        [Header("Events")] 
+        [SerializeField] private UnityEvent<Vector3, int> onWallHitEnter;
 
         private bool _isActive;
         private void OnEnable()
@@ -28,6 +32,7 @@ namespace Player.Controllers
         {
             _isActive = true;
             input.OnPlayerJump.AddListener(OnJump);
+            onWallHitEnter.Invoke(agent.Checks.WallrideHitPosition, agent.Checks.WallSlideDirection);
         }
 
         public override void OnUpdate()

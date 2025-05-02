@@ -17,6 +17,8 @@ namespace Player.Controllers
         [Header("Feet pivot")] [SerializeField]
         private Transform feetPivot;
 
+        [NonSerialized] public Vector3 WallrideHitPosition;
+        
         private RaycastHit _groundHit;
 
         private bool _isWallSliding;
@@ -144,9 +146,16 @@ namespace Player.Controllers
 
         public bool WallRaycast(int signToCheck)
         {
-            return Physics.Raycast(feetPivot.position, Vector3.right * signToCheck,
+            bool hasRaycast = Physics.Raycast(feetPivot.position, Vector3.right * signToCheck,
                 playerMovementProperties.wallCheckDistance,
                 playerMovementProperties.whatIsWall);
+
+            if (hasRaycast)
+            {
+                WallrideHitPosition = feetPivot.position + Vector3.right * signToCheck;
+            }
+
+            return hasRaycast;
         }
         
         public bool IsOnSlope()

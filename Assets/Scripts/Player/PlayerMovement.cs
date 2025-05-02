@@ -4,6 +4,7 @@ using Events;
 using Player.Controllers;
 using Player.Properties;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Player
@@ -28,14 +29,18 @@ namespace Player
         [Header("Movement Checks")]
         [SerializeField] private PlayerMovementChecks playerMovementChecks;
 
+        [Header("Events")] 
+        [SerializeField] private UnityEvent<float> onWalk;
+        [SerializeField] private UnityEvent onStop;
+        
         private CharacterController _characterController;
         private bool _canWalk;
         [NonSerialized] public Vector2 Velocity;
         private Coroutine _velocityLock;
 
-        private Vector3 moveDirection;
+        private Vector3 _moveDirection;
 
-        public Vector3 MoveDirection => moveDirection;
+        public Vector3 MoveDirection => _moveDirection;
 
         public float MaxSpeed
         {
@@ -47,7 +52,7 @@ namespace Player
         {
             _canWalk = true;
             _characterController ??= GetComponent<CharacterController>();
-            moveDirection = Vector3.zero;
+            _moveDirection = Vector3.zero;
 
             if (playerTransform != null) playerTransform.playerTransform = transform;
 
@@ -78,17 +83,24 @@ namespace Player
 
         public void HandleWalk()
         {
-            moveDirection = playerMovementChecks.GetSlopeMovementDirection(moveDirection);
+            _moveDirection = playerMovementChecks.GetSlopeMovementDirection(_moveDirection);
 
             if (_canWalk)
             {
                 Velocity.x =
                     Mathf.Clamp(
-                    Velocity.x + (moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
+                    Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
                     -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
             }
-            if(playerMovementChecks.IsGrounded())
+
+            if (playerMovementChecks.IsGrounded())
+            {
                 Velocity.x = Mathf.Sign(Velocity.x) * Mathf.Clamp(Mathf.Abs(Velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
+                if (Velocity.x != 0)
+                    onWalk?.Invoke(Mathf.Sign(Velocity.x));
+                else
+                    onStop?.Invoke();
+            }
         }
 
         public void FreeFall()
@@ -118,7 +130,7 @@ namespace Player
 
         private void HandleMove(Vector2 movement)
         {
-            moveDirection = new Vector3(movement.x, 0, 0);
+            _moveDirection = new Vector3(movement.x, 0, 0);
         }
 
         public void Jump()

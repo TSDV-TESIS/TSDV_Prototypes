@@ -33,6 +33,6 @@ MonoBehaviour:
   wallJumpForce: {x: 20, y: 30}
   unboundTime: 0.5
   wallVelocityCheck: 5
-  wallRideMaxCoyoteSeconds: 0.22
+  wallRideMaxCoyoteSeconds: 0.61
   maxSlopeAngle: 45
   shouldDrawGizmos: 1
