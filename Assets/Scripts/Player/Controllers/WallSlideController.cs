@@ -40,7 +40,7 @@ namespace Player.Controllers
                 agent.ChangeStateToGrounded();
             }
 
-            if (agent.Checks.ShouldUnboundWallslide(_movement.MoveDirection))
+            if (agent.Checks.ShouldUnboundWallslide(_movement.MoveDirection, _movement.Velocity))
                 agent.ChangeStateToFalling();
         }
 

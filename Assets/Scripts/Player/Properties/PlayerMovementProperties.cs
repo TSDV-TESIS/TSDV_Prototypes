@@ -32,6 +32,7 @@ namespace Player.Properties
         public float unboundTime = 0.5f;
         [Tooltip("Min velocity with which it automatically checks for wallslide")]
         public float wallVelocityCheck = 20f;
+        public float wallRideMaxCoyoteSeconds = 0.5f;
 
         [Header("Slope properties")]
         public float maxSlopeAngle = 45f;

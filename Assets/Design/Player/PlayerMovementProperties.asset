@@ -32,6 +32,7 @@ MonoBehaviour:
   maxWallSlideVerticalVelocity: 5
   wallJumpForce: {x: 20, y: 30}
   unboundTime: 0.5
-  wallVelocityCheck: 12.1
+  wallVelocityCheck: 5
+  wallRideMaxCoyoteSeconds: 0.22
   maxSlopeAngle: 45
   shouldDrawGizmos: 1

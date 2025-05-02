@@ -20,10 +20,12 @@ namespace Player.Controllers
         private RaycastHit _groundHit;
 
         private bool _isWallSliding;
-        [NonSerialized] public float WallSlideDirection;
+        [NonSerialized] public int WallSlideDirection;
 
         private bool _shouldCheckWall;
         private bool _shouldUnboundWall;
+        private float _wallRideInCoyoteSeconds;
+        private bool _inWallrideCoyoteTime;
         private Coroutine _shouldCheckWallCoroutine;
         private Coroutine _unboundWallCoroutine;
 
@@ -31,6 +33,7 @@ namespace Player.Controllers
         {
             _shouldCheckWall = true;
             _shouldUnboundWall = false;
+            _inWallrideCoyoteTime = false;
         }
 
         public bool IsGrounded()
@@ -51,7 +54,48 @@ namespace Player.Controllers
             _unboundWallCoroutine = null;
         }
 
-        public bool ShouldUnboundWallslide(Vector3 moveDirection)
+        public bool ShouldUnboundWallslide(Vector3 moveDirection, Vector2 movementVelocity)
+        {
+            return ShouldUnboundByInput(moveDirection) || ShouldUnboundByCoyote(movementVelocity);
+        }
+
+        private bool ShouldUnboundByCoyote(Vector2 movementVelocity)
+        {
+            if (!WallRaycast(WallSlideDirection))
+            {
+                if (movementVelocity.y > 0)
+                {
+                    _wallRideInCoyoteSeconds = 0;
+                    _inWallrideCoyoteTime = false;
+                    return true;
+                }
+                
+                if (!_inWallrideCoyoteTime)
+                {
+                    _inWallrideCoyoteTime = true;
+                    _wallRideInCoyoteSeconds = 0;
+                }
+
+                _wallRideInCoyoteSeconds += Time.deltaTime;
+
+                if (_wallRideInCoyoteSeconds > playerMovementProperties.wallRideMaxCoyoteSeconds)
+                {
+                    _wallRideInCoyoteSeconds = 0;
+                    _inWallrideCoyoteTime = false;
+                    return true;
+                }
+
+                return false;
+            }
+            else
+            {
+                _inWallrideCoyoteTime = false;
+                _wallRideInCoyoteSeconds = 0;
+                return false;
+            }
+        }
+
+        private bool ShouldUnboundByInput(Vector3 moveDirection)
         {
             Debug.Log($"VALUES: {_shouldCheckWall} {_shouldUnboundWall} {_isWallSliding} {_unboundWallCoroutine != null}");
             if (!_shouldCheckWall)
@@ -100,9 +144,7 @@ namespace Player.Controllers
 
         public bool WallRaycast(int signToCheck)
         {
-            
-            
-            return Physics.Raycast(transform.position, Vector3.right * signToCheck,
+            return Physics.Raycast(feetPivot.position, Vector3.right * signToCheck,
                 playerMovementProperties.wallCheckDistance,
                 playerMovementProperties.whatIsWall);
         }
@@ -147,10 +189,10 @@ namespace Player.Controllers
 
                 // Wall raycast
                 Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position,
-                    transform.position + Vector3.right * playerMovementProperties.wallCheckDistance);
-                Gizmos.DrawLine(transform.position,
-                    transform.position + Vector3.left * playerMovementProperties.wallCheckDistance);
+                Gizmos.DrawLine(feetPivot.position,
+                    feetPivot.position + Vector3.right * playerMovementProperties.wallCheckDistance);
+                Gizmos.DrawLine(feetPivot.position,
+                    feetPivot.position + Vector3.left * playerMovementProperties.wallCheckDistance);
             }
         }
     }
