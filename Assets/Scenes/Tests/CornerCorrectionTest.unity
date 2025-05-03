@@ -1581,7 +1581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1573534099933732517, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.2
+      value: 24.18
       objectReference: {fileID: 0}
     - target: {fileID: 1573534099933732517, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1634,11 +1634,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.98
+      value: -35.1
       objectReference: {fileID: 0}
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.75
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1672,6 +1672,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6927853401671723050, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: playerMovementProperties
+      value: 
+      objectReference: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
     - target: {fileID: 9182945775304313054, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_Name
       value: SideScrollPlayer

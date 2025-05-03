@@ -270,6 +270,37 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 10d7f1989e5f2c94b85438e9e61f6e10, type: 2}
+--- !u!1 &6275913559495650803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8887755361584241778}
+  m_Layer: 6
+  m_Name: Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8887755361584241778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275913559495650803}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.051, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6391947559083867225}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7736462112751391781
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: -1.234
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -375,11 +406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.z
@@ -387,11 +418,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -419,11 +450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -454,35 +485,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.4210855e-14
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.051
+      value: -1.0799999
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.715
+      value: -0.8100015
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 0.823714
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.70710677
+      value: 0.5670056
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.00000008940696
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.000000029802319
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 69.083
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -506,23 +537,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3
+      value: 8.58
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.5
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -532,6 +563,11 @@ PrefabInstance:
 --- !u!4 &3807309877846645647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8656522925563801548, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
+  m_PrefabInstance: {fileID: 5545177531719873603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3807309877861850831 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
   m_PrefabInstance: {fileID: 5545177531719873603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7562696712470535547
@@ -703,6 +739,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8963974559820886888}
+    - targetCorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8887755361584241778}
     - targetCorrespondingSourceObject: {fileID: 9029471004409246011, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834116690527114928}
@@ -847,6 +886,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4405460492393543286}
+          m_TargetAssemblyTypeName: Player.PlayerVfxController, Assembly-CSharp
+          m_MethodName: OnWalkingStop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   jumpingEvents:
     onEnter:
       m_PersistentCalls:
@@ -940,6 +991,18 @@ MonoBehaviour:
         - m_Target: {fileID: 2300784253147170917}
           m_TargetAssemblyTypeName: Player.Controllers.WallSlideController, Assembly-CSharp
           m_MethodName: OnLeave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4405460492393543286}
+          m_TargetAssemblyTypeName: Player.PlayerVfxController, Assembly-CSharp
+          m_MethodName: OnWallrideStop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1130,6 +1193,7 @@ MonoBehaviour:
   stopCheckWallSeconds: 0.5
   playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
   feetPivot: {fileID: 8911859625685359466}
+  headPivot: {fileID: 8887755361584241778}
 --- !u!114 &2300784253147170917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,6 +1208,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
   input: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
+  onWallHitEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4405460492393543286}
+        m_TargetAssemblyTypeName: Player.PlayerVfxController, Assembly-CSharp
+        m_MethodName: OnWallrideStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2907933239904170874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,3 +1284,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingParticles: {fileID: 8963974559806731816}
+  wallrideParticles: {fileID: 3807309877861850831}
+  wallrideParticleAngle: 69

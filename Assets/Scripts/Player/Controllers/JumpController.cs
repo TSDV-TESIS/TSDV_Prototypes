@@ -1,5 +1,6 @@
 using System;
 using FSM;
+using Player.Properties;
 using UnityEngine;
 
 namespace Player.Controllers
@@ -8,6 +9,7 @@ namespace Player.Controllers
     public class JumpController : Controller<PlayerAgent>
     {
         private PlayerMovement _playerMovement;
+        [SerializeField] private PlayerMovementProperties playerMovementProperties;
 
         private void OnEnable()
         {
@@ -19,8 +21,14 @@ namespace Player.Controllers
             _playerMovement.OnUpdate();
             _playerMovement.FreeFall();
 
-            if (agent.Checks.IsFalling(_playerMovement.MoveDirection))
+            if (agent.Checks.IsFalling(_playerMovement.Velocity))
                 agent.ChangeStateToFalling();
+
+            if (agent.Checks.IsNearCeiling())
+            {
+                _playerMovement.SetVerticalVelocity(-playerMovementProperties.gravity * Time.deltaTime);
+                agent.ChangeStateToFalling();
+            }
 
             if (agent.Checks.IsGrounded())
                 agent.ChangeStateToGrounded();

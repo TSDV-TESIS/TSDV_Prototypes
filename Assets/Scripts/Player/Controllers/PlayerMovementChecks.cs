@@ -16,6 +16,9 @@ namespace Player.Controllers
 
         [Header("Feet pivot")] [SerializeField]
         private Transform feetPivot;
+        
+        [Header("Head pivot")] [SerializeField]
+        private Transform headPivot;
 
         [NonSerialized] public Vector3 WallrideHitPosition;
         
@@ -142,6 +145,17 @@ namespace Player.Controllers
 
             WallSlideDirection = _isWallSliding ? signToCheck : 0;
             return _isWallSliding;
+        }
+        public bool IsNearCeiling()
+        {
+            if (Physics.Raycast(headPivot.position, Vector3.up, out _groundHit,
+                playerMovementProperties.checkDistance))
+            {
+                Debug.Log($"Normal: {_groundHit.normal} is equal to V3.Down {_groundHit.normal == Vector3.down}");
+                return _groundHit.normal == Vector3.down;
+            }
+
+            return false;
         }
 
         public bool WallRaycast(int signToCheck)
