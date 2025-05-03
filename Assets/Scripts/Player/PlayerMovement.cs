@@ -122,6 +122,11 @@ namespace Player
             _characterController.Move(Velocity * Time.deltaTime);
         }
 
+        public void Move(Vector3 displacement)
+        {
+            _characterController.Move(displacement);
+        }
+
         private void SetZPosition(Vector3 prevPos)
         {
             if (transform.position.z != 0)

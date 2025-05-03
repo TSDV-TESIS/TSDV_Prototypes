@@ -15,7 +15,7 @@ namespace Player.Properties
         public float jumpForce;
         public float maxGravityVelocity;
         public float maxJumpVelocity;
-        public LayerMask whatIsCeiling;
+        public float cornerCorrectionMaxDistance;
         
         [Header("Grounding properties")]
         [Tooltip("Distance from where it should start checking that player is grounded")]

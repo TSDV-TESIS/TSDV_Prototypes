@@ -24,10 +24,19 @@ namespace Player.Controllers
             if (agent.Checks.IsFalling(_playerMovement.Velocity))
                 agent.ChangeStateToFalling();
 
-            if (agent.Checks.IsNearCeiling())
+            float cornerDisplace = 0;
+
+            if (agent.Checks.IsNearCorner(out cornerDisplace))
             {
-                _playerMovement.SetVerticalVelocity(-playerMovementProperties.gravity * Time.deltaTime);
-                agent.ChangeStateToFalling();
+                _playerMovement.Move(new Vector3(cornerDisplace, 0, 0));
+            }
+            else
+            {
+                if (agent.Checks.IsNearCeiling())
+                {
+                    _playerMovement.SetVerticalVelocity(-playerMovementProperties.gravity * Time.deltaTime);
+                    agent.ChangeStateToFalling();
+                }
             }
 
             if (agent.Checks.IsGrounded())
