@@ -18,7 +18,7 @@ namespace Player.Controllers
 
         public override void OnUpdate()
         {
-            _playerMovement.OnUpdate();
+            _playerMovement.HandleWalk();
             _playerMovement.FreeFall();
 
             if (agent.Checks.IsFalling(_playerMovement.Velocity))

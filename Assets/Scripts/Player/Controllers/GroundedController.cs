@@ -24,11 +24,12 @@ namespace Player.Controllers
 
         public override void OnUpdate()
         {
-            _playerMovement.OnUpdate();
-
+            _playerMovement.HandleWalk(agent.Checks.GetSlopeMovementDirection(_playerMovement.MoveDirection));
+            _playerMovement.HandleDeceleration();
+            
             if (agent.Checks.IsNearCeiling() && _playerMovement.Velocity.y > 0)
                 _playerMovement.SetVerticalVelocity(0);
-            
+
             if (!agent.Checks.IsGrounded())
                 agent.ChangeStateToFalling();
         }
