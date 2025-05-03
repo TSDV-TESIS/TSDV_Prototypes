@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using Player.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player.Controllers
 {
@@ -15,19 +17,25 @@ namespace Player.Controllers
         [Header("Feet pivot")] [SerializeField]
         private Transform feetPivot;
 
+        [NonSerialized] public Vector3 WallrideHitPosition;
+        
         private RaycastHit _groundHit;
 
         private bool _isWallSliding;
-        private float _wallSlideDirection;
+        [NonSerialized] public int WallSlideDirection;
 
         private bool _shouldCheckWall;
+        private bool _shouldUnboundWall;
+        private float _wallRideInCoyoteSeconds;
+        private bool _inWallrideCoyoteTime;
         private Coroutine _shouldCheckWallCoroutine;
-        private GameObject _lastSlidedWall;
+        private Coroutine _unboundWallCoroutine;
 
         private void OnEnable()
         {
             _shouldCheckWall = true;
-            _lastSlidedWall = null;
+            _shouldUnboundWall = false;
+            _inWallrideCoyoteTime = false;
         }
 
         public bool IsGrounded()
@@ -41,42 +49,113 @@ namespace Player.Controllers
             return moveDirection.y < 0;
         }
 
-        public bool ShouldWallSlide(Vector3 moveDirection)
+        private void StopUnbounding()
         {
-            if (!_shouldCheckWall) return false;
-            if (_isWallSliding)
-            {
-                _isWallSliding = Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(_wallSlideDirection),
-                     playerMovementProperties.wallCheckDistance,
-                    playerMovementProperties.whatIsWall);
+            if(_unboundWallCoroutine != null)
+                StopCoroutine(_unboundWallCoroutine);
+            _unboundWallCoroutine = null;
+        }
 
-                if (moveDirection.x != 0 &&
-                    Mathf.Sign(moveDirection.x) != Mathf.Sign(_wallSlideDirection))
+        public bool ShouldUnboundWallslide(Vector3 moveDirection, Vector2 movementVelocity)
+        {
+            return ShouldUnboundByInput(moveDirection) || ShouldUnboundByCoyote(movementVelocity);
+        }
+
+        private bool ShouldUnboundByCoyote(Vector2 movementVelocity)
+        {
+            if (!WallRaycast(WallSlideDirection))
+            {
+                if (movementVelocity.y > 0)
                 {
-                    _isWallSliding = false;
+                    _wallRideInCoyoteSeconds = 0;
+                    _inWallrideCoyoteTime = false;
+                    return true;
+                }
+                
+                if (!_inWallrideCoyoteTime)
+                {
+                    _inWallrideCoyoteTime = true;
+                    _wallRideInCoyoteSeconds = 0;
                 }
 
-                return _isWallSliding;
-            }
+                _wallRideInCoyoteSeconds += Time.deltaTime;
 
-            RaycastHit wallHitInfo = new RaycastHit();
-            _isWallSliding = moveDirection.x != 0 &&
-                             Physics.Raycast(transform.position, Vector3.right * Mathf.Sign(moveDirection.x),
-                                 out wallHitInfo, playerMovementProperties.wallCheckDistance,
-                                 playerMovementProperties.whatIsWall) &&
-                             wallHitInfo.transform.gameObject != _lastSlidedWall;
-            if (wallHitInfo.transform != null)
+                if (_wallRideInCoyoteSeconds > playerMovementProperties.wallRideMaxCoyoteSeconds)
+                {
+                    _wallRideInCoyoteSeconds = 0;
+                    _inWallrideCoyoteTime = false;
+                    return true;
+                }
+
+                return false;
+            }
+            else
             {
-                _lastSlidedWall = wallHitInfo.transform.gameObject;
+                _inWallrideCoyoteTime = false;
+                _wallRideInCoyoteSeconds = 0;
+                return false;
+            }
+        }
+
+        private bool ShouldUnboundByInput(Vector3 moveDirection)
+        {
+            Debug.Log($"VALUES: {_shouldCheckWall} {_shouldUnboundWall} {_isWallSliding} {_unboundWallCoroutine != null}");
+            if (!_shouldCheckWall)
+            {
+                StopUnbounding();
+                _shouldUnboundWall = false;
+                return true;
+            }
+            
+            if (Mathf.Sign(moveDirection.x) == Mathf.Sign(WallSlideDirection))
+            {
+                StopUnbounding();
+                return false;
             }
 
-            _wallSlideDirection = _isWallSliding ? moveDirection.x : 0;
+            if (_shouldUnboundWall)
+            {
+                _shouldUnboundWall = false;
+                _isWallSliding = false;
+                StopUnbounding();
+                return true;
+            }
+
+            _unboundWallCoroutine ??= StartCoroutine(UnboundWallCoroutine());
+            return false;
+        }
+
+        private IEnumerator UnboundWallCoroutine()
+        {
+            yield return new WaitForSeconds(playerMovementProperties.unboundTime);
+            _shouldUnboundWall = true;
+        }
+
+        public bool ShouldWallSlide(Vector3 moveDirection, Vector2 velocity)
+        {
+            if (!_shouldCheckWall) return false;
+
+            int signToCheck = Math.Sign(Math.Abs(velocity.x) > playerMovementProperties.wallVelocityCheck
+                ? velocity.x
+                : moveDirection.x);
+            _isWallSliding = moveDirection.x != 0 && WallRaycast(signToCheck);
+
+            WallSlideDirection = _isWallSliding ? signToCheck : 0;
             return _isWallSliding;
         }
 
-        public void ClearSlidedWall()
+        public bool WallRaycast(int signToCheck)
         {
-            _lastSlidedWall = null;
+            bool hasRaycast = Physics.Raycast(feetPivot.position, Vector3.right * signToCheck,
+                playerMovementProperties.wallCheckDistance,
+                playerMovementProperties.whatIsWall);
+
+            if (hasRaycast)
+            {
+                WallrideHitPosition = feetPivot.position + Vector3.right * signToCheck;
+            }
+
+            return hasRaycast;
         }
         
         public bool IsOnSlope()
@@ -96,6 +175,7 @@ namespace Player.Controllers
         public void StopCheckingWall()
         {
             if (_shouldCheckWallCoroutine != null) StopCoroutine(_shouldCheckWallCoroutine);
+            StopUnbounding();
             _shouldCheckWallCoroutine = StartCoroutine(HandleStopCheckWall());
         }
 
@@ -118,10 +198,10 @@ namespace Player.Controllers
 
                 // Wall raycast
                 Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position,
-                    transform.position + Vector3.right * playerMovementProperties.wallCheckDistance);
-                Gizmos.DrawLine(transform.position,
-                    transform.position + Vector3.left * playerMovementProperties.wallCheckDistance);
+                Gizmos.DrawLine(feetPivot.position,
+                    feetPivot.position + Vector3.right * playerMovementProperties.wallCheckDistance);
+                Gizmos.DrawLine(feetPivot.position,
+                    feetPivot.position + Vector3.left * playerMovementProperties.wallCheckDistance);
             }
         }
     }

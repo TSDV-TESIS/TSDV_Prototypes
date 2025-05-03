@@ -9,12 +9,12 @@ namespace Player.Controllers
     {
         private PlayerMovement _playerMovement;
         [SerializeField] private InputHandler inputHandler;
+        [SerializeField] private float unboundWallBufferSeconds = 0.75f;
 
         private void OnEnable()
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
             inputHandler.OnPlayerJump.AddListener(OnJump);
-            agent.Checks.ClearSlidedWall();
         }
 
         private void OnDisable()
