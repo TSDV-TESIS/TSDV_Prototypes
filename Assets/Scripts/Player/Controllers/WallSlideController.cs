@@ -41,7 +41,7 @@ namespace Player.Controllers
 
             if (agent.Checks.IsGrounded())
             {
-                _movement.StopWallSlide();
+                _movement.Grounded();
                 agent.ChangeStateToGrounded();
             }
 

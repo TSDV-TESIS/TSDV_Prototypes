@@ -15,11 +15,14 @@ namespace Player.Controllers
 
         public override void OnUpdate()
         {
-            _playerMovement.OnUpdate();
+            _playerMovement.HandleWalk();
             _playerMovement.FreeFall();
 
             if (agent.Checks.IsGrounded())
+            {
+                _playerMovement.Grounded();
                 agent.ChangeStateToGrounded();
+            }
 
             if (agent.Checks.ShouldWallSlide(_playerMovement.MoveDirection, _playerMovement.Velocity))
                 agent.ChangeStateToWallSlide();

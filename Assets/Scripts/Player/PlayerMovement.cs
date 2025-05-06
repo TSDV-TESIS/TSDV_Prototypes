@@ -5,7 +5,6 @@ using Player.Controllers;
 using Player.Properties;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -25,9 +24,6 @@ namespace Player
 
         [Header("Save properties")]
         [SerializeField] private PlayerTransform playerTransform;
-
-        [Header("Movement Checks")]
-        [SerializeField] private PlayerMovementChecks playerMovementChecks;
 
         [Header("Events")]
         [SerializeField] private UnityEvent<float> onWalk;
@@ -71,53 +67,45 @@ namespace Player
             onPlayerRevive.onEvent.RemoveListener(HandleRevive);
         }
 
-        public void OnUpdate()
+        public void HandleWalk()
         {
+            HandleWalk(_moveDirection);
+        }
+
+        public void HandleWalk(Vector3 moveDirection)
+        {
+            _moveDirection = moveDirection;
             Vector3 prevPos = transform.position;
-            HandleWalk();
-
-            _characterController.Move(Velocity * Time.deltaTime);
-
+            
+            if (_canWalk)
+            {
+                Velocity.x = Mathf.Clamp(
+                Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
+                -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
+            }
+            
+            Move(Velocity * Time.deltaTime);
             SetZPosition(prevPos);
         }
 
-        public void HandleWalk()
+        public void HandleDeceleration()
         {
-            _moveDirection = playerMovementChecks.GetSlopeMovementDirection(_moveDirection);
-
-            if (_canWalk)
-            {
-                Velocity.x =
-                    Mathf.Clamp(
-                    Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
-                    -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
-            }
-
-            if (playerMovementChecks.IsGrounded())
-            {
-                Velocity.x = Mathf.Sign(Velocity.x) * Mathf.Clamp(Mathf.Abs(Velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
-                if (Velocity.x != 0)
-                    onWalk?.Invoke(Mathf.Sign(Velocity.x));
-                else
-                    onStop?.Invoke();
-            }
+            Velocity.x = Mathf.Sign(Velocity.x) * Mathf.Clamp(Mathf.Abs(Velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
+            if (Velocity.x != 0)
+                onWalk?.Invoke(Mathf.Sign(Velocity.x));
+            else
+                onStop?.Invoke();
         }
 
         public void FreeFall()
         {
             Velocity.y = Mathf.Clamp(Velocity.y - playerMovementProperties.gravity * Time.deltaTime, -playerMovementProperties.maxGravityVelocity, playerMovementProperties.maxJumpVelocity);
-
-            if (playerMovementChecks.IsGrounded() && Velocity.y < 0)
-                Velocity.y = 0;
         }
 
         public void WallSlide()
         {
             Velocity.x = 0;
             Velocity.y = Mathf.Clamp(Velocity.y - playerMovementProperties.wallSlideGravity * Time.deltaTime, -playerMovementProperties.maxWallSlideVerticalVelocity, Velocity.y);
-
-            if (playerMovementChecks.IsGrounded() && Velocity.y < 0)
-                Velocity.y = 0;
 
             _characterController.Move(Velocity * Time.deltaTime);
         }
@@ -159,7 +147,7 @@ namespace Player
             _velocityLock = StartCoroutine(LockAfterWallJump());
         }
 
-        public void SetCanWalk(bool canWalk)
+        private void SetCanWalk(bool canWalk)
         {
             _canWalk = canWalk;
         }
@@ -181,7 +169,7 @@ namespace Player
             _canWalk = true;
         }
 
-        public void StopWallSlide()
+        public void Grounded()
         {
             Velocity.y = 0;
         }
