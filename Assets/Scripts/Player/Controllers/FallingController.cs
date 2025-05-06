@@ -16,6 +16,11 @@ namespace Player.Controllers
             inputHandler?.OnPlayerShadowStep.AddListener(HandleShadowstep);
         }
 
+        private void Start()
+        {
+            inputHandler?.OnPlayerShadowStep.RemoveListener(HandleShadowstep);
+        }
+
         private void OnDisable()
         {
             inputHandler?.OnPlayerShadowStep.RemoveListener(HandleShadowstep);

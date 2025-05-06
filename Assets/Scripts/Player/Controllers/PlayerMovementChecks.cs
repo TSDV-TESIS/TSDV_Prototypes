@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Events.Scriptables;
 using Player.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Player.Controllers
 
         [Header("Head pivot")] [SerializeField]
         private Transform headPivot;
+
+        [Header("Events")] [SerializeField] private FloatEventChannel onShadowstepCooldownValueEvent;
 
         [NonSerialized] public Vector3 WallrideHitPosition;
 
@@ -279,10 +282,12 @@ namespace Player.Controllers
             IsShadowStepOnCooldown = true;
             while (timer < playerMovementProperties.shadowStepCooldown)
             {
+                onShadowstepCooldownValueEvent?.RaiseEvent((float)(timer / playerMovementProperties.shadowStepCooldown));
                 timer += Time.deltaTime;
                 yield return null;
             }
 
+            onShadowstepCooldownValueEvent?.RaiseEvent(1);
             IsShadowStepOnCooldown = false;
         }
     }
