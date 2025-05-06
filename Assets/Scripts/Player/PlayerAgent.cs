@@ -94,6 +94,8 @@ namespace Player
             _shadowStepState.AddTransition(shadowStepToGrounded);
             Transition shadowStepToFalling = new Transition(_shadowStepState, _fallingState);
             _shadowStepState.AddTransition(shadowStepToFalling);
+            Transition shadowStepToWallRiding = new Transition(_shadowStepState, _wallSlideState);
+            _shadowStepState.AddTransition(shadowStepToWallRiding);
 
             return new List<State>()
             {
@@ -131,6 +133,8 @@ namespace Player
 
         public void ChangeStateToShadowStep()
         {
+            if (Checks.IsShadowStepOnCooldown) return;
+            LogMessage("Change state to Shadowstep");
             Fsm.ChangeState(_shadowStepState);
         }
 
