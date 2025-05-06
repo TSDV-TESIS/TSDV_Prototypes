@@ -76,11 +76,14 @@ namespace Player
         {
             _moveDirection = moveDirection;
             Vector3 prevPos = transform.position;
-
-            Velocity.x = Mathf.Clamp(
-            Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
-            -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
-
+            
+            if (_canWalk)
+            {
+                Velocity.x = Mathf.Clamp(
+                Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
+                -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
+            }
+            
             Move(Velocity * Time.deltaTime);
             SetZPosition(prevPos);
         }
@@ -144,7 +147,7 @@ namespace Player
             _velocityLock = StartCoroutine(LockAfterWallJump());
         }
 
-        public void SetCanWalk(bool canWalk)
+        private void SetCanWalk(bool canWalk)
         {
             _canWalk = canWalk;
         }
@@ -166,7 +169,7 @@ namespace Player
             _canWalk = true;
         }
 
-        public void StopWallSlide()
+        public void Grounded()
         {
             Velocity.y = 0;
         }
