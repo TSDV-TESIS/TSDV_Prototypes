@@ -29,10 +29,10 @@ namespace Player
         [Header("Movement Checks")]
         [SerializeField] private PlayerMovementChecks playerMovementChecks;
 
-        [Header("Events")] 
+        [Header("Events")]
         [SerializeField] private UnityEvent<float> onWalk;
         [SerializeField] private UnityEvent onStop;
-        
+
         private CharacterController _characterController;
         private bool _canWalk;
         [NonSerialized] public Vector2 Velocity;
@@ -122,10 +122,20 @@ namespace Player
             _characterController.Move(Velocity * Time.deltaTime);
         }
 
+        public void Move(Vector3 displacement)
+        {
+            _characterController.Move(displacement);
+        }
+
         private void SetZPosition(Vector3 prevPos)
         {
             if (transform.position.z != 0)
                 transform.position = prevPos;
+        }
+
+        public void SetVerticalVelocity(float value)
+        {
+            Velocity.y = value;
         }
 
         private void HandleMove(Vector2 movement)

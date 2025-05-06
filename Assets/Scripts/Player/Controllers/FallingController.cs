@@ -12,6 +12,7 @@ namespace Player.Controllers
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
         }
+
         public override void OnUpdate()
         {
             _playerMovement.OnUpdate();
@@ -19,7 +20,7 @@ namespace Player.Controllers
 
             if (agent.Checks.IsGrounded())
                 agent.ChangeStateToGrounded();
-            
+
             if (agent.Checks.ShouldWallSlide(_playerMovement.MoveDirection, _playerMovement.Velocity))
                 agent.ChangeStateToWallSlide();
         }

@@ -26,6 +26,9 @@ namespace Player.Controllers
         {
             _playerMovement.OnUpdate();
 
+            if (agent.Checks.IsNearCeiling() && _playerMovement.Velocity.y > 0)
+                _playerMovement.SetVerticalVelocity(0);
+            
             if (!agent.Checks.IsGrounded())
                 agent.ChangeStateToFalling();
         }

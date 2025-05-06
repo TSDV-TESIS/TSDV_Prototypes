@@ -17,9 +17,13 @@ namespace Player.Controllers
         [Header("Feet pivot")] [SerializeField]
         private Transform feetPivot;
 
+        [Header("Head pivot")] [SerializeField]
+        private Transform headPivot;
+
         [NonSerialized] public Vector3 WallrideHitPosition;
-        
+
         private RaycastHit _groundHit;
+        private RaycastHit _ceilingHit;
 
         private bool _isWallSliding;
         [NonSerialized] public int WallSlideDirection;
@@ -41,7 +45,7 @@ namespace Player.Controllers
         public bool IsGrounded()
         {
             return Physics.Raycast(feetPivot.position, Vector3.down, out _groundHit,
-                playerMovementProperties.checkDistance, playerMovementProperties.whatIsGround);
+            playerMovementProperties.checkDistance, playerMovementProperties.whatIsGround);
         }
 
         public bool IsFalling(Vector3 moveDirection)
@@ -51,7 +55,7 @@ namespace Player.Controllers
 
         private void StopUnbounding()
         {
-            if(_unboundWallCoroutine != null)
+            if (_unboundWallCoroutine != null)
                 StopCoroutine(_unboundWallCoroutine);
             _unboundWallCoroutine = null;
         }
@@ -71,7 +75,7 @@ namespace Player.Controllers
                     _inWallrideCoyoteTime = false;
                     return true;
                 }
-                
+
                 if (!_inWallrideCoyoteTime)
                 {
                     _inWallrideCoyoteTime = true;
@@ -106,7 +110,7 @@ namespace Player.Controllers
                 _shouldUnboundWall = false;
                 return true;
             }
-            
+
             if (Mathf.Sign(moveDirection.x) == Mathf.Sign(WallSlideDirection))
             {
                 StopUnbounding();
@@ -144,11 +148,46 @@ namespace Player.Controllers
             return _isWallSliding;
         }
 
+        public bool IsNearCeiling()
+        {
+            if (Physics.Raycast(headPivot.position, Vector3.up, out _ceilingHit,
+                playerMovementProperties.checkDistance))
+            {
+                Debug.Log($"Normal: {_ceilingHit.normal} is equal to V3.Down {_ceilingHit.normal == Vector3.down}");
+                return _ceilingHit.normal == Vector3.down;
+            }
+
+            return false;
+        }
+
+        public bool IsNearCorner(out float cornerDisplace)
+        {
+            Vector3 displacement = Vector3.right * playerMovementProperties.cornerCorrectionMaxDistance;
+            if (Physics.Raycast(headPivot.position - displacement, Vector3.up, out RaycastHit _leftCornerHit, playerMovementProperties.checkDistance) ^
+                Physics.Raycast(headPivot.position + displacement, Vector3.up, out RaycastHit _rightCornerHit, playerMovementProperties.checkDistance))
+            {
+                if (_leftCornerHit.normal == Vector3.down)
+                {
+                    cornerDisplace = transform.position.x - _leftCornerHit.point.x;
+                    return true;
+                }
+
+                if (_rightCornerHit.normal == Vector3.down)
+                {
+                    cornerDisplace =transform.position.x -  _rightCornerHit.point.x;
+                    return true;
+                }
+            }
+
+            cornerDisplace = 0;
+            return false;
+        }
+
         public bool WallRaycast(int signToCheck)
         {
             bool hasRaycast = Physics.Raycast(feetPivot.position, Vector3.right * signToCheck,
-                playerMovementProperties.wallCheckDistance,
-                playerMovementProperties.whatIsWall);
+            playerMovementProperties.wallCheckDistance,
+            playerMovementProperties.whatIsWall);
 
             if (hasRaycast)
             {
@@ -157,7 +196,7 @@ namespace Player.Controllers
 
             return hasRaycast;
         }
-        
+
         public bool IsOnSlope()
         {
             if (!IsGrounded()) return false;
@@ -194,14 +233,14 @@ namespace Player.Controllers
                 // Draw feet raycast
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(feetPivot.position,
-                    feetPivot.position + Vector3.down * playerMovementProperties.checkDistance);
+                feetPivot.position + Vector3.down * playerMovementProperties.checkDistance);
 
                 // Wall raycast
                 Gizmos.color = Color.green;
                 Gizmos.DrawLine(feetPivot.position,
-                    feetPivot.position + Vector3.right * playerMovementProperties.wallCheckDistance);
+                feetPivot.position + Vector3.right * playerMovementProperties.wallCheckDistance);
                 Gizmos.DrawLine(feetPivot.position,
-                    feetPivot.position + Vector3.left * playerMovementProperties.wallCheckDistance);
+                feetPivot.position + Vector3.left * playerMovementProperties.wallCheckDistance);
             }
         }
     }

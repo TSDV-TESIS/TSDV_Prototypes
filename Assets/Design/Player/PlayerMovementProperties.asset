@@ -19,6 +19,7 @@ MonoBehaviour:
   jumpForce: 30
   maxGravityVelocity: 30
   maxJumpVelocity: 40
+  cornerCorrectionMaxDistance: 0.5
   checkDistance: 0.61
   whatIsGround:
     serializedVersion: 2
