@@ -41,5 +41,10 @@ namespace Player.Properties
         [Header("Gizmos")]
         public bool shouldDrawGizmos = false;
 
+        [Header("ShadowStep")]
+        public float shadowStepTime = 0.5f;
+
+        public float shadowStepVelocity = 10f;
+        public double shadowStepCooldown = 1f;
     }
 }

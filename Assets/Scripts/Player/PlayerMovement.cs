@@ -173,5 +173,18 @@ namespace Player
         {
             Velocity.y = 0;
         }
+
+        public int GetMoveDirectionSign()
+        {
+            return (int)Mathf.Sign(_moveDirection.x);
+        }
+
+        public void Shadowstep(int direction)
+        {
+            Velocity.x = playerMovementProperties.shadowStepVelocity * direction;
+            Velocity.y = 0;
+            
+            Move(Velocity * Time.deltaTime);
+        }
     }
 }

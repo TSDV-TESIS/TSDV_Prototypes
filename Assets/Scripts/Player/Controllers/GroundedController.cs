@@ -15,11 +15,13 @@ namespace Player.Controllers
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
             inputHandler.OnPlayerJump.AddListener(OnJump);
+            inputHandler.OnPlayerShadowStep.AddListener(OnShadowstep);
         }
 
         private void OnDisable()
         {
             inputHandler.OnPlayerJump.RemoveListener(OnJump);
+            inputHandler.OnPlayerShadowStep.RemoveListener(OnShadowstep);
         }
 
         public override void OnUpdate()
@@ -37,6 +39,11 @@ namespace Player.Controllers
         private void OnJump()
         {
             agent.ChangeStateToJumping();
+        }
+        
+        private void OnShadowstep()
+        {
+            agent.ChangeStateToShadowStep();
         }
     }
 }

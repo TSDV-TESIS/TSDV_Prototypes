@@ -611,6 +611,10 @@ PrefabInstance:
       value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 583095707935067711, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 583095707935067711, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 1792
       objectReference: {fileID: 0}
@@ -628,15 +632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.1
+      value: -36.3
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.61
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -788,6 +792,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4405460492393543286}
+    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1910949050508808167}
   m_SourcePrefab: {fileID: 100100000, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
 --- !u!1 &238100018967637552 stripped
 GameObject:
@@ -837,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3a23b0292845f45bc12ba3c0f3be18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logChanges: 0
+  logChanges: 1
   healthPoints: {fileID: 2230639419180364887}
   playerMovementChecks: {fileID: 9122317697623757532}
   groundedEvents:
@@ -903,6 +910,18 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6927853401671723050}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 6927853401671723050}
           m_TargetAssemblyTypeName: Player.Controllers.JumpController, Assembly-CSharp
           m_MethodName: Jump
           m_Mode: 1
@@ -931,11 +950,35 @@ MonoBehaviour:
           m_CallState: 2
     onExit:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 6927853401671723050}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   fallingEvents:
     onEnter:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 7947393677198273028}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onUpdate:
       m_PersistentCalls:
         m_Calls:
@@ -953,7 +996,19 @@ MonoBehaviour:
           m_CallState: 2
     onExit:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 7947393677198273028}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   wallSlidingEvents:
     onEnter:
       m_PersistentCalls:
@@ -1015,13 +1070,49 @@ MonoBehaviour:
   shadowStepEvents:
     onEnter:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1910949050508808167}
+          m_TargetAssemblyTypeName: Player.Controllers.ShadowStepController, Assembly-CSharp
+          m_MethodName: OnEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8394943398975191318}
+          m_TargetAssemblyTypeName: Player.ShadowStep, Assembly-CSharp
+          m_MethodName: InitShadowStepShadows
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onUpdate:
       m_PersistentCalls:
         m_Calls: []
     onExit:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 8394943398975191318}
+          m_TargetAssemblyTypeName: Player.ShadowStep, Assembly-CSharp
+          m_MethodName: StopShadows
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6540393279558681873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,18 +1140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6900c94ffd4d1fc43a1e57a9a3cbb049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
-  playerCollider: {fileID: 2262308662148885198}
-  shadowVelocity: 10
-  healthDecayPerSecond: 30
-  trespassableColliders:
-    serializedVersion: 2
-    m_Bits: 384
   shadowPrefab: {fileID: 6694883190123719090, guid: ad926b3022d419c43b7ed2bdaf27363b, type: 3}
-  spawnRate: 0.05
-  shadowDecayDelay: 0.02
-  onPlayerShouldDie: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
+  spawnRate: 0.01
+  shadowDecayDelay: 0.005
   playerRenderer: {fileID: 1263233119890447787}
   shadowMat: {fileID: 2100000, guid: 2c6e1b277d39d7c48a2200c9a0e4a16a, type: 2}
 --- !u!114 &9113800065695346700
@@ -1165,6 +1247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
+  playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
+  inputHandler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
 --- !u!114 &7947393677198273028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,6 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
+  inputHandler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
 --- !u!114 &9122317697623757532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,6 +1279,7 @@ MonoBehaviour:
   playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
   feetPivot: {fileID: 8911859625685359466}
   headPivot: {fileID: 8887755361584241778}
+  onShadowstepCooldownValueEvent: {fileID: 11400000, guid: d1a973f980d430d4e9acbbda2aa50488, type: 2}
 --- !u!114 &2300784253147170917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1326,6 @@ MonoBehaviour:
   onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
   onPlayerRevive: {fileID: 11400000, guid: 759bf030b0f37734e82f041ac9950e9e, type: 2}
   playerTransform: {fileID: 11400000, guid: 33cff94758fa9be458f6c60e98048cb4, type: 2}
-  playerMovementChecks: {fileID: 9122317697623757532}
   onWalk:
     m_PersistentCalls:
       m_Calls:
@@ -1286,3 +1371,17 @@ MonoBehaviour:
   walkingParticles: {fileID: 8963974559806731816}
   wallrideParticles: {fileID: 3807309877861850831}
   wallrideParticleAngle: 69
+--- !u!114 &1910949050508808167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182945775304313054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f461e2bd10e124b86d8fb77954f809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 2452499770306614508}
+  _playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
