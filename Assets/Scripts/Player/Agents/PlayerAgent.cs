@@ -145,5 +145,11 @@ namespace Player
                 Debug.Log(message);
             }
         }
+
+        public void StopFsm()
+        {
+            Fsm.Disable();
+        }
+        
     }
 }

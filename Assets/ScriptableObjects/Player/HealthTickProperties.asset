@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4457faebf0eaf584092687e111555a7c, type: 3}
-  m_Name: OnPlayerDeath
+  m_Script: {fileID: 11500000, guid: 783062114ba047d2aaf2f987ac308697, type: 3}
+  m_Name: HealthTickProperties
   m_EditorClassIdentifier: 
-  onEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  healthTakenPerTick: 5
+  secondsPerTick: 1
+  shouldTick: 1

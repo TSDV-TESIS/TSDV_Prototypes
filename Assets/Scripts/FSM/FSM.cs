@@ -19,6 +19,7 @@ namespace FSM
         
         public void Update()
         {
+            if (_isDisabled) return;
             _currentStateSo.Update();
         }
         

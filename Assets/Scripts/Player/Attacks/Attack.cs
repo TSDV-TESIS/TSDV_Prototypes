@@ -9,12 +9,10 @@ namespace Player
     {
         [SerializeField] private GameObject attackObject;
         [SerializeField] private InputHandler handler;
-        [SerializeField] private HealthPoints health;
         
         [Header("Attack properties")] 
         [SerializeField] private float attackDurationSeconds = 0.5f;
         [SerializeField] private float attackDurationCooldownSeconds = 0.2f;
-        [SerializeField] private int attackUsageDamage = 5;
 
         private Coroutine _attackCoroutine;
         private bool _isAttacking;
@@ -42,7 +40,6 @@ namespace Player
         {
             _isAttacking = true;
             attackObject.SetActive(true);
-            health?.TryTakeDamage(attackUsageDamage);
             yield return new WaitForSeconds(attackDurationSeconds);
         
             attackObject.SetActive(false);
