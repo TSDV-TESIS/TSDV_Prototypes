@@ -9,13 +9,18 @@ namespace Player.Controllers
     public class ShadowStepController : Controller<PlayerAgent>
     {
         [SerializeField] private PlayerMovementProperties _playerMovementProperties;
-        [SerializeField] private MouseLook mouseLook;
+        [SerializeField] private ShadowStepProperties _shadowStepProperties;
+
         private PlayerMovement _playerMovement;
+        private MouseLook _mouseLook;
+        private CharacterController _characterController;
         private Coroutine _shadowstepCoroutine;
 
         private void OnEnable()
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
+            _mouseLook ??= GetComponent<MouseLook>();
+            _characterController ??= GetComponent<CharacterController>();
         }
 
         public void OnEnter()
@@ -31,21 +36,24 @@ namespace Player.Controllers
         private IEnumerator Shadowstep()
         {
             float timer = 0;
-            Vector2 direction = mouseLook.CursorDir.normalized;
+            Vector2 direction = _mouseLook.CursorDir.normalized;
             bool changedToWallslide = false;
+
+            _characterController.excludeLayers |= _shadowStepProperties.avoidableObjects;
             while (timer < _playerMovementProperties.shadowStepTime)
             {
                 _playerMovement.Shadowstep(direction);
                 timer += Time.deltaTime;
-                if (agent.Checks.IsNearWall())
-                {
-                    changedToWallslide = true;
-                    agent.Checks.SetShadowstepOnCooldown();
-                    agent.ChangeStateToWallSlide();
-                    break;
-                }
-
                 yield return null;
+            }
+
+            _characterController.excludeLayers ^= _shadowStepProperties.avoidableObjects;
+
+            if (agent.Checks.IsNearWall())
+            {
+                changedToWallslide = true;
+                agent.Checks.SetShadowstepOnCooldown();
+                agent.ChangeStateToWallSlide();
             }
 
             if (!changedToWallslide)

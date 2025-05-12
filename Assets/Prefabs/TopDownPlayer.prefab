@@ -1389,6 +1389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
   _playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
+  _shadowStepProperties: {fileID: 11400000, guid: e2af992e6748e0a48b9425ddb7e59d2d, type: 2}
 --- !u!114 &8298738303673191818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,10 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b7622b8777fe24e939d70ef46262bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPlayerDeath: {fileID: 0}
-  healthPoints: {fileID: 0}
-  OnInternalPlayerDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  movement: {fileID: 0}
-  waitSeconds: 0.5
+  onPlayerDeath: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
+  healthPoints: {fileID: 2230639419180364887}
+  agent: {fileID: 2452499770306614508}
+  waitSeconds: 2
