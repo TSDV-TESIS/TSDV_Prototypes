@@ -76,14 +76,14 @@ namespace Player
         {
             _moveDirection = moveDirection;
             Vector3 prevPos = transform.position;
-            
+
             if (_canWalk)
             {
                 Velocity.x = Mathf.Clamp(
                 Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
                 -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
             }
-            
+
             Move(Velocity * Time.deltaTime);
             SetZPosition(prevPos);
         }
@@ -179,11 +179,11 @@ namespace Player
             return (int)Mathf.Sign(_moveDirection.x);
         }
 
-        public void Shadowstep(int direction)
+        public void Shadowstep(Vector2 direction)
         {
-            Velocity.x = playerMovementProperties.shadowStepVelocity * direction;
-            Velocity.y = 0;
-            
+            Velocity.x = playerMovementProperties.shadowStepVelocity * direction.x;
+            Velocity.y = playerMovementProperties.shadowStepVelocity * direction.y;
+
             Move(Velocity * Time.deltaTime);
         }
     }

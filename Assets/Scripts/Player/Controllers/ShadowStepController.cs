@@ -9,29 +9,29 @@ namespace Player.Controllers
     public class ShadowStepController : Controller<PlayerAgent>
     {
         [SerializeField] private PlayerMovementProperties _playerMovementProperties;
-        
+        [SerializeField] private MouseLook mouseLook;
         private PlayerMovement _playerMovement;
         private Coroutine _shadowstepCoroutine;
-        
+
         private void OnEnable()
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
         }
-        
+
         public void OnEnter()
         {
-            if(_shadowstepCoroutine != null) StopCoroutine(_shadowstepCoroutine);
+            if (_shadowstepCoroutine != null) StopCoroutine(_shadowstepCoroutine);
             _shadowstepCoroutine = StartCoroutine(Shadowstep());
         }
 
         public override void OnUpdate()
         {
         }
-        
+
         private IEnumerator Shadowstep()
         {
             float timer = 0;
-            int direction = _playerMovement.GetMoveDirectionSign();
+            Vector2 direction = mouseLook.CursorDir.normalized;
             bool changedToWallslide = false;
             while (timer < _playerMovementProperties.shadowStepTime)
             {
@@ -44,10 +44,11 @@ namespace Player.Controllers
                     agent.ChangeStateToWallSlide();
                     break;
                 }
+
                 yield return null;
             }
 
-            if(!changedToWallslide)
+            if (!changedToWallslide)
                 ExitShadowstep();
         }
 
@@ -55,13 +56,12 @@ namespace Player.Controllers
         {
             agent.Checks.SetShadowstepOnCooldown();
 
-            if(agent.Checks.IsNearWall())
+            if (agent.Checks.IsNearWall())
                 agent.ChangeStateToWallSlide();
-            else if(!agent.Checks.IsGrounded())
+            else if (!agent.Checks.IsGrounded())
                 agent.ChangeStateToFalling();
             else
                 agent.ChangeStateToGrounded();
-            
         }
     }
 }
