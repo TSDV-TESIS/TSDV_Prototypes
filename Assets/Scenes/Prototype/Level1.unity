@@ -4087,6 +4087,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 689472822316984297, guid: bb1e495a18126e64fb441c85a9be2fae, type: 3}
+      propertyPath: m_text
+      value: 'Crimson 0.1.4
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 766442687624580030, guid: bb1e495a18126e64fb441c85a9be2fae, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4211,6 +4217,19 @@ PrefabInstance:
       propertyPath: onChangeEvent
       value: 
       objectReference: {fileID: 11400000, guid: 3d1982e3887ed0a40b550994bb23f2f4, type: 2}
+    - target: {fileID: 9169106283037489166, guid: bb1e495a18126e64fb441c85a9be2fae, type: 3}
+      propertyPath: m_text
+      value: 'Move - WASD
+
+        Look - Mouse
+
+        Bloodlust - E
+
+        ShadowStep
+        - Shift / RMB
+
+        Reset - F3'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
