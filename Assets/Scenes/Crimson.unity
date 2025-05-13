@@ -1427,18 +1427,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6981576557858149188, guid: e8092312e621bda4eac637f9edac4258, type: 3}
-      propertyPath: m_Height
-      value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981576557858149188, guid: e8092312e621bda4eac637f9edac4258, type: 3}
-      propertyPath: m_Radius
-      value: 0.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 8911859625685359466, guid: e8092312e621bda4eac637f9edac4258, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.42
-      objectReference: {fileID: 0}
     - target: {fileID: 9182945775304313054, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_Name
       value: SideScrollPlayer
