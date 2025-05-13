@@ -8,11 +8,8 @@ using UnityEngine.Serialization;
 
 namespace Managers
 {
-    public class WwiseClockSynchronizer : MonoBehaviour
+    public class BloodlustClockSynchronizer : MonoBehaviour
     {
-        [Header("Scriptables")] 
-        [SerializeField] private InputHandler handler;
-
         [Header("Wwise events")]
         [SerializeField] private AK.Wwise.Event playHeartbeatEvent;
         [SerializeField] private AK.Wwise.Event stopHeartbeatEvent;
@@ -34,26 +31,31 @@ namespace Managers
         private void OnEnable()
         {
             _isPlaying = false;
-            handler?.OnPlayerBloodlust?.AddListener(HandleBloodlust);
+            onBloodlustStart?.onEvent?.AddListener(HandleBloodlustStart);
+            onBloodlustEnd?.onEvent?.AddListener(HandleBloodlustEnd);
         }
 
         private void OnDisable()
         {
-            handler?.OnPlayerBloodlust?.RemoveListener(HandleBloodlust);
+            onBloodlustStart?.onEvent?.RemoveListener(HandleBloodlustStart);
+            onBloodlustEnd?.onEvent?.RemoveListener(HandleBloodlustEnd);
         }
 
-        private void HandleBloodlust()
+        private void HandleBloodlustEnd()
         {
+            Debug.Log("Stopping?");
             if (_isPlaying)
             {
                 onPlayEvent?.RaiseEvent(stopHeartbeatEvent);
-                onBloodlustEnd?.RaiseEvent();
                 _isPlaying = false;
             }
-            else
-            {
+        }
+
+        private void HandleBloodlustStart()
+        {
+            if (!_isPlaying)
+            {   
                 onPlayWithCallbackEvent?.RaiseEvent(playHeartbeatEvent, HandleCallbacks);
-                onBloodlustStart?.RaiseEvent();
                 _isPlaying = true;
             }
         }

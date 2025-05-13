@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Enemy;
 using Events;
@@ -6,61 +5,22 @@ using Events.Scriptables;
 using Health;
 using UnityEngine;
 
-namespace Player.Weapon
+namespace Player.Attacks
 {
     public class MeleeWeapon : MonoBehaviour
     {
         [Header("Damage properties")]
         [SerializeField] private int damage;
 
-        [Header("Events")] 
-        [SerializeField] private VoidEventChannelSO onBloodlustStart;
-        [SerializeField] private VoidEventChannelSO onBloodlustEnd;
-        [SerializeField] private VoidEventChannelSO onHeartbeatStart;
-        [SerializeField] private VoidEventChannelSO onHeartbeatEnd;
+        [Header("Events")] [SerializeField] private VoidEventChannelSO onFrenziedEvent;
         [SerializeField] private AkWwiseEventChannelSO onPlayEvent;
         [SerializeField] private AK.Wwise.Event decapitationEvent;    
         
-        private List<Collider> _hittedEnemies = new List<Collider>();
-
-        private bool _isInBloodlust;
-        private bool _isInHeartbeat;
-        private void OnEnable()
-        {
-            _isInBloodlust = false;
-            onBloodlustStart?.onEvent.AddListener(HandleBloodlustOn);
-            onBloodlustEnd?.onEvent.AddListener(HandleBloodlustOff);
-            onHeartbeatStart?.onEvent.AddListener(HandleHeartbeatOn);
-            onHeartbeatEnd?.onEvent.AddListener(HandleHeartbeatOff);
-        }
+        private readonly List<Collider> _hittedEnemies = new List<Collider>();
 
         private void OnDisable()
         {
             ResetHittedEnemiesBuffer();
-            onBloodlustStart?.onEvent.RemoveListener(HandleBloodlustOn);
-            onBloodlustEnd?.onEvent.RemoveListener(HandleBloodlustOff);
-            onHeartbeatStart?.onEvent.RemoveListener(HandleHeartbeatOn);
-            onHeartbeatEnd?.onEvent.RemoveListener(HandleHeartbeatOff);
-        }
-
-        private void HandleHeartbeatOff()
-        {
-            _isInHeartbeat = false;
-        }
-
-        private void HandleHeartbeatOn()
-        {
-            _isInHeartbeat = true;
-        }
-
-        private void HandleBloodlustOff()
-        {
-            _isInBloodlust = false;
-        }
-
-        private void HandleBloodlustOn()
-        {
-            _isInBloodlust = true;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -76,13 +36,9 @@ namespace Player.Weapon
                 if (other.gameObject.TryGetComponent<EnemyBeatHandler>(out EnemyBeatHandler enemyBeatHandler) && enemyBeatHandler.IsInHeartBeat && enemyBeatHandler.IsInBloodlust)
                 {
                     onPlayEvent?.RaiseEvent(decapitationEvent);
+                    onFrenziedEvent?.RaiseEvent();
                 }
             }
-        }
-        
-        public void SetIsInteractive(bool value)
-        {
-            gameObject.SetActive(value);
         }
 
         public void ResetHittedEnemiesBuffer()

@@ -861,6 +861,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8887755361584241778}
+    - targetCorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8384174572108389143}
     - targetCorrespondingSourceObject: {fileID: 9029471004409246011, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834116690527114928}
@@ -1533,3 +1536,65 @@ MonoBehaviour:
   healthPoints: {fileID: 2230639419180364887}
   agent: {fileID: 2452499770306614508}
   waitSeconds: 2
+--- !u!1001 &7973061792389638147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6391947559083867225}
+    m_Modifications:
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.008507
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15359259
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.540135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330575648606341397, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+      propertyPath: m_Name
+      value: BloodlustClockSync
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+--- !u!4 &8384174572108389143 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1944590969777009428, guid: 3a43dc7918abde34fbf0fbdc8fca4e0e, type: 3}
+  m_PrefabInstance: {fileID: 7973061792389638147}
+  m_PrefabAsset: {fileID: 0}

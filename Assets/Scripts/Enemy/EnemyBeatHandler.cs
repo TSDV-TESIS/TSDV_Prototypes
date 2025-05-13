@@ -33,13 +33,11 @@ namespace Enemy
         }
         private void HandleHeartbeatOff()
         {
-            Debug.Log("Heartbeat OFF");
             IsInHeartBeat = false;
         }
 
         private void HandleHeartbeatOn()
         {
-            Debug.Log("Heartbeat ON");
             IsInHeartBeat = true;
         }
 
