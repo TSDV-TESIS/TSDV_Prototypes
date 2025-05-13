@@ -10,6 +10,10 @@ namespace Player.Properties
         public float friction;
         public float maxSpeed;
 
+        [Header("Frenzied movement")] 
+        public float frenziedAcceleration;
+        public float frenziedMaxSpeed;
+
         [Header("Jumping properties")]
         public float gravity;
         public float jumpForce;
