@@ -1165,8 +1165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackObject: {fileID: 2271855868115792836}
   handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
-  attackDurationSeconds: 0.5
-  attackDurationCooldownSeconds: 0.2
+  attackProperties: {fileID: 11400000, guid: 4917520e4ef130b49a9886cfabf46d90, type: 2}
 --- !u!136 &2262308662148885198
 CapsuleCollider:
   m_ObjectHideFlags: 0

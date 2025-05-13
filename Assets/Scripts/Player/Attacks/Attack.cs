@@ -1,6 +1,5 @@
 using System.Collections;
-using Events;
-using Health;
+using Player.Properties;
 using UnityEngine;
 
 namespace Player
@@ -9,14 +8,21 @@ namespace Player
     {
         [SerializeField] private GameObject attackObject;
         [SerializeField] private InputHandler handler;
-        
-        [Header("Attack properties")] 
-        [SerializeField] private float attackDurationSeconds = 0.5f;
-        [SerializeField] private float attackDurationCooldownSeconds = 0.2f;
 
+        [Header("Attack properties")]
+        [SerializeField] private PlayerAttackProperties attackProperties;
+
+        private PlayerMovement _playerMovement;
+        private MouseLook _mouseLook;
         private Coroutine _attackCoroutine;
         private bool _isAttacking;
-    
+
+        private void Start()
+        {
+            _playerMovement ??= GetComponent<PlayerMovement>();
+            _mouseLook ??= GetComponent<MouseLook>();
+        }
+
         void OnEnable()
         {
             handler.OnPlayerAttack.AddListener(HandleAttack);
@@ -30,8 +36,8 @@ namespace Player
         private void HandleAttack()
         {
             if (_isAttacking) return;
-        
-            if(_attackCoroutine != null) StopCoroutine(_attackCoroutine);
+
+            if (_attackCoroutine != null) StopCoroutine(_attackCoroutine);
 
             _attackCoroutine = StartCoroutine(HandleAttackCoroutine());
         }
@@ -40,10 +46,17 @@ namespace Player
         {
             _isAttacking = true;
             attackObject.SetActive(true);
-            yield return new WaitForSeconds(attackDurationSeconds);
-        
+            float timer = 0;
+            float startTime = Time.time;
+            while (timer < attackProperties.duration)
+            {
+                _playerMovement.Velocity = _mouseLook.CursorDir * attackProperties.displacementForce;
+                timer = Time.time - startTime;
+                yield return null;
+            }
+
             attackObject.SetActive(false);
-            yield return new WaitForSeconds(attackDurationCooldownSeconds);
+            yield return new WaitForSeconds(attackProperties.coolDownDuration);
             _isAttacking = false;
         }
     }
