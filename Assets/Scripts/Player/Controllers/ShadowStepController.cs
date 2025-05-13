@@ -1,5 +1,6 @@
 using System.Collections;
 using FSM;
+using Health;
 using Player.Properties;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Player.Controllers
         private PlayerMovement _playerMovement;
         private MouseLook _mouseLook;
         private CharacterController _characterController;
+        private HealthPoints _healthPoints;
         private Coroutine _shadowstepCoroutine;
 
         private void OnEnable()
@@ -21,6 +23,7 @@ namespace Player.Controllers
             _playerMovement ??= GetComponent<PlayerMovement>();
             _mouseLook ??= GetComponent<MouseLook>();
             _characterController ??= GetComponent<CharacterController>();
+            _healthPoints ??= GetComponent<HealthPoints>();
         }
 
         public void OnEnter()
@@ -40,6 +43,7 @@ namespace Player.Controllers
             bool changedToWallslide = false;
 
             _characterController.excludeLayers |= _shadowStepProperties.avoidableObjects;
+            _healthPoints.SetCanTakeDamage(false);
             while (timer < _playerMovementProperties.shadowStepTime)
             {
                 _playerMovement.Shadowstep(direction);
@@ -47,6 +51,7 @@ namespace Player.Controllers
                 yield return null;
             }
 
+            _healthPoints.SetCanTakeDamage(true);
             _characterController.excludeLayers ^= _shadowStepProperties.avoidableObjects;
 
             if (agent.Checks.IsNearWall())
