@@ -9,5 +9,9 @@ namespace Player.Properties
         public float duration = 0.5f;
         public float coolDownDuration = 0.2f;
         public float displacementForce;
+
+        [Tooltip("Damage has to be setted even if it is only one attack")]
+        public int damage = 150;
+        public float hitStopSeconds = 0.1f;
     }
 }

@@ -42,3 +42,5 @@ MonoBehaviour:
   shadowStepTime: 0.2
   shadowStepVelocity: 50
   shadowStepCooldown: 1
+  bloodStepVelocity: 60
+  bloodStepTime: 0.4

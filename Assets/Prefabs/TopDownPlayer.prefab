@@ -261,11 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343374e32dd7c044a8fbbfa2ad36cff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 150
-  onBloodlustStart: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
-  onBloodlustEnd: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
-  onHeartbeatStart: {fileID: 11400000, guid: 792599aec4b441a49aa52840199da3e8, type: 2}
-  onHeartbeatEnd: {fileID: 11400000, guid: c81a90a07e2a3fc4e88ca50daac4d6c9, type: 2}
+  playerAttackProperties: {fileID: 11400000, guid: 4917520e4ef130b49a9886cfabf46d90, type: 2}
+  onFrenziedEvent: {fileID: 11400000, guid: ef4985810d9bd934abdba52e7ade37ad, type: 2}
+  onHitStop: {fileID: 11400000, guid: a8a8fb92168bc264495a0d271290d556, type: 2}
   onPlayEvent: {fileID: 11400000, guid: d81697f8835a04c42aa91bb535d74400, type: 2}
   decapitationEvent:
     idInternal: 0
@@ -416,6 +414,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6391947559083867225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7097206428759881477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5810652575251283138}
+  - component: {fileID: 3844962134219924673}
+  m_Layer: 6
+  m_Name: BloodStepCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5810652575251283138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097206428759881477}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 2.9816852, z: 1.4190174}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6391947559083867225}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3844962134219924673
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097206428759881477}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7736462112751391781
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +917,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8384174572108389143}
+    - targetCorrespondingSourceObject: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5810652575251283138}
     - targetCorrespondingSourceObject: {fileID: 9029471004409246011, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834116690527114928}
@@ -919,6 +975,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3952974800099293948}
+    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120912602510473844}
+    - targetCorrespondingSourceObject: {fileID: 1694611373442602405, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3959408854681076375}
   m_SourcePrefab: {fileID: 100100000, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
 --- !u!1 &238100018967637552 stripped
 GameObject:
@@ -1444,8 +1506,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
   playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: 22c541d1319a520479d31db7d0267efa, type: 2}
+  onPlayerDeath: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
   onPlayerRevive: {fileID: 11400000, guid: 759bf030b0f37734e82f041ac9950e9e, type: 2}
+  onFrenziedStart: {fileID: 11400000, guid: ef4985810d9bd934abdba52e7ade37ad, type: 2}
+  onFrenziedStop: {fileID: 11400000, guid: 6bf763bcfdc1da24da3f818394e46eb3, type: 2}
   playerTransform: {fileID: 11400000, guid: 33cff94758fa9be458f6c60e98048cb4, type: 2}
   onWalk:
     m_PersistentCalls:
@@ -1505,8 +1569,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
-  _playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
-  _shadowStepProperties: {fileID: 11400000, guid: e2af992e6748e0a48b9425ddb7e59d2d, type: 2}
+  playerMovementProperties: {fileID: 0}
+  shadowStepProperties: {fileID: 0}
+  bloodStepCollider: {fileID: 0}
+  onFrenzyEnable: {fileID: 0}
+  onFrenzyDisable: {fileID: 0}
 --- !u!114 &8298738303673191818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,6 +1603,40 @@ MonoBehaviour:
   healthPoints: {fileID: 2230639419180364887}
   agent: {fileID: 2452499770306614508}
   waitSeconds: 2
+--- !u!114 &1120912602510473844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182945775304313054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0608708f12d504ea4c18ee25ee4668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodlustProperties: {fileID: 11400000, guid: 18f2a7fb9a08a864a9ed71eede5b131c, type: 2}
+  handler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
+  onBloodlustStart: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
+  onBloodlustEnd: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
+  onBloodlustUsage: {fileID: 11400000, guid: 3d1982e3887ed0a40b550994bb23f2f4, type: 2}
+  onFrenzyStart: {fileID: 11400000, guid: ef4985810d9bd934abdba52e7ade37ad, type: 2}
+  onFrenzyEnd: {fileID: 11400000, guid: 6bf763bcfdc1da24da3f818394e46eb3, type: 2}
+--- !u!114 &3959408854681076375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182945775304313054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4625bb15f8d7e874f9806f60af6bd5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frenzyProperties: {fileID: 11400000, guid: dfc2aaaf4d15a1d4994b828c443c5aab, type: 2}
+  onFrenzyStart: {fileID: 11400000, guid: ef4985810d9bd934abdba52e7ade37ad, type: 2}
+  onFrenzyEnd: {fileID: 11400000, guid: 6bf763bcfdc1da24da3f818394e46eb3, type: 2}
 --- !u!1001 &7973061792389638147
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -208,10 +208,11 @@ namespace Player
             return (int)Mathf.Sign(_moveDirection.x);
         }
 
-        public void Shadowstep(Vector2 direction)
+        public void Shadowstep(Vector2 direction, bool isBloodstep)
         {
-            Velocity.x = playerMovementProperties.shadowStepVelocity * direction.x;
-            Velocity.y = playerMovementProperties.shadowStepVelocity * direction.y;
+            float velocityToUse = isBloodstep ? playerMovementProperties.bloodStepVelocity : playerMovementProperties.shadowStepVelocity;
+            Velocity.x = velocityToUse * direction.x;
+            Velocity.y = velocityToUse * direction.y;
 
             Move(Velocity * Time.deltaTime);
         }

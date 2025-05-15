@@ -3,16 +3,19 @@ using Enemy;
 using Events;
 using Events.Scriptables;
 using Health;
+using Player.Properties;
 using UnityEngine;
 
 namespace Player.Attacks
 {
     public class MeleeWeapon : MonoBehaviour
     {
-        [Header("Damage properties")]
-        [SerializeField] private int damage;
+        [Header("Damage properties")] 
+        [SerializeField] private PlayerAttackProperties playerAttackProperties;
 
-        [Header("Events")] [SerializeField] private VoidEventChannelSO onFrenziedEvent;
+        [Header("Events")] 
+        [SerializeField] private VoidEventChannelSO onFrenziedEvent;
+        [SerializeField] private FloatEventChannel onHitStop;
         [SerializeField] private AkWwiseEventChannelSO onPlayEvent;
         [SerializeField] private AK.Wwise.Event decapitationEvent;    
         
@@ -30,12 +33,13 @@ namespace Player.Attacks
             
             if (other.transform.TryGetComponent<ITakeDamage>(out ITakeDamage takeDamageInterface))
             {
-                takeDamageInterface.TryTakeDamage(damage);
+                takeDamageInterface.TryTakeDamage(playerAttackProperties.damage);
                 _hittedEnemies.Add(other);
 
                 if (other.gameObject.TryGetComponent<EnemyBeatHandler>(out EnemyBeatHandler enemyBeatHandler) && enemyBeatHandler.IsInHeartBeat && enemyBeatHandler.IsInBloodlust)
                 {
                     onPlayEvent?.RaiseEvent(decapitationEvent);
+                    onHitStop?.RaiseEvent(playerAttackProperties.hitStopSeconds);
                     onFrenziedEvent?.RaiseEvent();
                 }
             }
