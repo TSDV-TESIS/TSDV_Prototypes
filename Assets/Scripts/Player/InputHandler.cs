@@ -86,7 +86,7 @@ namespace Player
         public void OnInteractEvent(InputAction.CallbackContext context)
         {
             if (context.performed)
-                OnInteract?.Invoke();
+                OnInteract.Invoke();
         }
     }
 }
