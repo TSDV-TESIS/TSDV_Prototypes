@@ -424,13 +424,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5810652575251283138}
   - component: {fileID: 3844962134219924673}
+  - component: {fileID: 3216098065478409350}
   m_Layer: 6
   m_Name: BloodStepCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5810652575251283138
 Transform:
   m_ObjectHideFlags: 0
@@ -469,6 +470,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3216098065478409350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097206428759881477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efde87b3dde0e74196614da1bb22094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodStepProperties: {fileID: 11400000, guid: ecbb133bb56f9a741a6ac00584f966a3, type: 2}
+  onHitStop: {fileID: 11400000, guid: a8a8fb92168bc264495a0d271290d556, type: 2}
 --- !u!1 &7736462112751391781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3a23b0292845f45bc12ba3c0f3be18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logChanges: 1
+  logChanges: 0
   healthPoints: {fileID: 2230639419180364887}
   playerMovementChecks: {fileID: 9122317697623757532}
   groundedEvents:
@@ -1569,11 +1584,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
-  playerMovementProperties: {fileID: 0}
-  shadowStepProperties: {fileID: 0}
-  bloodStepCollider: {fileID: 0}
-  onFrenzyEnable: {fileID: 0}
-  onFrenzyDisable: {fileID: 0}
+  playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
+  shadowStepProperties: {fileID: 11400000, guid: e2af992e6748e0a48b9425ddb7e59d2d, type: 2}
+  bloodStepCollider: {fileID: 7097206428759881477}
+  onFrenzyEnable: {fileID: 11400000, guid: ef4985810d9bd934abdba52e7ade37ad, type: 2}
+  onFrenzyDisable: {fileID: 11400000, guid: 6bf763bcfdc1da24da3f818394e46eb3, type: 2}
 --- !u!114 &8298738303673191818
 MonoBehaviour:
   m_ObjectHideFlags: 0

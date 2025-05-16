@@ -147,7 +147,11 @@ namespace Player
         private void SetZPosition(Vector3 prevPos)
         {
             if (transform.position.z != 0)
-                transform.position = prevPos;
+            {
+                var vector3 = transform.position;
+                vector3.z = 0;
+                transform.position = vector3;
+            }
         }
 
         public void SetVerticalVelocity(float value)
