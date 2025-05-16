@@ -479,9 +479,11 @@ MonoBehaviour:
   - {fileID: 2103776553090905920}
   - {fileID: 3090096397659781288}
   disableSeconds: 0.5
+  onEnemyEnabled: {fileID: 11400000, guid: 2afde693373712a459fd5bba221fdfa8, type: 2}
   onEnemyDeath: {fileID: 11400000, guid: 9ab2348d68fe8e041bcd88bda4b0dc54, type: 2}
   onBloodlustStart: {fileID: 11400000, guid: a35f6f56a7aa8bb4ab396c441347dc5b, type: 2}
   onBloodlustEnd: {fileID: 11400000, guid: 9af1ae5dcd881ea4da96db96896b02c9, type: 2}
+  onEnemyDisabled: {fileID: 11400000, guid: 33d75e1a6724e3e4685688bdaaf89f48, type: 2}
 --- !u!114 &6192338590914362991
 MonoBehaviour:
   m_ObjectHideFlags: 0

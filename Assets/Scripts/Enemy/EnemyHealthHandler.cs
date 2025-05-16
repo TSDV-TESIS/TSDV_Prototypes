@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Events;
+using Events.Scriptables;
 using UI.Bars;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,12 +15,14 @@ namespace Enemy
         [SerializeField] private ParticleSystem splashBloodParticles;
         [SerializeField] private GameObject[] objectsToDisable;
         [SerializeField] private float disableSeconds;
-        
+
         [Header("Events")] 
+        [SerializeField] private GameObjectEventChannelSO onEnemyEnabled;
         [SerializeField] private IntEventChannelSO onEnemyDeath;
         [SerializeField] private VoidEventChannelSO onBloodlustStart;
         [SerializeField] private VoidEventChannelSO onBloodlustEnd;
-
+        [SerializeField] private GameObjectEventChannelSO onEnemyDisabled;
+        
         private Coroutine _disableCoroutine;
         private bool _isInBloodlust;
         private void OnEnable()
@@ -27,6 +30,11 @@ namespace Enemy
             _isInBloodlust = false;
             onBloodlustStart?.onEvent.AddListener(HandleFrenzyStart);
             onBloodlustEnd?.onEvent.AddListener(HandleFrenzyEnd);
+        }
+
+        private void Start()
+        {
+            onEnemyEnabled?.RaiseEvent(gameObject);
         }
 
         private void OnDisable()
@@ -67,6 +75,7 @@ namespace Enemy
             {
                 obj.SetActive(false);
             }
+            onEnemyDisabled?.RaiseEvent(gameObject);
             
             if(_disableCoroutine != null) StopCoroutine(_disableCoroutine);
             _disableCoroutine = StartCoroutine(DisableCoroutine());
