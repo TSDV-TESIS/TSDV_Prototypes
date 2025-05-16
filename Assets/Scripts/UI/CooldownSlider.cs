@@ -24,7 +24,6 @@ namespace UI
 
         private void HandleNewValue(float percentage)
         {
-            Debug.Log($"SLIDER: {percentage}");
             slider.value = percentage;
         }
     }
