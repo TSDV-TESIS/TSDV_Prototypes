@@ -40,3 +40,12 @@ MonoBehaviour:
     onUnload:
       m_PersistentCalls:
         m_Calls: []
+  - sceneName: Level3
+    sceneGuid: 2c0eb56ba45155f4fa901ab61a62f5ee
+    index: 3
+    onLoad:
+      m_PersistentCalls:
+        m_Calls: []
+    onUnload:
+      m_PersistentCalls:
+        m_Calls: []

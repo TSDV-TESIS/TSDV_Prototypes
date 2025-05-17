@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 7608288201676630522}
   - component: {fileID: 1164480357703688910}
   - component: {fileID: 3374577702686094360}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NextRoomDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

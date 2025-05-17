@@ -1508,9 +1508,11 @@ MonoBehaviour:
   loader: {fileID: 0}
   onPlayerDeath: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
   onDoorPosition: {fileID: 11400000, guid: a30e8b5ac8160044b8a8c1e7b00ec593, type: 2}
-  goObject: {fileID: 6264918852510319886}
-  maxGoPositions: {x: 800, y: 800}
-  minGoPositions: {x: 100, y: 100}
+  goObject: {fileID: 5710297127132402157}
+  maxGoPositions: {x: 800, y: 400}
+  minGoPositions: {x: -800, y: -400}
+  minInScreenPosition: {x: -1000, y: -600}
+  maxInScreenPosition: {x: 1000, y: 600}
 --- !u!1 &7200519195526106518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,10 +2120,5 @@ PrefabInstance:
 --- !u!224 &5710297127132402157 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5852905872367613647, guid: be396b2ab1bb00848943870b8263b3a0, type: 3}
-  m_PrefabInstance: {fileID: 2163625690194110242}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6264918852510319886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5257891657158451756, guid: be396b2ab1bb00848943870b8263b3a0, type: 3}
   m_PrefabInstance: {fileID: 2163625690194110242}
   m_PrefabAsset: {fileID: 0}

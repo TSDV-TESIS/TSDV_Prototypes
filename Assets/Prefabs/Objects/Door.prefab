@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 43.17377, y: 0.38430297, z: 1.1106689}
-  m_LocalScale: {x: 1, y: 3.1708508, z: 3.0273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2329544820068646526}
@@ -65,6 +65,18 @@ PrefabInstance:
     - target: {fileID: 2436067665330595577, guid: 6b4d2c8aec16e064abf24eccea54c11a, type: 3}
       propertyPath: m_Name
       value: DoorModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676669671787050013, guid: 6b4d2c8aec16e064abf24eccea54c11a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676669671787050013, guid: 6b4d2c8aec16e064abf24eccea54c11a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676669671787050013, guid: 6b4d2c8aec16e064abf24eccea54c11a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4676669671787050013, guid: 6b4d2c8aec16e064abf24eccea54c11a, type: 3}
       propertyPath: m_LocalPosition.x

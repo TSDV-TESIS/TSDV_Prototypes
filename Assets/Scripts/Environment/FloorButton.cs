@@ -12,6 +12,7 @@ public class FloorButton : MonoBehaviour
     {
         if (other.CompareTag("Player") && !touchingColliders.Contains(other))
         {
+            Debug.Log("touching collider");
             touchingColliders.Add(other);
             door.SetActive(false);
         }
