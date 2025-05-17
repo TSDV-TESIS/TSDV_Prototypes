@@ -1,38 +1,43 @@
-using Player;
-using Unity.Mathematics;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private InputHandler handler;
-    [SerializeField] private bool is2D;
-    [SerializeField] private GameObject visorPivot;
-
-    private float _angle;
-
-    void OnEnable()
+    public class MouseLook : MonoBehaviour
     {
-        handler.OnPlayerLook.AddListener(HandleLookDir);
-    }
+        [SerializeField] private InputHandler handler;
+        [SerializeField] private bool is2D;
+        [SerializeField] private GameObject visorPivot;
 
-    private void OnDisable()
-    {
-        handler.OnPlayerLook.RemoveListener(HandleLookDir);
-    }
+        private float _angle;
 
-    private void HandleLookDir(Vector2 cursorPos)
-    {
-        Vector2 viewPortPos = Camera.main.ScreenToViewportPoint(cursorPos);
-        Vector2 playerPosOnViewport = Camera.main.WorldToViewportPoint(transform.position);
-        viewPortPos -= new Vector2(playerPosOnViewport.x, playerPosOnViewport.y);
+        private Vector2 _viewPortPos;
+        private Vector2 cursorDir;
+        public Vector2 CursorDir => cursorDir.normalized;
 
-        _angle = Mathf.Atan2(viewPortPos.x, viewPortPos.y) * Mathf.Rad2Deg;
-        if (is2D)
+        void OnEnable()
         {
-            visorPivot.transform.rotation = Quaternion.AngleAxis(-_angle + 90, Vector3.forward) * transform.rotation;
-            return;
+            handler.OnPlayerLook.AddListener(HandleLookDir);
         }
 
-        transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
+        private void OnDisable()
+        {
+            handler.OnPlayerLook.RemoveListener(HandleLookDir);
+        }
+
+        private void HandleLookDir(Vector2 cursorPos)
+        {
+            _viewPortPos = Camera.main.ScreenToViewportPoint(cursorPos);
+            Vector2 playerPosOnViewport = Camera.main.WorldToViewportPoint(transform.position);
+            cursorDir = _viewPortPos - new Vector2(playerPosOnViewport.x, playerPosOnViewport.y);
+
+            _angle = Mathf.Atan2(cursorDir.x, cursorDir.y) * Mathf.Rad2Deg;
+            if (is2D)
+            {
+                visorPivot.transform.rotation = Quaternion.AngleAxis(-_angle + 90, Vector3.forward) * transform.rotation;
+                return;
+            }
+
+            transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
+        }
     }
 }

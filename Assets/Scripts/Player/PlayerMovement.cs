@@ -21,7 +21,9 @@ namespace Player
         [Header("Events")]
         [SerializeField] private VoidEventChannelSO onPlayerDeath;
         [SerializeField] private VoidEventChannelSO onPlayerRevive;
-
+        [SerializeField] private VoidEventChannelSO onFrenziedStart;
+        [SerializeField] private VoidEventChannelSO onFrenziedStop;
+        
         [Header("Save properties")]
         [SerializeField] private PlayerTransform playerTransform;
 
@@ -37,6 +39,8 @@ namespace Player
         private Vector3 _moveDirection;
 
         public Vector3 MoveDirection => _moveDirection;
+
+        private bool _isFrenzied;
 
         public float MaxSpeed
         {
@@ -56,6 +60,8 @@ namespace Player
 
             onPlayerDeath.onEvent.AddListener(HandleDeath);
             onPlayerRevive.onEvent.AddListener(HandleRevive);
+            onFrenziedStart.onEvent.AddListener(HandleIsFrenzied);
+            onFrenziedStop.onEvent.AddListener(HandleStopFrenzy);
             Velocity = new Vector2(playerMovementProperties.maxSpeed, 0);
         }
 
@@ -65,6 +71,19 @@ namespace Player
 
             onPlayerDeath.onEvent.RemoveListener(HandleDeath);
             onPlayerRevive.onEvent.RemoveListener(HandleRevive);
+            
+            onFrenziedStart.onEvent.RemoveListener(HandleIsFrenzied);
+            onFrenziedStop.onEvent.RemoveListener(HandleStopFrenzy);
+        }
+
+        private void HandleStopFrenzy()
+        {
+            _isFrenzied = false;
+        }
+
+        private void HandleIsFrenzied()
+        {
+            _isFrenzied = true;
         }
 
         public void HandleWalk()
@@ -76,21 +95,31 @@ namespace Player
         {
             _moveDirection = moveDirection;
             Vector3 prevPos = transform.position;
-            
+
             if (_canWalk)
             {
+                float acceleration = _isFrenzied
+                    ? playerMovementProperties.frenziedAcceleration
+                    : playerMovementProperties.acceleration;
+
+                float maxSpeed = _isFrenzied
+                    ? playerMovementProperties.frenziedMaxSpeed
+                    : playerMovementProperties.maxSpeed;
                 Velocity.x = Mathf.Clamp(
-                Velocity.x + (_moveDirection.x * playerMovementProperties.acceleration * Time.deltaTime),
-                -playerMovementProperties.maxSpeed, playerMovementProperties.maxSpeed);
+                Velocity.x + (_moveDirection.x * acceleration * Time.deltaTime),
+                -maxSpeed, maxSpeed);
             }
-            
+
             Move(Velocity * Time.deltaTime);
             SetZPosition(prevPos);
         }
 
         public void HandleDeceleration()
         {
-            Velocity.x = Mathf.Sign(Velocity.x) * Mathf.Clamp(Mathf.Abs(Velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, playerMovementProperties.maxSpeed);
+            float maxSpeed = _isFrenzied
+                ? playerMovementProperties.frenziedMaxSpeed
+                : playerMovementProperties.maxSpeed;
+            Velocity.x = Mathf.Sign(Velocity.x) * Mathf.Clamp(Mathf.Abs(Velocity.x) - playerMovementProperties.friction * Time.deltaTime, 0, maxSpeed);
             if (Velocity.x != 0)
                 onWalk?.Invoke(Mathf.Sign(Velocity.x));
             else
@@ -172,6 +201,20 @@ namespace Player
         public void Grounded()
         {
             Velocity.y = 0;
+        }
+
+        public int GetMoveDirectionSign()
+        {
+            return (int)Mathf.Sign(_moveDirection.x);
+        }
+
+        public void Shadowstep(Vector2 direction, bool isBloodstep)
+        {
+            float velocityToUse = isBloodstep ? playerMovementProperties.bloodStepVelocity : playerMovementProperties.shadowStepVelocity;
+            Velocity.x = velocityToUse * direction.x;
+            Velocity.y = velocityToUse * direction.y;
+
+            Move(Velocity * Time.deltaTime);
         }
     }
 }

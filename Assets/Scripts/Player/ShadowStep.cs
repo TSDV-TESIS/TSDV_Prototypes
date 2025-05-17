@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Events;
 using Health;
+using Player.Shadow;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,98 +12,35 @@ namespace Player
     [RequireComponent(typeof(PlayerMovement), typeof(HealthPoints))]
     public class ShadowStep : MonoBehaviour
     {
-        [SerializeField] private InputHandler input;
-        [SerializeField] private Collider playerCollider;
-        [SerializeField] private float shadowVelocity;
-        [SerializeField] private float healthDecayPerSecond;
-        [SerializeField] private LayerMask trespassableColliders;
-
         [Header("Shadow")]
         [SerializeField] private GameObject shadowPrefab;
         [SerializeField] private float spawnRate;
         [SerializeField] private float shadowDecayDelay;
-        [SerializeField] private VoidEventChannelSO onPlayerShouldDie;
-        [SerializeField] private VoidEventChannelSO onPlayerDeath;
 
         [Header("Visuals")]
         [SerializeField] private MeshRenderer playerRenderer;
         [SerializeField] private Material shadowMat;
 
-        private PlayerMovement _playerPlayerMovement;
-        private CharacterController _characterController;
-        private HealthPoints _healthPoints;
-        private bool _isShadow = false;
-        private float _prevSpeed;
-        private Material _prevMaterial;
-        private LayerMask _defaultLayerMask;
-
-        private float _accumulatedDecay = 0;
-
-
-        private List<GameObject> _shadows = new List<GameObject>();
+        private List<GameObject> _shadows;
         private Coroutine _spawnShadows;
-
+        private bool _isShadow;
+        
         void OnEnable()
         {
-            input.OnPlayerShadowStep.AddListener(ShadowStepToggle);
-            _playerPlayerMovement ??= GetComponent<PlayerMovement>();
-            _characterController ??= GetComponent<CharacterController>();
-            _healthPoints ??= GetComponent<HealthPoints>();
-            _prevMaterial = playerRenderer.material;
-            _prevSpeed = _playerPlayerMovement.MaxSpeed;
-            _defaultLayerMask = _characterController.excludeLayers;
-
-            onPlayerShouldDie.onEvent.AddListener(HandlePlayerDeath);
+            _shadows ??= new List<GameObject>();
         }
 
-        private void Update()
+        public void InitShadowStepShadows()
         {
-            if (!_isShadow)
-                return;
-
-            _accumulatedDecay += healthDecayPerSecond * Time.deltaTime;
-            if (_accumulatedDecay > 1)
-            {
-                _healthPoints.TryTakeDamage(Mathf.FloorToInt(_accumulatedDecay));
-                _accumulatedDecay -= 1;
-            }
-        }
-
-        private void ShadowStepToggle()
-        {
-            _isShadow = !_isShadow;
-            if (_isShadow)
-            {
-                playerRenderer.material = shadowMat;
-                _playerPlayerMovement.MaxSpeed = shadowVelocity;
-                _characterController.excludeLayers = trespassableColliders;
-
-                if (_spawnShadows != null)
-                    StopCoroutine(_spawnShadows);
-
-                _spawnShadows = StartCoroutine(SpawnShadows());
-            }
-            else
-            {
-                playerRenderer.material = _prevMaterial;
-                _playerPlayerMovement.MaxSpeed = _prevSpeed;
-                _characterController.excludeLayers = _defaultLayerMask;
-            }
-
-            playerCollider.isTrigger = _isShadow;
-        }
-
-        private void HandlePlayerDeath()
-        {
-            if (_isShadow)
-            {
+            _isShadow = true;
+            if (_spawnShadows != null)
                 StopCoroutine(_spawnShadows);
-                StartCoroutine(DeathCollapse());
-            }
-            else
-            {
-                onPlayerDeath.RaiseEvent();
-            }
+            _spawnShadows = StartCoroutine(SpawnShadows());
+        }
+
+        public void StopShadows()
+        {
+            _isShadow = false;
         }
 
         private IEnumerator SpawnShadows()
@@ -136,16 +74,6 @@ namespace Player
             }
 
             _shadows.Clear();
-        }
-
-        private IEnumerator DeathCollapse()
-        {
-            ShadowStepToggle();
-            yield return CollapseShadows();
-            if (_healthPoints.IsDead())
-            {
-                onPlayerDeath.RaiseEvent();
-            }
         }
 
         private void ClearShadows()

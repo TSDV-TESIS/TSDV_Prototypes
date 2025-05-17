@@ -10,6 +10,10 @@ namespace Player.Properties
         public float friction;
         public float maxSpeed;
 
+        [Header("Frenzied movement")] 
+        public float frenziedAcceleration;
+        public float frenziedMaxSpeed;
+
         [Header("Jumping properties")]
         public float gravity;
         public float jumpForce;
@@ -41,5 +45,12 @@ namespace Player.Properties
         [Header("Gizmos")]
         public bool shouldDrawGizmos = false;
 
+        [Header("ShadowStep")]
+        public float shadowStepTime = 0.5f;
+
+        public float shadowStepVelocity = 10f;
+        public double shadowStepCooldown = 1f;
+        public float bloodStepVelocity;
+        public float bloodStepTime;
     }
 }

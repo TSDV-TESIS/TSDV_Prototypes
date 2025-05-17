@@ -32,6 +32,7 @@ namespace Player.Controllers
         {
             _isActive = true;
             input.OnPlayerJump.AddListener(OnJump);
+            input.OnPlayerShadowStep.AddListener(OnShadowstep);
             onWallHitEnter.Invoke(agent.Checks.WallrideHitPosition, agent.Checks.WallSlideDirection);
         }
 
@@ -53,6 +54,7 @@ namespace Player.Controllers
         {
             _isActive = false;
             input.OnPlayerJump.RemoveListener(OnJump);
+            input.OnPlayerShadowStep.RemoveListener(OnShadowstep);
         }
 
         private void OnJump()
@@ -60,6 +62,11 @@ namespace Player.Controllers
             _movement.WallJump(agent.Checks.WallSlideDirection);
             agent.Checks.StopCheckingWall();
             agent.ChangeStateToJumping();
+        }
+        
+        private void OnShadowstep()
+        {
+            agent.ChangeStateToShadowStep();
         }
     }
 }

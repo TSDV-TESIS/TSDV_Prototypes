@@ -1,3 +1,4 @@
+using System;
 using FSM;
 using UnityEngine;
 
@@ -7,10 +8,27 @@ namespace Player.Controllers
     public class FallingController : Controller<PlayerAgent>
     {
         private PlayerMovement _playerMovement;
+        [SerializeField] private InputHandler inputHandler;
 
         private void OnEnable()
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
+            inputHandler?.OnPlayerShadowStep.AddListener(HandleShadowstep);
+        }
+
+        private void Start()
+        {
+            inputHandler?.OnPlayerShadowStep.RemoveListener(HandleShadowstep);
+        }
+
+        private void OnDisable()
+        {
+            inputHandler?.OnPlayerShadowStep.RemoveListener(HandleShadowstep);
+        }
+
+        private void HandleShadowstep()
+        {
+            agent.ChangeStateToShadowStep();
         }
 
         public override void OnUpdate()

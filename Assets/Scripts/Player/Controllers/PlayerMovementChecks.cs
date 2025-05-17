@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Events.Scriptables;
 using Player.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Player.Controllers
         [Header("Head pivot")] [SerializeField]
         private Transform headPivot;
 
+        [Header("Events")] [SerializeField] private FloatEventChannel onShadowstepCooldownValueEvent;
+
         [NonSerialized] public Vector3 WallrideHitPosition;
 
         private RaycastHit _groundHit;
@@ -27,6 +30,7 @@ namespace Player.Controllers
 
         private bool _isWallSliding;
         [NonSerialized] public int WallSlideDirection;
+        [NonSerialized] public bool IsShadowStepOnCooldown;
 
         private bool _shouldCheckWall;
         private bool _shouldUnboundWall;
@@ -34,6 +38,7 @@ namespace Player.Controllers
         private bool _inWallrideCoyoteTime;
         private Coroutine _shouldCheckWallCoroutine;
         private Coroutine _unboundWallCoroutine;
+        private Coroutine _shadowstepCooldownCoroutine;
 
         private void OnEnable()
         {
@@ -197,6 +202,22 @@ namespace Player.Controllers
             return hasRaycast;
         }
 
+        public bool WallRaycast(out int signThatHits)
+        {
+            if (WallRaycast(-1))
+            {
+                signThatHits = -1;
+                return true;
+            } if (WallRaycast(1))
+            {
+                signThatHits = 1;
+                return true;
+            }
+
+            signThatHits = 0;
+            return false;
+        }
+
         public bool IsOnSlope()
         {
             if (!IsGrounded()) return false;
@@ -242,6 +263,32 @@ namespace Player.Controllers
                 Gizmos.DrawLine(feetPivot.position,
                 feetPivot.position + Vector3.left * playerMovementProperties.wallCheckDistance);
             }
+        }
+
+        public bool IsNearWall()
+        {
+            return WallRaycast(out WallSlideDirection);
+        }
+
+        public void SetShadowstepOnCooldown()
+        {
+            if(_shadowstepCooldownCoroutine != null) StopCoroutine(_shadowstepCooldownCoroutine);
+            _shadowstepCooldownCoroutine = StartCoroutine(ShadowStepOnCooldown());
+        }
+
+        private IEnumerator ShadowStepOnCooldown()
+        {
+            float timer = 0;
+            IsShadowStepOnCooldown = true;
+            while (timer < playerMovementProperties.shadowStepCooldown)
+            {
+                onShadowstepCooldownValueEvent?.RaiseEvent((float)(timer / playerMovementProperties.shadowStepCooldown));
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            onShadowstepCooldownValueEvent?.RaiseEvent(1);
+            IsShadowStepOnCooldown = false;
         }
     }
 }

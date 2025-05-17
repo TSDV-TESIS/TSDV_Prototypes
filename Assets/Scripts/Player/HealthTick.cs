@@ -1,37 +1,38 @@
-using System;
 using System.Collections;
 using Health;
+using Player.Properties;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthPoints))]
-public class HealthTick : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private int healthTakenPerTick = 15;
-    [SerializeField] private float secondsPerTick = 2f;
-    [SerializeField] private bool shouldTick = true;
-    
-    private HealthPoints _healthPoints;
-    private Coroutine _tickCoroutine;
-    void OnEnable()
+    [RequireComponent(typeof(HealthPoints))]
+    public class HealthTick : MonoBehaviour
     {
-        _healthPoints ??= GetComponent<HealthPoints>();
+        [SerializeField] private HealthTickProperties healthTickProperties;
         
-        if(_tickCoroutine != null) StopCoroutine(_tickCoroutine);
-        StartCoroutine(Tick());
-    }
-
-    private void OnDisable()
-    {
-        if(_tickCoroutine != null) StopCoroutine(_tickCoroutine);
-
-    }
-
-    private IEnumerator Tick()
-    {
-        while (shouldTick)
+        private HealthPoints _healthPoints;
+        private Coroutine _tickCoroutine;
+        void OnEnable()
         {
-            yield return new WaitForSeconds(secondsPerTick);
-            _healthPoints.TryTakeDamage(healthTakenPerTick);
+            _healthPoints ??= GetComponent<HealthPoints>();
+        
+            if(_tickCoroutine != null) StopCoroutine(_tickCoroutine);
+            StartCoroutine(Tick());
+        }
+
+        private void OnDisable()
+        {
+            if(_tickCoroutine != null) StopCoroutine(_tickCoroutine);
+        }
+
+        private IEnumerator Tick()
+        {
+            while (healthTickProperties.shouldTick)
+            {
+                yield return new WaitForSeconds(healthTickProperties.secondsPerTick);
+                _healthPoints.TryTakeDamage(healthTickProperties.healthTakenPerTick);
+                
+            }
         }
     }
 }

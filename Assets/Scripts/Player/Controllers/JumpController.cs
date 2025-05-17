@@ -10,10 +10,32 @@ namespace Player.Controllers
     {
         private PlayerMovement _playerMovement;
         [SerializeField] private PlayerMovementProperties playerMovementProperties;
+        [SerializeField] private InputHandler inputHandler;
 
         private void OnEnable()
         {
             _playerMovement ??= GetComponent<PlayerMovement>();
+            inputHandler?.OnPlayerShadowStep.AddListener(HandleShadowstep);
+        }
+
+        private void Start()
+        {
+            inputHandler?.OnPlayerShadowStep.RemoveListener(HandleShadowstep);
+        }
+
+        private void OnDisable()
+        {
+            inputHandler?.OnPlayerShadowStep.RemoveListener(HandleShadowstep);
+        }
+        
+        private void Jump()
+        {
+            _playerMovement.Jump();
+        }
+
+        private void HandleShadowstep()
+        {
+            agent.ChangeStateToShadowStep();
         }
 
         public override void OnUpdate()
@@ -47,11 +69,6 @@ namespace Player.Controllers
 
             if (agent.Checks.ShouldWallSlide(_playerMovement.MoveDirection, _playerMovement.Velocity))
                 agent.ChangeStateToWallSlide();
-        }
-
-        public void Jump()
-        {
-            _playerMovement.Jump();
         }
     }
 }
