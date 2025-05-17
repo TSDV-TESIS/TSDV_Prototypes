@@ -6,7 +6,6 @@ namespace Environment
     public class WallDoorButton : MonoBehaviour, IInteractable
     {
         [SerializeField] private Material highlightMaterial;
-        [SerializeField] private GameObject model;
         [SerializeField] private GameObject door;
 
         private Material _defaultMaterial;
@@ -14,7 +13,7 @@ namespace Environment
 
         private void OnEnable()
         {
-            _renderer ??= model.GetComponent<MeshRenderer>();
+            _renderer ??= GetComponent<MeshRenderer>();
             _defaultMaterial = _renderer.material;
         }
 
