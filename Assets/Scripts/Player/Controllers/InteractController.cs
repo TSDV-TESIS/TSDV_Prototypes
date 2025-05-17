@@ -16,12 +16,12 @@ namespace Player.Controllers
         private void OnTriggerEnter(Collider other)
         {
             _interactableObject = other.GetComponent<IInteractable>();
-            _interactableObject.Highlight(true);
+            _interactableObject?.Highlight(true);
         }
 
         private void OnTriggerExit(Collider other)
         {
-            _interactableObject.Highlight(false);
+            _interactableObject?.Highlight(false);
             _interactableObject = null;
         }
 
