@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 5776114738337953472}
   - component: {fileID: 5885191011555570919}
   - component: {fileID: 2893197878166141398}
-  - component: {fileID: 265463628669116701}
   m_Layer: 0
   m_Name: L_bandera
   m_TagString: Untagged
@@ -345,27 +344,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &265463628669116701
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303013491462728980}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.06, y: 5.19, z: 0.21496108}
-  m_Center: {x: 0, y: 0.18, z: -0.000000011175871}
 --- !u!1 &6152309173791296384
 GameObject:
   m_ObjectHideFlags: 0

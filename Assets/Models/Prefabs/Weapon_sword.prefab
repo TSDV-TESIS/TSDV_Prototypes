@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5094260546102998335}
   - component: {fileID: 2675461959919625307}
   - component: {fileID: 7414329587127207124}
-  - component: {fileID: 2620005730920083256}
   m_Layer: 0
   m_Name: Filo
   m_TagString: Untagged
@@ -87,28 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2620005730920083256
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615113949589300704}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6433572835903519283, guid: b85c66b8cd08b0c4483eae0ce04013e3, type: 3}
 --- !u!1 &1768559853852158786
 GameObject:
   m_ObjectHideFlags: 0
