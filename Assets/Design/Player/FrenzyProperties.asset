@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad67ade51264228b3768cb845908f19, type: 3}
   m_Name: FrenzyProperties
   m_EditorClassIdentifier: 
-  frenziedDuration: 2
+  frenziedDuration: 10

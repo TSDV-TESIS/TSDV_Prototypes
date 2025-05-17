@@ -111,7 +111,6 @@ namespace Player.Controllers
 
         private bool ShouldUnboundByInput(Vector3 moveDirection)
         {
-            Debug.Log($"VALUES: {_shouldCheckWall} {_shouldUnboundWall} {_isWallSliding} {_unboundWallCoroutine != null}");
             if (!_shouldCheckWall)
             {
                 StopUnbounding();

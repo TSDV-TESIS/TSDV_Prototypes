@@ -1,18 +1,23 @@
+using Events.Scriptables;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Loader : MonoBehaviour
+namespace Managers
 {
-    [SerializeField] private InputHandler input;
-    
-    void Start()
+    public class Loader : MonoBehaviour
     {
-        input.OnRestartScene.AddListener(RestartScene);
-    }
+        [SerializeField] private InputHandler input;
+        [SerializeField] private StringEventChannelSO onLoadScene;
+        
+        void Start()
+        {
+            input.OnRestartScene.AddListener(RestartScene);
+        }
 
-    public void RestartScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        public void RestartScene()
+        {
+            onLoadScene?.RaiseEvent(SceneManager.GetActiveScene().name);
+        }
     }
 }

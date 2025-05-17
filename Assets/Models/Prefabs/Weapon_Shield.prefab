@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 1335578237232041745}
   - component: {fileID: 1375599366375851572}
   - component: {fileID: 4008895740097734989}
-  - component: {fileID: 3009663422736117637}
   m_Layer: 0
   m_Name: Shield_Geo
   m_TagString: Weapon_Shield
@@ -238,24 +237,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3009663422736117637
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8979630186130471864}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6028985, y: 0.12542877, z: 0.7441234}
-  m_Center: {x: -0.000000029802322, y: 0.06451568, z: -0.3720617}
