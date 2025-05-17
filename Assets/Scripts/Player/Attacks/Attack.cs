@@ -1,4 +1,5 @@
 using System.Collections;
+using Player.Controllers;
 using Player.Properties;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Player
 {
     public class Attack : MonoBehaviour
     {
+        [SerializeField] private PlayerAnimationController animationController;
+
         [SerializeField] private GameObject attackObject;
         [SerializeField] private InputHandler handler;
 
@@ -46,6 +49,7 @@ namespace Player
 
         private IEnumerator HandleAttackCoroutine()
         {
+            animationController.HandleAttack();
             _isAttacking = true;
             attackObject.SetActive(true);
             float timer = 0;
@@ -60,6 +64,7 @@ namespace Player
                 timer = Time.time - startTime;
                 yield return null;
             }
+            animationController.HandleStopAttack();
             _playerMovement.IsAttacking = false;
             
             _shadows.StopShadows();

@@ -12,6 +12,8 @@ namespace Player
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private PlayerAnimationController animationController;
+        
         [Header("Input Handler")]
         [SerializeField] private InputHandler input;
 
@@ -98,6 +100,16 @@ namespace Player
         {
             if (IsAttacking) return;
             _moveDirection = moveDirection;
+            
+            if (_moveDirection != Vector3.zero)
+            {
+                animationController.HandleWalk();
+            }
+            else
+            {
+                animationController.HandleIdle();
+            }
+            
             Vector3 prevPos = transform.position;
 
             if (_canWalk)
