@@ -25,11 +25,11 @@ MonoBehaviour:
   checkDistance: 0.61
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   wallCheckDistance: 0.83
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 1536
   lockDuration: 0.5
   wallSlideGravity: 65
   maxWallSlideVerticalVelocity: 5
@@ -37,10 +37,11 @@ MonoBehaviour:
   unboundTime: 0.5
   wallVelocityCheck: 5
   wallRideMaxCoyoteSeconds: 0.61
-  maxSlopeAngle: 45
+  maxSlopeAngle: 50
   shouldDrawGizmos: 1
   shadowStepTime: 0.2
   shadowStepVelocity: 50
   shadowStepCooldown: 1
   bloodStepVelocity: 60
   bloodStepTime: 0.4
+  ceilingCheckWaitTime: 0.5

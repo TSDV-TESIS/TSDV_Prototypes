@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototype/CrimsonMechanicsTest.unity
     guid: bab75e48104245741ae3813bf25ee89d
   - enabled: 1
-    path: Assets/Scenes/Prototype/Level1.unity
+    path: Assets/Scenes/Prototype/Levels/Level1.unity
     guid: 09a45c5b9ca9afb40845e9308a863503
+  - enabled: 1
+    path: Assets/Scenes/Prototype/Levels/Level2.unity
+    guid: d39bf4c5ecdde4d44a66316f6c5867ec
+  - enabled: 1
+    path: Assets/Scenes/Prototype/Levels/Level3.unity
+    guid: 2c0eb56ba45155f4fa901ab61a62f5ee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

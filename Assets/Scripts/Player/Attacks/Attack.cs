@@ -1,4 +1,5 @@
 using System.Collections;
+using Player.Controllers;
 using Player.Properties;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Player
 {
     public class Attack : MonoBehaviour
     {
+        [SerializeField] private PlayerAnimationController animationController;
+
         [SerializeField] private GameObject attackObject;
         [SerializeField] private InputHandler handler;
 
@@ -46,19 +49,24 @@ namespace Player
 
         private IEnumerator HandleAttackCoroutine()
         {
+            animationController.HandleAttack();
             _isAttacking = true;
             attackObject.SetActive(true);
             float timer = 0;
             float startTime = Time.time;
 
             _shadows.InitShadowStepShadows();
+            _playerMovement.IsAttacking = true;
             while (timer < attackProperties.duration)
             {
                 _playerMovement.Velocity = _mouseLook.CursorDir * attackProperties.displacementForce;
+                _playerMovement.Move(_playerMovement.Velocity * Time.deltaTime);
                 timer = Time.time - startTime;
                 yield return null;
             }
-
+            animationController.HandleStopAttack();
+            _playerMovement.IsAttacking = false;
+            
             _shadows.StopShadows();
             attackObject.SetActive(false);
             yield return new WaitForSeconds(attackProperties.coolDownDuration);

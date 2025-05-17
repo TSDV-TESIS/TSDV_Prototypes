@@ -33,15 +33,18 @@ namespace Player.Controllers
         [NonSerialized] public bool IsShadowStepOnCooldown;
 
         private bool _shouldCheckWall;
+        private bool _shouldCheckCeiling;
         private bool _shouldUnboundWall;
         private float _wallRideInCoyoteSeconds;
         private bool _inWallrideCoyoteTime;
         private Coroutine _shouldCheckWallCoroutine;
         private Coroutine _unboundWallCoroutine;
         private Coroutine _shadowstepCooldownCoroutine;
+        private Coroutine _shouldCheckCeilingCoroutine;
 
         private void OnEnable()
         {
+            _shouldCheckCeiling = true;
             _shouldCheckWall = true;
             _shouldUnboundWall = false;
             _inWallrideCoyoteTime = false;
@@ -155,14 +158,25 @@ namespace Player.Controllers
 
         public bool IsNearCeiling()
         {
-            if (Physics.Raycast(headPivot.position, Vector3.up, out _ceilingHit,
-                playerMovementProperties.checkDistance))
+            if (_shouldCheckCeiling && Physics.Raycast(headPivot.position, Vector3.up, out _ceilingHit,
+                    playerMovementProperties.checkDistance, playerMovementProperties.whatIsWall | playerMovementProperties.whatIsGround))
+
             {
                 Debug.Log($"Normal: {_ceilingHit.normal} is equal to V3.Down {_ceilingHit.normal == Vector3.down}");
+                
+                if(_shouldCheckCeilingCoroutine != null) StopCoroutine(_shouldCheckCeilingCoroutine);
+                _shouldCheckCeilingCoroutine =  StartCoroutine(ShouldCheckCeilingCoroutine());
                 return _ceilingHit.normal == Vector3.down;
             }
 
             return false;
+        }
+
+        private IEnumerator ShouldCheckCeilingCoroutine()
+        {
+            _shouldCheckCeiling = false;
+            yield return new WaitForSeconds(playerMovementProperties.ceilingCheckWaitTime);
+            _shouldCheckCeiling = true;
         }
 
         public bool IsNearCorner(out float cornerDisplace)
@@ -255,7 +269,8 @@ namespace Player.Controllers
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(feetPivot.position,
                 feetPivot.position + Vector3.down * playerMovementProperties.checkDistance);
-
+                Gizmos.DrawLine(headPivot.position, headPivot.position + Vector3.up * playerMovementProperties.checkDistance);
+                
                 // Wall raycast
                 Gizmos.color = Color.green;
                 Gizmos.DrawLine(feetPivot.position,

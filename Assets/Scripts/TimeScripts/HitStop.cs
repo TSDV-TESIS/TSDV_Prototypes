@@ -10,6 +10,8 @@ namespace TimeScripts
         
         [SerializeField] private FloatEventChannel onHitStop;
 
+        [SerializeField] private float reducedTimeInHit = 0.1f;
+        
         private Coroutine _hitStopCoroutine;
         
         private void OnEnable()
@@ -31,7 +33,7 @@ namespace TimeScripts
         private IEnumerator HitStopCoroutine(float hitStopTime)
         {
             float timer = 0;
-            Time.timeScale = 0;
+            Time.timeScale = reducedTimeInHit;
             while (timer < hitStopTime)
             {
                 timer += Time.unscaledDeltaTime;

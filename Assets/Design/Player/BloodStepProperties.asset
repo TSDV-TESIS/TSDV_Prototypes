@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BloodStepProperties
   m_EditorClassIdentifier: 
   damage: 150
-  hitStopSeconds: 0.2
+  hitStopSeconds: 0.5

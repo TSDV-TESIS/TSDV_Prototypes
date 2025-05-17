@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="2179486487" Type="User" Language="SFX" Hash="{2F8279E5-BED1-EEED-40FD-B38E695D8F68}">
+			<ShortName>HeartBeat</ShortName>
+			<Path>HeartBeat.bnk</Path>
+			<Media>
+				<File Id="601613535" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Heartbeat.wav</ShortName>
+					<CachePath>SFX/Heartbeat_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1056328430" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>decapitation.wav</ShortName>
+					<CachePath>SFX/decapitation_FBC78EF0.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="110328308" Name="PlayDecapitation">
+					<MediaRefs>
+						<MediaRef Id="1056328430"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4284960165" Name="PlayHeartbeat">
+					<MediaRefs>
+						<MediaRef Id="601613535"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3086540886" Name="StopAll" MaxAttenuation="0"/>
+				<Event Id="1680636502" Name="StopDecapitation" MaxAttenuation="0"/>
+				<Event Id="111480559" Name="StopHeartbeat" MaxAttenuation="0">
+					<MediaRefs>
+						<MediaRef Id="601613535"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{C093E930-9A5E-9CFB-4606-905D907D4A82}</FileHash>
+</SoundBanksInfo>

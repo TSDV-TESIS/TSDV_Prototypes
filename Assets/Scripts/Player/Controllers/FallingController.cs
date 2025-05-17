@@ -1,5 +1,6 @@
 using System;
 using FSM;
+using Player.Properties;
 using UnityEngine;
 
 namespace Player.Controllers
@@ -9,6 +10,8 @@ namespace Player.Controllers
     {
         private PlayerMovement _playerMovement;
         [SerializeField] private InputHandler inputHandler;
+        [SerializeField] private PlayerMovementProperties playerMovementProperties;
+
 
         private void OnEnable()
         {
@@ -35,6 +38,11 @@ namespace Player.Controllers
         {
             _playerMovement.HandleWalk();
             _playerMovement.FreeFall();
+
+            if (agent.Checks.IsNearCeiling())
+            {
+                _playerMovement.SetVerticalVelocity(-playerMovementProperties.gravity * Time.deltaTime);
+            }
 
             if (agent.Checks.IsGrounded())
             {

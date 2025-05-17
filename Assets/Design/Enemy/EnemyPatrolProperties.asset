@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31960ff6366b6f748b2bd66093dd65e4, type: 3}
   m_Name: EnemyPatrolProperties
   m_EditorClassIdentifier: 
-  distanceToPatrolPoint: 0.5
+  distanceToPatrolPoint: 2
   minIdleSeconds: 1
   maxIdleSeconds: 4

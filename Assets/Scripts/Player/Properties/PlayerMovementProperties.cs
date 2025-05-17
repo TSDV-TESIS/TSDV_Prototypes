@@ -52,5 +52,6 @@ namespace Player.Properties
         public double shadowStepCooldown = 1f;
         public float bloodStepVelocity;
         public float bloodStepTime;
+        public float ceilingCheckWaitTime = 0.5f;
     }
 }

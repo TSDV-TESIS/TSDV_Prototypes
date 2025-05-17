@@ -26,7 +26,7 @@ namespace Player.Controllers
 
         public override void OnUpdate()
         {
-            _playerMovement.HandleWalk(agent.Checks.GetSlopeMovementDirection(_playerMovement.MoveDirection));
+            _playerMovement.HandleGroundedWalk(agent.Checks.GetSlopeMovementDirection(_playerMovement.MoveDirection));
             _playerMovement.HandleDeceleration();
             
             if (agent.Checks.IsNearCeiling() && _playerMovement.Velocity.y > 0)
