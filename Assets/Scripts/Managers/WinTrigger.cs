@@ -15,6 +15,8 @@ namespace Managers
         
         [Header("Events")]
         [SerializeField] private VoidEventChannelSO onEnemiesDisabled;
+
+        [SerializeField] private Vector3ChannelSO onDoorPosition;
         [SerializeField] private StringEventChannelSO onLoadScene;
         
         private bool _canWin;
@@ -28,6 +30,12 @@ namespace Managers
         private void OnDisable()
         {
             onEnemiesDisabled?.onEvent.RemoveListener(HandleCanWin);
+        }
+
+        private void Update()
+        {
+            if(_canWin)
+                onDoorPosition?.RaiseEvent(Camera.main.WorldToScreenPoint(transform.position));
         }
 
         private void HandleCanWin()
