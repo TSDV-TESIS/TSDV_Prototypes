@@ -1729,6 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthTickProperties: {fileID: 11400000, guid: 227dd53dfc5b606468c9dcfc64a7386a, type: 2}
+  onEnemiesDisabled: {fileID: 11400000, guid: 28f1c62b15c308d488b10d247b81f6a7, type: 2}
 --- !u!114 &3952974800099293948
 MonoBehaviour:
   m_ObjectHideFlags: 0
