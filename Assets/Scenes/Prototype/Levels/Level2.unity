@@ -821,34 +821,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
-      value: 95f2a44f-9624-4275-86ed-db2b6ec9aa15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
-      value: b4d87b88-1d51-4d5c-9b54-af7529a86f3f
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.data[21].m_ActionId
-      value: 6cd82670-de93-4abc-86a5-378e2c744ad6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
-      value: 'Player/RestartLevel[/Keyboard/f3]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
-      value: 'Player/ZoomIn[/Keyboard/equals]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541744572603776956, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
-      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
-      value: 'Player/ZoomOut[/Keyboard/minus]'
-      objectReference: {fileID: 0}
     - target: {fileID: 3312395684589361783, guid: 0a0309ffe49cf67478b9651b26034181, type: 3}
       propertyPath: m_Name
       value: PlayerInput

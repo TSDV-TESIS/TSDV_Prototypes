@@ -37,7 +37,7 @@ MonoBehaviour:
   unboundTime: 0.5
   wallVelocityCheck: 5
   wallRideMaxCoyoteSeconds: 0.61
-  maxSlopeAngle: 45
+  maxSlopeAngle: 50
   shouldDrawGizmos: 1
   shadowStepTime: 0.2
   shadowStepVelocity: 50

@@ -85,6 +85,11 @@ namespace Player.Controllers
             
             while (timer < timeToUse)
             {
+                if (agent.Checks.IsNearCeiling())
+                {
+                    _playerMovement.SetVerticalVelocity(-playerMovementProperties.gravity * Time.deltaTime);
+                    break;
+                }
                 _playerMovement.Shadowstep(direction, isBloodstep);
                 timer += Time.deltaTime;
                 yield return null;

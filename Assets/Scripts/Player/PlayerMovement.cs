@@ -105,9 +105,38 @@ namespace Player
                 float maxSpeed = _isFrenzied
                     ? playerMovementProperties.frenziedMaxSpeed
                     : playerMovementProperties.maxSpeed;
+
                 Velocity.x = Mathf.Clamp(
-                Velocity.x + (_moveDirection.x * acceleration * Time.deltaTime),
-                -maxSpeed, maxSpeed);
+                    Velocity.x + (_moveDirection.x) * acceleration * Time.deltaTime,
+                    -maxSpeed, maxSpeed
+                );
+            }
+
+            Move(Velocity * Time.deltaTime);
+            SetZPosition(prevPos);
+        }
+        
+        public void HandleGroundedWalk(Vector3 moveDirection)
+        {
+            _moveDirection = moveDirection;
+            Vector3 prevPos = transform.position;
+
+            if (_canWalk)
+            {
+                float acceleration = _isFrenzied
+                    ? playerMovementProperties.frenziedAcceleration
+                    : playerMovementProperties.acceleration;
+
+                float maxSpeed = _isFrenzied
+                    ? playerMovementProperties.frenziedMaxSpeed
+                    : playerMovementProperties.maxSpeed;
+
+                float velocityToUse = Mathf.Clamp(
+                    Velocity.magnitude + (_moveDirection.magnitude) * acceleration * Time.deltaTime,
+                    -maxSpeed, maxSpeed
+                );
+
+                Velocity = _moveDirection * velocityToUse;
             }
 
             Move(Velocity * Time.deltaTime);
@@ -219,6 +248,11 @@ namespace Player
             Velocity.y = velocityToUse * direction.y;
 
             Move(Velocity * Time.deltaTime);
+        }
+
+        public void OnDrawGizmos()
+        {
+            Gizmos.DrawLine(gameObject.transform.position, gameObject.transform.position + _moveDirection * 10f);
         }
     }
 }

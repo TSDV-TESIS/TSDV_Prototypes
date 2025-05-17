@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7187684355572790801}
   - component: {fileID: 8156042980488517117}
-  - component: {fileID: 8539760966776021202}
   - component: {fileID: 7392375084539891795}
+  - component: {fileID: 216769182548678813}
   m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 4, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2446923564502355347}
@@ -54,25 +54,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.9980749}
+  m_Size: {x: 5, y: 4, z: 5}
   m_Center: {x: 0, y: 0, z: -0.00096407527}
---- !u!114 &8539760966776021202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3373327762718118399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_Size: {x: 1.011785, y: 1.0161633, z: 0.33046085}
-  m_Center: {x: -0.00072979927, y: 0.0035723448, z: 0.3733748}
-  m_Area: 1
-  m_AffectedAgents: ffffffff
 --- !u!114 &7392375084539891795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,8 +69,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_Size: {x: 1.0093415, y: 1.0305624, z: 0.30349958}
-  m_Center: {x: 0.0005722046, y: 0.0015097857, z: -0.3662632}
+  m_Size: {x: 5.0610094, y: 4.1568956, z: 1.6326581}
+  m_Center: {x: 0.020161629, y: 0.021187305, z: -1.6898642}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &216769182548678813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373327762718118399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 5.029129, y: 4.142969, z: 1.5401747}
+  m_Center: {x: 0.0016708374, y: 0.067212105, z: 1.758118}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!1001 &4508445108826655341
