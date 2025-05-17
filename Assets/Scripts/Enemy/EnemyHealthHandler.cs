@@ -10,7 +10,6 @@ namespace Enemy
 {
     public class EnemyHealthHandler : MonoBehaviour
     {
-        [SerializeField] private HealthBar healthBar;
         [SerializeField] private int healthRewardOnDeath = 15;
         [SerializeField] private ParticleSystem splashBloodParticles;
         [SerializeField] private GameObject[] objectsToDisable;
@@ -56,12 +55,10 @@ namespace Enemy
         
         public void HandleInitMaxHealth(int maxHealth)
         {
-            healthBar?.HandleInit(maxHealth);
         }
 
         public void OnEnemyHit(int value)
         {
-            healthBar.HandleTakeDamage(value);
         }
 
         public void OnDeath()

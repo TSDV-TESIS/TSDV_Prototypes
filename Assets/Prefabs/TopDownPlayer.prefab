@@ -890,7 +890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 583095707935067711, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 128
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 583095707935067711, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
@@ -910,15 +910,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.3
+      value: -36.03949
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3477019598821024034, guid: 265d0d094c53e644ca89f51d2388f5b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1144,6 +1144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logChanges: 0
+  canWallSlide: 1
   healthPoints: {fileID: 2230639419180364887}
   playerMovementChecks: {fileID: 9122317697623757532}
   groundedEvents:
@@ -1559,6 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2452499770306614508}
   inputHandler: {fileID: 11400000, guid: b165bc5393b36f14d8538a3f4673158a, type: 2}
+  playerMovementProperties: {fileID: 11400000, guid: 0675b82af8887e24ab9e719566907346, type: 2}
 --- !u!114 &9122317697623757532
 MonoBehaviour:
   m_ObjectHideFlags: 0

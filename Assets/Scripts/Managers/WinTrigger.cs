@@ -7,6 +7,10 @@ namespace Managers
 {
     public class WinTrigger : MonoBehaviour
     {
+        [Header("Objects")] 
+        [SerializeField] private GameObject closedDoor;
+        [SerializeField] private GameObject openDoor;
+        
         [SerializeField] private string nextLevel;
         
         [Header("Events")]
@@ -28,14 +32,16 @@ namespace Managers
 
         private void HandleCanWin()
         {
+            closedDoor.SetActive(false);
+            openDoor.SetActive(true);
             _canWin = true;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log($"here? {other.CompareTag("Player")} {_canWin}");
             if (other.CompareTag("Player") && _canWin)
             {
+                Debug.Log("TRIGGERED!");
                 onLoadScene?.RaiseEvent(nextLevel);
                 _canWin = false;
             } 

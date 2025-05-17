@@ -48,8 +48,11 @@ namespace Player
             set => playerMovementProperties.maxSpeed = value;
         }
 
+        public bool IsAttacking;
+
         void OnEnable()
         {
+            IsAttacking = false;
             _canWalk = true;
             _characterController ??= GetComponent<CharacterController>();
             _moveDirection = Vector3.zero;
@@ -93,6 +96,7 @@ namespace Player
 
         public void HandleWalk(Vector3 moveDirection)
         {
+            if (IsAttacking) return;
             _moveDirection = moveDirection;
             Vector3 prevPos = transform.position;
 
@@ -118,6 +122,7 @@ namespace Player
         
         public void HandleGroundedWalk(Vector3 moveDirection)
         {
+            if (IsAttacking) return;
             _moveDirection = moveDirection;
             Vector3 prevPos = transform.position;
 

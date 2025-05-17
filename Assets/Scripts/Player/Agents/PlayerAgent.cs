@@ -10,6 +10,7 @@ namespace Player
     public class PlayerAgent : Agent
     {
         [SerializeField] private bool logChanges;
+        [SerializeField] private bool canWallSlide;
         [SerializeField] private HealthPoints healthPoints;
         [SerializeField] private PlayerMovementChecks playerMovementChecks;
 
@@ -127,8 +128,11 @@ namespace Player
 
         public void ChangeStateToWallSlide()
         {
-            LogMessage("Change state to wallslide");
-            Fsm.ChangeState(_wallSlideState);
+            if (canWallSlide)
+            {
+                LogMessage("Change state to wallslide");
+                Fsm.ChangeState(_wallSlideState);
+            }
         }
 
         public void ChangeStateToShadowStep()
