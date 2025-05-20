@@ -5495,6 +5495,10 @@ PrefabInstance:
       propertyPath: canWallSlide
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2907933239904170874, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+      propertyPath: feetPivot
+      value: 
+      objectReference: {fileID: 1713589937}
     - target: {fileID: 6391947559083867225, guid: e8092312e621bda4eac637f9edac4258, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.03949
@@ -13318,6 +13322,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
   m_PrefabInstance: {fileID: 1701393725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1713589937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7736462112751391781, guid: e8092312e621bda4eac637f9edac4258, type: 3}
+  m_PrefabInstance: {fileID: 751018999}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1722875465 stripped
 Transform:

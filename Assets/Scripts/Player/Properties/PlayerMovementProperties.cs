@@ -9,6 +9,7 @@ namespace Player.Properties
         public float acceleration;
         public float friction;
         public float maxSpeed;
+        public float stopCheckingGroundSeconds = 0.2f;
 
         [Header("Frenzied movement")] 
         public float frenziedAcceleration;

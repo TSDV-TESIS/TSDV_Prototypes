@@ -245,6 +245,12 @@ namespace Player.Controllers
             return Vector3.ProjectOnPlane(moveDirection, _groundHit.normal).normalized;
         }
 
+        public float GetOffsetToGround()
+        {
+            if (!IsGrounded()) return 0;
+            return -_groundHit.transform.position.y + playerMovementProperties.checkDistance;
+        }
+
         public void StopCheckingWall()
         {
             if (_shouldCheckWallCoroutine != null) StopCoroutine(_shouldCheckWallCoroutine);

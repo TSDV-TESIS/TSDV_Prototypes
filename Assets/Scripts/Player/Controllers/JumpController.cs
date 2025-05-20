@@ -11,7 +11,7 @@ namespace Player.Controllers
         private PlayerMovement _playerMovement;
         [SerializeField] private PlayerMovementProperties playerMovementProperties;
         [SerializeField] private InputHandler inputHandler;
-
+        
         private void OnEnable()
         {
             _playerMovement ??= GetComponent<PlayerMovement>();

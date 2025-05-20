@@ -13,6 +13,7 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private PlayerAnimationController animationController;
+        [SerializeField] private GameObject feetPivot;
         
         [Header("Input Handler")]
         [SerializeField] private InputHandler input;
@@ -110,8 +111,6 @@ namespace Player
                 animationController.HandleIdle();
             }
             
-            Vector3 prevPos = transform.position;
-
             if (_canWalk)
             {
                 float acceleration = _isFrenzied
@@ -129,14 +128,13 @@ namespace Player
             }
 
             Move(Velocity * Time.deltaTime);
-            SetZPosition(prevPos);
+            SetZPosition();
         }
         
-        public void HandleGroundedWalk(Vector3 moveDirection)
+        public void HandleGroundedWalk(Vector3 moveDirection, float offsetToGround)
         {
             if (IsAttacking) return;
             _moveDirection = moveDirection;
-            Vector3 prevPos = transform.position;
 
             if (_canWalk)
             {
@@ -157,7 +155,16 @@ namespace Player
             }
 
             Move(Velocity * Time.deltaTime);
-            SetZPosition(prevPos);
+            SetGroundPosition(offsetToGround);
+            SetZPosition();
+        }
+
+        private void SetGroundPosition(float offset)
+        {
+            Debug.Log($"GROUND POSITION: {offset}");
+            var vector3 = transform.position;
+            vector3.y = offset;
+            transform.position = vector3;
         }
 
         public void HandleDeceleration()
@@ -190,7 +197,7 @@ namespace Player
             _characterController.Move(displacement);
         }
 
-        private void SetZPosition(Vector3 prevPos)
+        private void SetZPosition()
         {
             if (transform.position.z != 0)
             {
