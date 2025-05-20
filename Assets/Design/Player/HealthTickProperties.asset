@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783062114ba047d2aaf2f987ac308697, type: 3}
   m_Name: HealthTickProperties
   m_EditorClassIdentifier: 
-  healthTakenPerTick: 5
+  healthTakenPerTick: 2
   secondsPerTick: 1
   shouldTick: 1
