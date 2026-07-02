@@ -12,7 +12,7 @@ namespace Leaderboard
 
         [SerializeField] private LeaderboardData leaderboardData;
         [SerializeField] private LeaderboardCreateEvent leaderboardCreateEvent;
-        
+
         public void OnEnable()
         {
             leaderboardData.requestData.AddListener(RequestData);
@@ -25,6 +25,13 @@ namespace Leaderboard
             leaderboardCreateEvent.createNewTime.RemoveListener(HandleNewTime);
         }
 
+#if UNITY_EDITOR
+        [ContextMenu("ClearPlayers")]
+        private void ClearPlayers()
+        {
+            StartCoroutine(HandleClearPlayersRequest());
+        }
+#endif
         private void HandleNewTime(LeaderboardRow row)
         {
             StartCoroutine(HandleNewRow(row));
@@ -34,15 +41,25 @@ namespace Leaderboard
         {
             UnityWebRequest request = new UnityWebRequest(LeaderboardURL + "/leaderboard", "POST");
             byte[] bodyRaw = Encoding.UTF8.GetBytes(JsonUtility.ToJson(row));
-            request.uploadHandler = (UploadHandler) new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
+            request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
             yield return request.SendWebRequest();
-            
+
             Debug.Log("Create new row Status Code: " + request.responseCode);
-            
+
             leaderboardCreateEvent.hasError = request.responseCode != 201;
             leaderboardCreateEvent.createNewTimeFinish.Invoke();
+        }
+
+        private IEnumerator HandleClearPlayersRequest()
+        {
+            UnityWebRequest request = new UnityWebRequest(LeaderboardURL + "/clear", "POST");
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+            yield return request.SendWebRequest();
+
+            Debug.Log($"Cleared {request.downloadHandler.text} players, Status Code: " + request.responseCode);
         }
 
         public void RequestData(LevelEnum level)
@@ -78,10 +95,10 @@ namespace Leaderboard
                     leaderboardData.leaderboardLevel = levelName;
                     leaderboardData.isLoading = false;
                     leaderboardData.hasError = false;
-                    
+
                     break;
             }
-            
+
             leaderboardData.requestObtained.Invoke();
         }
     }

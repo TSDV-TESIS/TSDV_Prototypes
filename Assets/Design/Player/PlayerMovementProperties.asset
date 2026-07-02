@@ -37,7 +37,7 @@ MonoBehaviour:
   checkDistance: 0.5
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 131840
+    m_Bits: 131584
   feetOffset: 0.27
   offGroundMaxGraceTimeSeconds: 0.1
   whatIsPlatform:
@@ -48,7 +48,7 @@ MonoBehaviour:
   wallCheckDistance: 0.5
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 9728
+    m_Bits: 9984
   lockDuration: 0.5
   wallSlideGravity: 43.4
   maxWallSlideVerticalVelocity: 6

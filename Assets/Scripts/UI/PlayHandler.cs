@@ -35,7 +35,6 @@ namespace UI
 
             onNewSelectedObject?.RaiseEvent(videoPlayer.gameObject);
             videoPlayer.Play();
-            player.isInitialized = true;
         }
 
         void StartLevel()

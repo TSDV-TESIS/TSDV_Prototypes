@@ -70,7 +70,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Noise_Texture:
-        m_Texture: {fileID: 2800000, guid: fd361e53896c23e41b1267e05233869f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 07c79d8c4a9dbd841a4b3a9ee272912f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -106,7 +106,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _BreathFrecuencia: 10
     - _BreathFrequency: 10
-    - _BreathIntensity: 0.8
+    - _BreathIntensity: 1.5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -116,6 +116,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EffectIntensity: 0
     - _EnvironmentReflections: 1
     - _Fullscreen_AlphaBlendOperation: 0
     - _Fullscreen_BlendMode: 1
@@ -125,6 +126,14 @@ Material:
     - _Fullscreen_DstColorBlend: 10
     - _Fullscreen_SrcAlphaBlend: 1
     - _Fullscreen_SrcColorBlend: 5
+    - _Fullscreen_Stencil: 1
+    - _Fullscreen_StencilComparison: 8
+    - _Fullscreen_StencilDepthFail: 0
+    - _Fullscreen_StencilFail: 0
+    - _Fullscreen_StencilPass: 0
+    - _Fullscreen_StencilReadMask: 255
+    - _Fullscreen_StencilReference: 0
+    - _Fullscreen_StencilWriteMask: 255
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -140,13 +149,13 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _VignetteIntensity: 0
-    - _VignettePower: 1.5
+    - _VignettePower: 2
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_base: {r: 34.97284, g: 34.97284, b: 34.97284, a: 1}
+    - _Color_base: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Noise_Speed: {r: 0, g: 0, b: 0, a: 0}
     - _Noise_Tilling: {r: 1, g: 1, b: 0, a: 0}

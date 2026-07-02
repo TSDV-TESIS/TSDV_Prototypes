@@ -40,16 +40,22 @@ namespace Player
 
         public Vector3 MoveDirection => _moveDirection;
 
+        private Coroutine lateStart;
+
         public float MaxSpeed
         {
             get => playerMovementProperties.maxSpeed;
             set => playerMovementProperties.maxSpeed = value;
         }
 
+        private void Awake()
+        {
+            _characterController ??= GetComponent<CharacterController>();
+        }
+
         void OnEnable()
         {
             _canWalk = true;
-            _characterController ??= GetComponent<CharacterController>();
             _moveDirection = Vector3.zero;
 
             if (playerTransform != null) playerTransform.playerTransform = transform;
@@ -57,12 +63,22 @@ namespace Player
             input.OnPlayerMove.AddListener(HandleMove);
             onPlayerDeath.onTypedEvent.AddListener(HandleDeath);
             onPlayerRevive.onEvent.AddListener(HandleRevive);
-            Velocity = new Vector2(playerMovementProperties.maxSpeed, 0);
+
+            if (lateStart != null)
+                StopCoroutine(lateStart);
+
+            lateStart = StartCoroutine(LateStart());
         }
 
         private void Start()
         {
             onPlayerSpawn.onEvent.Invoke();
+        }
+
+        private IEnumerator LateStart()
+        {
+            yield return null;
+            Velocity = new Vector2(playerMovementProperties.maxSpeed, 0);
         }
 
         private void OnDisable()
@@ -183,6 +199,12 @@ namespace Player
         public void Move(Vector3 displacement)
         {
             _characterController.Move(displacement);
+        }
+
+        public void Stop()
+        {
+            Velocity.x = 0;
+            _canWalk = false;
         }
 
         private void SetZPosition()

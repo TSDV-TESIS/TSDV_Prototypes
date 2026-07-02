@@ -18,10 +18,13 @@ namespace Player.Health
         private static readonly int VignettePowerParam = Shader.PropertyToID("_VignettePower");
         private static readonly int ColorBaseParam = Shader.PropertyToID("_Color_base");
 
-        [Header("Properties")] [SerializeField] private LowHealthShaderProperties shaderProperties;
+        // ---- ID PARA NUESTRA NUEVA VARIABLE DEL SHADER ----
+        private static readonly int EffectIntensityParam = Shader.PropertyToID("_EffectIntensity");
+
+        [Header("Properties")][SerializeField] private LowHealthShaderProperties shaderProperties;
         [SerializeField] private Material lowHealthShaderMaterial;
 
-        [Header("Events")] [SerializeField] private IntEventChannelSO onTakeDamage;
+        [Header("Events")][SerializeField] private IntEventChannelSO onTakeDamage;
         [SerializeField] private DeathEventChannelSO onPlayerDeath;
         [SerializeField] private IntEventChannelSO onSumHealth;
         [SerializeField] private VoidEventChannelSO onEnemiesDied;
@@ -78,6 +81,9 @@ namespace Player.Health
             lowHealthShaderMaterial.SetVector(NoiseSpeedParam, shaderProperties.noiseSpeed);
             lowHealthShaderMaterial.SetFloat(BreathFrequencyParam, shaderProperties.breathFrequency);
             lowHealthShaderMaterial.SetFloat(BreathIntensityParam, shaderProperties.breathIntensity);
+
+            // Al resetear, apagamos la opacidad del efecto por defecto
+            lowHealthShaderMaterial.SetFloat(EffectIntensityParam, 0f);
         }
 
         private void UpdateShaderValues(int newHealth)
@@ -110,6 +116,12 @@ namespace Player.Health
 
         private void UpdateIntensityValue(float animationCurvePart)
         {
+ 
+            float currentHealthPercent = 1f - animationCurvePart;
+            float targetOpacity = Mathf.InverseLerp(0.67f, 0.23f, currentHealthPercent);
+            targetOpacity = Mathf.Clamp01(targetOpacity);
+            lowHealthShaderMaterial.SetFloat(EffectIntensityParam, targetOpacity);
+
             float intensity = shaderProperties.vignetteIntensity *
                               shaderProperties.vignetteIntensityCurve.Evaluate(animationCurvePart);
 

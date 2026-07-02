@@ -12,24 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88be1526a7a6bb8468c5dc8f2ddb9004, type: 3}
   m_Name: LowHealthShaderProperties
   m_EditorClassIdentifier: 
-  vignettePower: 1.5
-  baseColor: {r: 34.97284, g: 34.97284, b: 34.97284, a: 1}
+  vignettePower: 2
+  baseColor: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 1}
   vignetteIntensity: 1
   noiseSpeed: {x: 0, y: 0}
   breathFrequency: 10
-  breathIntensity: 0.8
+  breathIntensity: 1.5
+  effectIntensity: 0
   vignetteIntensityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.15238576
+      outSlope: 0.15238576
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.21091242
+    - serializedVersion: 3
+      time: 0.49491695
+      value: 0.5985467
+      inSlope: 1.4877477
+      outSlope: 1.4877477
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1.0060959
@@ -56,13 +66,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.58141714
+      value: 0.42151427
+      inSlope: 1.1633859
+      outSlope: 1.1633859
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.23596188
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1.6408436
+      outSlope: 1.6408436
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16806608
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

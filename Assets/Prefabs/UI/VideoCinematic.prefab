@@ -180,3 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onCinematicEnd: {fileID: 11400000, guid: 92ff83c8f10024f4aabd5b0c3a9aade3, type: 2}
+  playerName: {fileID: 11400000, guid: 205839ec3e0b23e49b39ab3c5a709145, type: 2}

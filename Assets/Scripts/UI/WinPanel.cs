@@ -1,11 +1,11 @@
 using System.Collections;
 using Events;
 using Events.Scriptables;
+using Leaderboard;
+using Player;
 using TMPro;
 using UI.Leaderboard;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class WinPanel : MonoBehaviour
 {
@@ -15,14 +15,15 @@ public class WinPanel : MonoBehaviour
     [SerializeField] private VoidEventChannelSO onGamePaused;
 
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject goSignObject;
     [SerializeField] private LevelCompleteAnimation levelCompletePhase;
     [SerializeField] private TieredTimes medals;
     [SerializeField] private TextMeshProUGUI timeTMPro;
     [SerializeField] private TextMeshProUGUI timePersonalBestTMPro;
     [SerializeField] private LeaderboardRequestHandler leaderboardRequestHandler;
     [SerializeField] private float countDownDuration = 3;
-
-    [SerializeField] private string levelPBKey;
+    [SerializeField] private LeaderboardData leaderboardData;
+    [SerializeField] private PlayerName playerName;
 
     private string timeSuffix = "Level Cleared in: ";
     private string recordSuffix = "Best Time: ";
@@ -37,16 +38,19 @@ public class WinPanel : MonoBehaviour
     {
         panel.SetActive(false);
         onTimerFinish?.onFloatEvent.AddListener(HandleTimerFinish);
+        leaderboardData?.requestObtained.AddListener(SetPersonalBest);
     }
 
     private void OnDisable()
     {
         onTimerFinish?.onFloatEvent.RemoveListener(HandleTimerFinish);
+        leaderboardData?.requestObtained.RemoveListener(SetPersonalBest);
     }
 
     private void HandleTimerFinish(float time)
     {
         panel.SetActive(true);
+        goSignObject.SetActive(false);
         if (completePhase != null)
             StopCoroutine(completePhase);
 
@@ -61,11 +65,22 @@ public class WinPanel : MonoBehaviour
 
         countDown = StartCoroutine(NextLevelCoroutine(time));
 
-        if (!PlayerPrefs.HasKey(levelPBKey) || PlayerPrefs.GetFloat(levelPBKey) > time)
-            PlayerPrefs.SetFloat(levelPBKey, time);
-
         timeTMPro.text = timeSuffix + TimeFormatting.GetFormattedTime(time);
-        timePersonalBestTMPro.text = TimeFormatting.GetFormattedTime(PlayerPrefs.GetFloat(levelPBKey));
+    }
+
+    private void SetPersonalBest()
+    {
+        if (leaderboardData.hasError)
+            return;
+
+        foreach (LeaderboardRow row in leaderboardData.data)
+        {
+            if (row.name == playerName.playerName)
+            {
+                timePersonalBestTMPro.text = recordSuffix + TimeFormatting.GetFormattedTime(row.timeBeaten);
+                break;
+            }
+        }
     }
 
     private IEnumerator NextLevelCoroutine(float levelClearTime)

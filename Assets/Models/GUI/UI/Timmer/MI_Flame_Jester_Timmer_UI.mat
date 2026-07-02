@@ -73,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_Mask:
-        m_Texture: {fileID: 2800000, guid: cb5bbbae6e5998041a649745a67f3da3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 490848ce5d351f747a43746c0f4d26c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_Stars:
@@ -114,7 +114,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Health: 1
+    - _Health: 0.25
     - _Inside_Shade: 3
     - _Metallic: 0
     - _OcclusionStrength: 1

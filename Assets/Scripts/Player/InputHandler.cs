@@ -27,14 +27,21 @@ namespace Player
         public UnityEvent onNavigation;
         public UnityEvent onCancel;
 
+        private bool isLocked = false;
+
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
             Vector2 movement = context.ReadValue<Vector2>();
             OnPlayerMove?.Invoke(movement);
         }
 
         public void OnAttack(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed)
             {
                 OnPlayerAttack?.Invoke();
@@ -43,12 +50,18 @@ namespace Player
 
         public void OnLook(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             Vector2 lookDir = context.ReadValue<Vector2>();
             OnPlayerLook?.Invoke(lookDir);
         }
 
         public void OnHook(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed)
             {
                 OnPlayerHook?.Invoke();
@@ -57,12 +70,18 @@ namespace Player
 
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed) OnPlayerJump?.Invoke();
             if (context.canceled) OnPlayerJumpCancelled?.Invoke();
         }
 
         public void OnShadowStep(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed)
                 OnPlayerShadowStep.Invoke();
         }
@@ -75,6 +94,9 @@ namespace Player
 
         public void OnBloodlust(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed)
                 OnPlayerBloodlust?.Invoke();
         }
@@ -93,6 +115,9 @@ namespace Player
 
         public void OnInteractEvent(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed)
                 OnInteract.Invoke();
         }
@@ -121,6 +146,9 @@ namespace Player
 
         public void OnDropdownHandle(InputAction.CallbackContext context)
         {
+            if (isLocked)
+                return;
+
             if (context.performed) onDropdown?.Invoke();
             if (context.canceled) onDropdownStop?.Invoke();
         }
@@ -133,6 +161,11 @@ namespace Player
         public void OnCancel(InputAction.CallbackContext context)
         {
             onCancel?.Invoke();
+        }
+
+        public void TogglePlayerLock(bool value)
+        {
+            isLocked = value;
         }
     }
 }

@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onPlayerWin: {fileID: 11400000, guid: b776646d494dec0448787ea656787b52, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
+  onPlayerDeath: {fileID: 11400000, guid: 23f77a340fe29d949816e46eec845536, type: 2}
   onTimerFinish: {fileID: 11400000, guid: 306596e786369134e8ecb4afa6f3b6b9, type: 2}
   onTimerTick: {fileID: 11400000, guid: 829ac5702f72d694897834b2ebc0b32d, type: 2}
+  countTimeToggleEvent: {fileID: 11400000, guid: ee14aced99c6768419a52c48b26cbd02, type: 2}
   globalTimeSO: {fileID: 11400000, guid: 6e00c534d3e74354a8f66b02d1fd4bd1, type: 2}
-  levelType: 1
+  isFirstLevel: 0

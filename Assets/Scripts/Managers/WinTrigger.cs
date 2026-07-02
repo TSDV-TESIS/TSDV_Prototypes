@@ -1,21 +1,19 @@
 using System;
 using Events;
 using Events.Scriptables;
+using Player;
 using UnityEngine;
 
 namespace Managers
 {
     public class WinTrigger : MonoBehaviour
     {
-        [Header("Objects")]
-        [SerializeField] private GameObject closedDoor;
-        [SerializeField] private GameObject openDoor;
+        [Header("Objects")] [SerializeField] private GameObject openDoor;
 
         [SerializeField] private string nextLevel;
 
-        [Header("Events")]
-        [SerializeField] private VoidEventChannelSO onEnemiesDisabled;
-        [SerializeField] private VoidEventChannelSO onPlayerWin;
+        [Header("Events")] [SerializeField] private VoidEventChannelSO onEnemiesDisabled;
+        [SerializeField] private VoidEventChannelSO onWinSequenceStart;
         [SerializeField] private VoidEventChannelSO onChangeLevel;
 
         [SerializeField] private Vector3ChannelSO onDoorPosition;
@@ -49,7 +47,6 @@ namespace Managers
         {
             _collider.isTrigger = true;
             gameObject.layer = LayerMask.NameToLayer("WinDoor");
-            closedDoor.SetActive(false);
             openDoor.SetActive(true);
             _canWin = true;
         }
@@ -58,7 +55,11 @@ namespace Managers
         {
             if (other.CompareTag("Player") && _canWin)
             {
-                onPlayerWin?.RaiseEvent();
+                onWinSequenceStart?.RaiseEvent();
+
+                if (other.gameObject.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
+                    playerMovement.Stop();
+
                 _canWin = false;
             }
         }

@@ -110,18 +110,18 @@ Material:
     - _Distortion_Stars: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge_Shade: 2.05
+    - _Edge_Shade: 0.1
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Health: 1
-    - _Inside_Shade: 21.88
+    - _Inside_Shade: 2
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Power_Edge: 4.37
-    - _Power_Noise: -4.92
+    - _Power_Edge: 2
+    - _Power_Noise: -4.18
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smooth_Max: 0.26
@@ -146,6 +146,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Star_Color: {r: 3.5310593, g: 1.0240002, b: 16, a: 1}
     - _Tile_Noise: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Tiling_noise: {r: 1, g: 1, b: 0, a: 0}
     - _inside_edge_color: {r: 1.5469571, g: 1.1462578, b: 3.5218356, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

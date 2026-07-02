@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: -6833287195306159683}
   - component: {fileID: 1600078292307398402}
   - component: {fileID: 2579482117659627393}
+  - component: {fileID: 2303344734011480537}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -622,6 +623,18 @@ MonoBehaviour:
   enabledPreselectedGameObject: {fileID: 4150620962410666019}
   disabledPreselectedGameObject: {fileID: 0}
   panelHandler: {fileID: 0}
+--- !u!225 &2303344734011480537
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869517741489032697}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1910031456870033420
 PrefabInstance:
   m_ObjectHideFlags: 0

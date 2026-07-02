@@ -23,13 +23,16 @@ namespace Player.Controllers
             inputHandler.OnPlayerShadowStep.AddListener(OnShadowstep);
             inputHandler.OnPlayerAttack.AddListener(OnAttack);
 
+            agent.MovementChecks.ResetShadowStepsOnAir();
+            agent.AttackChecks.ResetAttacksOnJump();
+        }
+
+        private void Start()
+        {
             float clearance = agent.MovementChecks.GetGroundClearance();
             if (clearance == 0) return;
 
             _playerMovement.Grounded(clearance);
-
-            agent.MovementChecks.ResetShadowStepsOnAir();
-            agent.AttackChecks.ResetAttacksOnJump();
         }
 
         private void OnDisable()

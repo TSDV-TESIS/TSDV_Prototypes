@@ -77,6 +77,14 @@ PrefabInstance:
       value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
       value: 0
       objectReference: {fileID: 0}
@@ -253,10 +261,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
-      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[4].m_Value
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
       value: 0
       objectReference: {fileID: 0}
@@ -355,6 +359,14 @@ PrefabInstance:
       value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
       value: 0
       objectReference: {fileID: 0}
@@ -439,6 +451,18 @@ PrefabInstance:
     - target: {fileID: 7434038110716845200, guid: c5085bed8206592409d9424e357f050b, type: 3}
       propertyPath: m_Name
       value: VE_Acid_Smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[4].m_Value
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7604053665618124281, guid: c5085bed8206592409d9424e357f050b, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x

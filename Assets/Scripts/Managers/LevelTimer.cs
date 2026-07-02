@@ -1,14 +1,16 @@
 using System;
 using Events;
 using Events.Scriptables;
+using Health;
 using UnityEngine;
 
 public class LevelTimer : MonoBehaviour
 {
     [SerializeField] private VoidEventChannelSO onPlayerWin;
-    [SerializeField] private VoidEventChannelSO onPlayerDeath;
+    [SerializeField] private DeathEventChannelSO onPlayerDeath;
     [SerializeField] private FloatEventChannel onTimerFinish;
     [SerializeField] private FloatEventChannel onTimerTick;
+    [SerializeField] private BoolEventChannelSO countTimeToggleEvent;
 
     [SerializeField] private GlobalTime globalTimeSO;
     [SerializeField] private bool isFirstLevel = false;
@@ -19,7 +21,8 @@ public class LevelTimer : MonoBehaviour
     private void OnEnable()
     {
         onPlayerWin?.onEvent.AddListener(OnWinEndTimer);
-        onPlayerDeath?.onEvent.AddListener(OnLoseEndTimer);
+        onPlayerDeath?.onTypedEvent.AddListener(OnLoseEndTimer);
+        countTimeToggleEvent?.onTypedEvent.AddListener(ToggleTimer);
         StartTimer();
         if (isFirstLevel)
             ResetTotalTime();
@@ -27,14 +30,20 @@ public class LevelTimer : MonoBehaviour
 
     private void OnDisable()
     {
+        countTimeToggleEvent?.onTypedEvent.RemoveListener(ToggleTimer);
         onPlayerWin?.onEvent.RemoveListener(OnWinEndTimer);
-        onPlayerDeath?.onEvent.RemoveListener(OnLoseEndTimer);
+        onPlayerDeath?.onTypedEvent.RemoveListener(OnLoseEndTimer);
     }
 
     private void StartTimer()
     {
         shouldCountTime = true;
         time = 0;
+    }
+
+    private void ToggleTimer(bool value)
+    {
+        shouldCountTime = value;
     }
 
     private void OnWinEndTimer()
@@ -44,7 +53,7 @@ public class LevelTimer : MonoBehaviour
         globalTimeSO.time += time;
     }
 
-    private void OnLoseEndTimer()
+    private void OnLoseEndTimer(DeathCauses cause)
     {
         shouldCountTime = false;
         globalTimeSO.time += time;

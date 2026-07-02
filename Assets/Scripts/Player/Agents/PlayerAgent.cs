@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using FSM;
 using Health;
 using Player.Checks;
-using Player.Controllers;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Player
 {

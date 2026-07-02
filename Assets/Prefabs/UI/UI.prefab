@@ -235,14 +235,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368683679050551555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1797998733362813746}
   - {fileID: 8516654556014042674}
-  m_Father: {fileID: 8485514636649728380}
+  m_Father: {fileID: 7792944183009343213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.74200004, y: 0.055296298}
   m_AnchorMax: {x: 0.98970836, y: 0.123777784}
@@ -721,6 +721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7792944183009343213}
+  - component: {fileID: 880781341699367080}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -743,6 +744,7 @@ RectTransform:
   - {fileID: 8961564561745258264}
   - {fileID: 4760966799329981698}
   - {fileID: 8027115996643755534}
+  - {fileID: 7635068306882847818}
   m_Father: {fileID: 8485514636649728380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -750,6 +752,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &880781341699367080
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035617529820013021}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6725047795578294070
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ef2df9a00feb2408c282614d1f6dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldStartHided: 0
   timeSlider: {fileID: 0}
   tickProperties: {fileID: 0}
   onTakeDamage: {fileID: 11400000, guid: 907783a8cffc33e4ebffa90d6b4df275, type: 2}
@@ -912,7 +925,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7635068306882847818}
   - {fileID: 2925177309260930134}
   - {fileID: 7792944183009343213}
   - {fileID: 1591352866061418664}
@@ -1114,6 +1126,11 @@ PrefabInstance:
 --- !u!224 &5710297127132402157 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5852905872367613647, guid: be396b2ab1bb00848943870b8263b3a0, type: 3}
+  m_PrefabInstance: {fileID: 2163625690194110242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6264918852510319886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5257891657158451756, guid: be396b2ab1bb00848943870b8263b3a0, type: 3}
   m_PrefabInstance: {fileID: 2163625690194110242}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4930907293971633944
@@ -1616,6 +1633,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6608977492074018666, guid: 04283b793c644e54b91dde47bdb8542e, type: 3}
+      propertyPath: goSignObject
+      value: 
+      objectReference: {fileID: 6264918852510319886}
     - target: {fileID: 6945172299787405635, guid: 04283b793c644e54b91dde47bdb8542e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

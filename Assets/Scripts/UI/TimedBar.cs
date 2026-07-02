@@ -8,21 +8,19 @@ namespace UI
 {
     public class TimedBar : MonoBehaviour
     {
-        [SerializeField] private bool shouldStartHided;
         [SerializeField] private Slider timeSlider;
         [SerializeField] private HealthTickProperties tickProperties;
-        
-        [Header("Events")]
-        [SerializeField] private IntEventChannelSO onTakeDamage;
+
+        [Header("Events")] [SerializeField] private IntEventChannelSO onTakeDamage;
         [SerializeField] private IntEventChannelSO onSumHealth;
         [SerializeField] private IntEventChannelSO onInitializeSlider;
-        
+
         private bool _wasTriggered = false;
         private int _maxHealthValue;
         private static readonly int HealthParam = Shader.PropertyToID("_Health");
 
         private Coroutine _tickCoroutine;
-        
+
         private void Awake()
         {
             onInitializeSlider?.onIntEvent.AddListener(HandleInit);
@@ -41,22 +39,22 @@ namespace UI
             onTakeDamage?.onIntEvent.RemoveListener(HandleTakeDamage);
             onInitializeSlider?.onIntEvent.RemoveListener(HandleInit);
         }
-        
-    
+
+
         public void HandleInit(int maxValue)
         {
             _maxHealthValue = maxValue;
             timeSlider.value = 1;
         }
-        
+
         public void HandleTakeDamage(int currentHealth)
         {
             if (!_wasTriggered)
             {
                 _wasTriggered = true;
             }
-            
-            if(_tickCoroutine != null) StopCoroutine(_tickCoroutine);
+
+            if (_tickCoroutine != null) StopCoroutine(_tickCoroutine);
             _tickCoroutine = StartCoroutine(TickBar(currentHealth));
         }
 
@@ -65,10 +63,10 @@ namespace UI
             float timePassed = 0f;
             float maxValue = timeSlider.value;
             float nextValue = (float)currentHealth / _maxHealthValue;
-            
+
             while (timePassed < tickProperties.secondsPerTick)
             {
-                timeSlider.value = Mathf.Lerp(maxValue, nextValue, timePassed / tickProperties.secondsPerTick) ;
+                timeSlider.value = Mathf.Lerp(maxValue, nextValue, timePassed / tickProperties.secondsPerTick);
 
                 timePassed += Time.deltaTime;
                 yield return null;

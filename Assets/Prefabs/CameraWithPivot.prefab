@@ -543,13 +543,25 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[19].y
       value: -19.11883
       objectReference: {fileID: 0}
+    - target: {fileID: 3887371122706721016, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887371122706721016, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887371122706721016, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4094420147974547824, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.302858
+      value: -31.302677
       objectReference: {fileID: 0}
     - target: {fileID: 4094420147974547824, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.0977497
+      value: 5.097741
       objectReference: {fileID: 0}
     - target: {fileID: 4094420147974547824, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -640,6 +652,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 797502615222402642, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2211342767456743360}
+    - targetCorrespondingSourceObject: {fileID: 88079108781757903, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654861309990702216}
   m_SourcePrefab: {fileID: 100100000, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
 --- !u!20 &792391922650714359 stripped
 Camera:
@@ -694,6 +709,23 @@ MonoBehaviour:
   AmplitudeGain: 1
   FrequencyGain: 1
   m_NoiseOffsets: {x: 400.0754, y: 87.53479, z: 258.02826}
+--- !u!1 &5306056427722595817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 88079108781757903, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}
+  m_PrefabInstance: {fileID: 5231508549083105318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &654861309990702216
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5306056427722595817}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5402708558732869414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 171219807419021056, guid: e9b981ee3ff7ffb4395fe4e508bc11b6, type: 3}

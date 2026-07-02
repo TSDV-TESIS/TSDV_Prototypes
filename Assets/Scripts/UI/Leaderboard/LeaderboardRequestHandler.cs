@@ -66,7 +66,7 @@ namespace UI.Leaderboard
             loadingObject.SetActive(false);
             scrollView.SetActive(true);
 
-            for (int i = 0; i < leaderboardData.data.Length; i++)
+            for (int i = 0; i < leaderboardData.data.Length && i < pageRows.Count; i++)
             {
                 Debug.Log($"{leaderboardData.data[i].name} ASD");
                 pageRows[i].SetData(i + 1, leaderboardData.data[i].name, leaderboardData.data[i].timeBeaten);
