@@ -147,6 +147,7 @@ Material:
     - _SmoothStep_Edge_1: 0.09
     - _SmoothStep_Edge_2: 0.41
     - _Smoothness: 0.5
+    - _SmoothnessAlbedo_Intensity: 0
     - _SmoothnessTextureChannel: 0
     - _Smoothness_Intensity: 2
     - _SpecularHighlights: 1
@@ -158,6 +159,7 @@ Material:
     - _Tiling: 1
     - _Use_2nd_Texture: 0
     - _Use_Matcap: 0
+    - _Use_Smoothness_Albedo: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
