@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29bd0dd1418c4b142afcc6a33e24897f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0ccf36eff1fc4a4b8e84a7af4abf3fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -146,10 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6afecb22f0e414c809b631f8371679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputPanel: {fileID: 0}
-  inputField: {fileID: 0}
+  onLoadSceneHandler: {fileID: 0}
   onNewSelectedObject: {fileID: 11400000, guid: 7c1e8de36d6888e43a1116cc8ac42c4e, type: 2}
-  panelHandler: {fileID: 0}
+  player: {fileID: 0}
+  videoPlayer: {fileID: 0}
+  level: 
+  onCinematicEnd: {fileID: 0}
 --- !u!1 &9140155043448081233
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,10 +217,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Text
+  m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 85e940a5f419bc04bb6102fd3e6074c7, type: 2}
-  m_sharedMaterial: {fileID: -2777454932508934593, guid: 85e940a5f419bc04bb6102fd3e6074c7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcc360eed7b22af45a7fe5760f52c253, type: 2}
+  m_sharedMaterial: {fileID: 2728020766263942999, guid: bcc360eed7b22af45a7fe5760f52c253, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -238,21 +240,21 @@ MonoBehaviour:
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: 2426
-  m_overrideHtmlColors: 0
+  m_overrideHtmlColors: 1
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -7.7
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -280,7 +282,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 6.7545166, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
