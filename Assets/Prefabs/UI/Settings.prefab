@@ -1414,6 +1414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFX
       objectReference: {fileID: 0}
+    - target: {fileID: 1321384636589326030, guid: ddf2539bc9d44ca48831a1a27302e951, type: 3}
+      propertyPath: rtpc.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e91ea407edb29b46bc75ecadcb5e467, type: 2}
     - target: {fileID: 3687163889242685176, guid: ddf2539bc9d44ca48831a1a27302e951, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1601,7 +1605,15 @@ PrefabInstance:
       value: 1.4612465
       objectReference: {fileID: 0}
     - target: {fileID: 3764049212860613015, guid: bdf764f82636f8649b0694b823ddd9cc, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764049212860613015, guid: bdf764f82636f8649b0694b823ddd9cc, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764049212860613015, guid: bdf764f82636f8649b0694b823ddd9cc, type: 3}
+      propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4639364680097832068, guid: bdf764f82636f8649b0694b823ddd9cc, type: 3}
@@ -1942,6 +1954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music
       objectReference: {fileID: 0}
+    - target: {fileID: 1321384636589326030, guid: ddf2539bc9d44ca48831a1a27302e951, type: 3}
+      propertyPath: rtpc.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 806147c3b12c8174c9c2a7eb95a4995e, type: 2}
     - target: {fileID: 3687163889242685176, guid: ddf2539bc9d44ca48831a1a27302e951, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
