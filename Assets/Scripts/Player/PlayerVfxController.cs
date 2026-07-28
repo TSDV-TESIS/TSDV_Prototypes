@@ -17,20 +17,18 @@ namespace Player
         [SerializeField] private GameObject groundedParticles;
         [SerializeField] private float wallrideParticleAngle = 69f;
         [SerializeField] private Vector3 jumpVfxRotation;
-        
-        [Header("Abosrb Vfx")]    
-        [SerializeField] private VisualEffect absorbVfx;
+
+        [Header("Abosrb Vfx")] [SerializeField] private VisualEffect absorbVfx;
 
         [SerializeField] private string absorbLoopEventName = "Absorb_Loop";
         [SerializeField] private string absorbExplosionEventName = "Explosion_Start";
-        
+
         [Header("Pivots")] [SerializeField] private GameObject floorPivot;
         [SerializeField] private GameObject leftPivot;
         [SerializeField] private GameObject rightPivot;
 
-        [Header("Events")] 
-        [SerializeField] private VoidEventChannelSO onSoulAbsorb;
-        
+        [Header("Events")] [SerializeField] private VoidEventChannelSO onSoulAbsorb;
+
         private float _lastSign;
         private Vector3 _lastWallridePosition;
         private Quaternion? _overrideJumpParticleAngle;
@@ -38,7 +36,9 @@ namespace Player
         private bool _shouldAddDecal;
 
         private HealthPoints _healthPoints;
-        
+
+        public bool isInitialized = true;
+
         private void OnEnable()
         {
             _shouldAddDecal = true;
@@ -56,7 +56,14 @@ namespace Player
 
         private void Update()
         {
-            auraVfx.SetFloat("AuraIntensity", (float)_healthPoints.CurrentHp / (float)_healthPoints.MaxHealth);
+            if (isInitialized)
+                auraVfx.SetFloat("AuraIntensity", (float)_healthPoints.CurrentHp / (float)_healthPoints.MaxHealth);
+        }
+
+        public void LerpAura(float t)
+        {
+            float intensity = Mathf.Lerp(0, 1, t);
+            auraVfx.SetFloat("AuraIntensity", intensity);
         }
         
         private void HandleAbsorbExplosion()
@@ -84,9 +91,10 @@ namespace Player
                 _shouldAddDecal = true;
                 return;
             }
+
             GameObject groundedVfxHandler = InstantiateInPosition(groundedParticles, floorPivot, Quaternion.Euler(jumpVfxRotation));
             groundedVfxHandler.GetComponent<DecalSpawner>().Spawn(floorPivot.transform.position, Quaternion.Euler(jumpVfxRotation));
-            
+
             _overrideJumpParticlePosition = null;
             _overrideJumpParticleAngle = null;
         }
@@ -150,7 +158,7 @@ namespace Player
 
             return particles;
         }
-        
+
         public void SetShouldAddDecal(bool value)
         {
             _shouldAddDecal = value;

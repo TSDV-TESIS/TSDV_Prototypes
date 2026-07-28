@@ -11,13 +11,15 @@ public class CinematicPlayerEntry : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private HealthPoints playerHealth;
-    [SerializeField] private float duration;
+    [SerializeField] private float animationDuration;
+    [SerializeField] private float fireBurstDuration;
 
     [SerializeField] private AnimationCurve timeScaleCurve;
     [SerializeField] private List<CanvasGroup> hudCanvasGroups;
     [SerializeField] private InputHandler inputHandler;
 
     [SerializeField] private BoolEventChannelSO shouldTimerCount;
+    [SerializeField] private PlayerVfxController playerVfxController;
 
     [Header("CameraPanning")] [SerializeField] private float cameraDisplacementDuration;
     [SerializeField] private Transform mainCameraTransform;
@@ -45,13 +47,24 @@ public class CinematicPlayerEntry : MonoBehaviour
     {
         SequenceInit();
         float timer = 0;
-        while (timer < duration)
+        playerVfxController.isInitialized = false;
+        playerVfxController.LerpAura(0);
+        while (timer < animationDuration)
         {
             timer += Time.deltaTime;
-            float t = timer / duration;
+            float t = timer / animationDuration;
             TimeManager.Instance.TrySetTimeScale(timeScaleCurve.Evaluate(t));
+
+            if (timer > animationDuration - fireBurstDuration)
+            {
+                float fireTime = (timer - (animationDuration - fireBurstDuration)) / fireBurstDuration;
+                playerVfxController.LerpAura(fireTime);
+            }
+
             yield return null;
         }
+
+        playerVfxController.isInitialized = true;
 
         TimeManager.Instance.TrySetTimeScale(1);
 
