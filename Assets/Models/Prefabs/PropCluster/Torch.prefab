@@ -309,8 +309,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 243.04
-  m_Range: 4.2
+  m_Intensity: 40.6
+  m_Range: 6.8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -321,7 +321,7 @@ Light:
     m_Strength: 1
     m_Bias: 1.6
     m_NormalBias: 1.4
-    m_NearPlane: 0.041999996
+    m_NearPlane: 0.089999996
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
