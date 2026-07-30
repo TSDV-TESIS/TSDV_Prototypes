@@ -1,4 +1,3 @@
-using System;
 using Events.Scriptables;
 using Player;
 using TMPro;
