@@ -17,24 +17,21 @@ namespace CameraScripts
         [SerializeField] private NoiseSettings shakeSettings;
 
         [SerializeField] private ShakeProfileEventChannel onCameraShakeEventChannelSo;
+        [SerializeField] private VoidEventChannelSO onCameraShakeStopEventChannelSo;
 
-        [Header("Events")] 
-        [SerializeField] private CameraZoomZoneEventSO onCameraZoomZoneEnter;
+        [Header("Events")] [SerializeField] private CameraZoomZoneEventSO onCameraZoomZoneEnter;
         [SerializeField] private VoidEventChannelSO onCameraZoomZoneLeave;
-        
+
         private CameraProperties _cameraProperties;
         private Coroutine _cameraShake;
 
         private float _initialCameraDistance;
-        
+
         private void Awake()
         {
             SetComposerSettings();
-        }
-
-        private void Start()
-        {
             onCameraShakeEventChannelSo.onTypedEvent.AddListener(HandleCameraShake);
+            onCameraShakeStopEventChannelSo.onEvent.AddListener(HandleCameraShakeStop);
         }
 
         private void OnEnable()
@@ -46,10 +43,11 @@ namespace CameraScripts
         private void OnDestroy()
         {
             onCameraShakeEventChannelSo.onTypedEvent.RemoveListener(HandleCameraShake);
+            onCameraShakeStopEventChannelSo.onEvent.RemoveListener(HandleCameraShakeStop);
             onCameraZoomZoneEnter.onTypedEvent.RemoveListener(HandleCameraZoomZoneEnter);
             onCameraZoomZoneLeave.onEvent.RemoveListener(HandleCameraZoomZoneLeave);
         }
-        
+
         private void HandleCameraZoomZoneLeave()
         {
             composer.CameraDistance = _initialCameraDistance;
@@ -80,6 +78,12 @@ namespace CameraScripts
                 StopCoroutine(_cameraShake);
 
             _cameraShake = StartCoroutine(CameraShake(shakeProfile.noiseParams, shakeProfile.duration));
+        }
+
+        private void HandleCameraShakeStop()
+        {
+            if (_cameraShake != null)
+                StopCoroutine(_cameraShake);
         }
 
         private IEnumerator CameraShake(NoiseSettings.TransformNoiseParams noiseParams, float duration)

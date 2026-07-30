@@ -863,6 +863,7 @@ MonoBehaviour:
   shakeController: {fileID: 7614435106831715451}
   shakeSettings: {fileID: 11400000, guid: 446ab664b7d8edd49a948520f2a5a464, type: 2}
   onCameraShakeEventChannelSo: {fileID: 11400000, guid: e0d6c8c1282a08643984e3b80dc9bf17, type: 2}
+  onCameraShakeStopEventChannelSo: {fileID: 11400000, guid: 41339dd347faf0e4b8c7269c4084e8e0, type: 2}
   onCameraZoomZoneEnter: {fileID: 0}
   onCameraZoomZoneLeave: {fileID: 0}
 --- !u!114 &2149423328617229240
