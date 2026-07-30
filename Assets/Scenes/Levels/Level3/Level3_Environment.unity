@@ -973,7 +973,6 @@ Transform:
   - {fileID: 265693964}
   - {fileID: 679429256}
   - {fileID: 1562301762}
-  - {fileID: 1830368596}
   - {fileID: 429335425}
   - {fileID: 194377898}
   - {fileID: 238761203}
@@ -1217,7 +1216,6 @@ Transform:
   - {fileID: 829832094}
   - {fileID: 793346408}
   - {fileID: 1740401921}
-  - {fileID: 1231936616}
   - {fileID: 192024439}
   - {fileID: 886777076}
   - {fileID: 1517864647}
@@ -34365,7 +34363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.13
+      value: -37.17
       objectReference: {fileID: 0}
     - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52569,68 +52567,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f39d4ecfcadc74a9830315a3815195, type: 3}
---- !u!1001 &1231936615
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 23808301}
-    m_Modifications:
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -40.949997
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 27.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.0260477
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7160800571663523073, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_Name
-      value: Chandelier (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d641e8021d116714396786e75f276991, type: 3}
---- !u!4 &1231936616 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-  m_PrefabInstance: {fileID: 1231936615}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1232200054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80521,68 +80457,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8320518799859736360, guid: 0c2cc653e7d27a94e8f4aea07f97a39c, type: 3}
   m_PrefabInstance: {fileID: 1827692603}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1830368595
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 23808301}
-    m_Modifications:
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -33.829998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 27.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.0260394
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7160800571663523073, guid: d641e8021d116714396786e75f276991, type: 3}
-      propertyPath: m_Name
-      value: Chandelier (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d641e8021d116714396786e75f276991, type: 3}
---- !u!4 &1830368596 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1953669616929087279, guid: d641e8021d116714396786e75f276991, type: 3}
-  m_PrefabInstance: {fileID: 1830368595}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1833340386
 PrefabInstance:
