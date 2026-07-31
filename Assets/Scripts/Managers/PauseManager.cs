@@ -11,8 +11,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject settingsScreen;
 
-    [Header("Main Menu")]
-    [SerializeField] private string mainMenuScene;
+    [Header("Main Menu")] [SerializeField] private string mainMenuScene;
     [SerializeField] private StringEventChannelSO onMainMenu;
 
     [SerializeField] private VoidEventChannelSO onGamePaused;
@@ -57,6 +56,7 @@ public class PauseManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        TimeManager.Instance.PauseTime(false);
         onMainMenu?.RaiseEvent(mainMenuScene);
     }
 }
