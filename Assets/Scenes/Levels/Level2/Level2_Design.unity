@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 62
@@ -193,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32
@@ -251,6 +259,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422438933}
     m_Modifications:
+    - target: {fileID: 1167730226766031217, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3756629238863687999, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28
@@ -378,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -589,6 +605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28
@@ -651,6 +671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26
@@ -712,6 +736,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -815,6 +843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_ThinWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3927267007675946630, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -899,6 +931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34
@@ -960,6 +996,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: 9580973a64bb1dc4c9a4cc4ea53b8dc1, type: 3}
       propertyPath: m_Name
       value: Blocking_Stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622331936315583980, guid: 9580973a64bb1dc4c9a4cc4ea53b8dc1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: 9580973a64bb1dc4c9a4cc4ea53b8dc1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1085,6 +1125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40
@@ -1146,6 +1190,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1209,6 +1257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26
@@ -1270,6 +1322,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1333,6 +1389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -1395,6 +1455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14
@@ -1456,6 +1520,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1581,6 +1649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -1640,7 +1712,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341495205}
-  - component: {fileID: 341495204}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -1648,31 +1719,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &341495204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341495203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c751a67ae411447b7af9b980abeae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 9548c2e7f63a88146994d6b7d9800cc7, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &341495205
 Transform:
   m_ObjectHideFlags: 0
@@ -1699,6 +1745,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (135)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1762,6 +1812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40
@@ -1823,6 +1877,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1886,6 +1944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 70
@@ -1947,6 +2009,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2010,6 +2076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 74
@@ -2071,6 +2141,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (129)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2134,6 +2208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 76
@@ -2192,6 +2270,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422438933}
     m_Modifications:
+    - target: {fileID: 1167730226766031217, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3756629238863687999, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66
@@ -2298,6 +2380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_ThinWall
       objectReference: {fileID: 0}
+    - target: {fileID: 3927267007675946630, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2319,6 +2405,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2382,6 +2472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -2443,6 +2537,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2506,6 +2604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60
@@ -2567,6 +2669,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2720,6 +2826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54
@@ -2787,6 +2897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22
@@ -2848,6 +2962,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2911,6 +3029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30
@@ -2972,6 +3094,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3035,6 +3161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (113)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 68
@@ -3096,6 +3226,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (124)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3159,6 +3293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (130)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44
@@ -3220,6 +3358,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (134)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3283,6 +3425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54
@@ -3344,6 +3490,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (103)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3407,6 +3557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52
@@ -3469,6 +3623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -3527,6 +3685,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422438933}
     m_Modifications:
+    - target: {fileID: 1167730226766031217, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3756629238863687999, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26
@@ -3593,6 +3755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -3654,6 +3820,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3717,6 +3887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (131)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46
@@ -3778,6 +3952,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3881,6 +4059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_ThinWall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3927267007675946630, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3902,6 +4084,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4120,6 +4306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -4181,6 +4371,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (105)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4244,6 +4438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -4306,6 +4504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60
@@ -4367,6 +4569,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (96)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4578,6 +4784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (93)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 62
@@ -4680,6 +4890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_ThinWall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3927267007675946630, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4701,6 +4915,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (115)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4764,6 +4982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28
@@ -4825,6 +5047,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (120)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4925,6 +5151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52
@@ -4986,6 +5216,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5049,6 +5283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58
@@ -5110,6 +5348,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5173,6 +5415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58
@@ -5231,6 +5477,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422438933}
     m_Modifications:
+    - target: {fileID: 1167730226766031217, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3756629238863687999, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24
@@ -5301,6 +5551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32
@@ -5362,6 +5616,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5425,6 +5683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24
@@ -5487,6 +5749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (123)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46
@@ -5545,6 +5811,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422438933}
     m_Modifications:
+    - target: {fileID: 1167730226766031217, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3756629238863687999, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 68
@@ -5610,6 +5880,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5709,6 +5983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24
@@ -5770,6 +6048,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5833,6 +6115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -5895,6 +6181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (106)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 76
@@ -5956,6 +6246,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6050,6 +6344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
@@ -6112,6 +6410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (121)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -6173,6 +6475,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (114)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6323,6 +6629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 74
@@ -6384,6 +6694,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6447,6 +6761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
@@ -6508,6 +6826,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6576,6 +6898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30
@@ -6637,6 +6963,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (137)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6700,6 +7030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50
@@ -6761,6 +7095,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7072,6 +7410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (118)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44
@@ -7170,6 +7512,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7274,6 +7620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (108)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72
@@ -7335,6 +7685,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7398,6 +7752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48
@@ -7460,6 +7818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (122)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14
@@ -7521,6 +7883,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7624,6 +7990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_ThinWall
       objectReference: {fileID: 0}
+    - target: {fileID: 3927267007675946630, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7676,6 +8046,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (126)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7739,6 +8113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (100)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 68
@@ -7800,6 +8178,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8138,6 +8520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38
@@ -8199,6 +8585,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8262,6 +8652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (117)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22
@@ -8324,6 +8718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38
@@ -8385,6 +8783,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8510,6 +8912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50
@@ -8571,6 +8977,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (125)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8634,6 +9044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (127)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32
@@ -8695,6 +9109,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8820,6 +9238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66
@@ -8882,6 +9304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 36
@@ -8943,6 +9369,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9100,6 +9530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42
@@ -9161,6 +9595,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9224,6 +9662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -9285,6 +9727,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9348,6 +9794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 74
@@ -9410,6 +9860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (133)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32
@@ -9471,6 +9925,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9574,6 +10032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_ThinWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3927267007675946630, guid: 957aaa6857830af43b9c4bdce9732348, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9595,6 +10057,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9657,6 +10123,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: 9580973a64bb1dc4c9a4cc4ea53b8dc1, type: 3}
       propertyPath: m_Name
       value: Blocking_Stairs (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622331936315583980, guid: 9580973a64bb1dc4c9a4cc4ea53b8dc1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: 9580973a64bb1dc4c9a4cc4ea53b8dc1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9781,6 +10251,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (97)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10163,6 +10637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -10225,6 +10703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32
@@ -10283,6 +10765,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422438933}
     m_Modifications:
+    - target: {fileID: 1167730226766031217, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3756629238863687999, guid: ed72af6f6e8c63d43843600ee05a5740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 64
@@ -10414,6 +10900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocking_Floor (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -10475,6 +10965,10 @@ PrefabInstance:
     - target: {fileID: 3373327762718118399, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_Name
       value: Blocking_Floor (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061942741783857094, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187684355572790801, guid: fe59a884910cbdf4caf6d8c8a48344e8, type: 3}
       propertyPath: m_LocalPosition.x
