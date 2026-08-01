@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using Health;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
 
 namespace Enemy.Attack
@@ -43,6 +41,7 @@ namespace Enemy.Attack
 
         public void SetVelocityDirectionAndAttack(float velocity, Vector3 direction)
         {
+            transform.parent = null;
             _direction = direction.normalized;
             _velocity = velocity;
             _isTraveling = true;
