@@ -687,6 +687,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 410886281388207500, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 613539977022456297, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.5
@@ -698,6 +702,10 @@ PrefabInstance:
     - target: {fileID: 1138589178071216179, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306945742980874062, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1306945742980874062, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -747,6 +755,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.000015258789
       objectReference: {fileID: 0}
+    - target: {fileID: 2028572646728373469, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2087250976710391601, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -759,6 +771,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.000015258789
       objectReference: {fileID: 0}
+    - target: {fileID: 2563707618429908295, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f69362ac88bfb84485090a79d2fe9f8, type: 3}
     - target: {fileID: 2590440014186462251, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -794,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 3396114686243276920, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -115.1215
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414208192043517965, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3414208192043517965, guid: 7db159eeae0944843a00d46f6708bca3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
