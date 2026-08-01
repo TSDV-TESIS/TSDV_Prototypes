@@ -1215,10 +1215,10 @@ RectTransform:
   - {fileID: 7105263251903367990}
   m_Father: {fileID: 7005569552128449514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.07833089}
+  m_AnchorMin: {x: 0, y: 0.052640744}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: -0.0009765625}
-  m_SizeDelta: {x: 0, y: -38.8281}
+  m_AnchoredPosition: {x: -0.00024414062, y: 39.80011}
+  m_SizeDelta: {x: 0, y: 37.4235}
   m_Pivot: {x: 0.49077496, y: 0.9999999}
 --- !u!114 &5321648118996153117
 MonoBehaviour:
@@ -2027,9 +2027,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6217770a242a3f440ab29b1451a94b08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ff4e646ad0cec64793b20308b45c431, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2733,10 +2733,10 @@ RectTransform:
   - {fileID: 7005569552128449514}
   m_Father: {fileID: 4549827659634071124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.027204964, y: 0.038334668}
-  m_AnchorMax: {x: 0.9676398, y: 0.8666654}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.000061035156}
-  m_SizeDelta: {x: 0, y: 3.3047}
+  m_AnchorMin: {x: 0.031279504, y: 0.12025932}
+  m_AnchorMax: {x: 0.96961683, y: 0.77000004}
+  m_AnchoredPosition: {x: -2.3305056, y: 2.1006775}
+  m_SizeDelta: {x: 1.6155052, y: 1.0071665}
   m_Pivot: {x: 0.49999997, y: 1}
 --- !u!222 &5727940366687982285
 CanvasRenderer:
@@ -3664,6 +3664,7 @@ MonoBehaviour:
   onTimerFinish: {fileID: 11400000, guid: 306596e786369134e8ecb4afa6f3b6b9, type: 2}
   onGamePaused: {fileID: 11400000, guid: d3a595e157dbbe04fa1acd1ce9f44c79, type: 2}
   panel: {fileID: 6041731633152808942}
+  goSignObject: {fileID: 0}
   levelCompletePhase: {fileID: 6619213720991748634}
   medals: {fileID: 4122714205687537435}
   timeTMPro: {fileID: 7556052289449253858}
@@ -5015,6 +5016,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5032564591238851546}
     m_Modifications:
+    - target: {fileID: 2450739632225614673, guid: 22e56fc0d4bef804189f9954aa8c8b44, type: 3}
+      propertyPath: m_fontSize
+      value: 39.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4701611013477851498, guid: 22e56fc0d4bef804189f9954aa8c8b44, type: 3}
       propertyPath: m_Name
       value: RubyMedal
