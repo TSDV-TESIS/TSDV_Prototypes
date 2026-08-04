@@ -97,8 +97,8 @@ namespace Health
 
         private void TakeLethalDamage(DeathCauses cause)
         {
-            onLethalDamageEvent?.Invoke(cause);
-            TryTakeDamage(maxHealth, cause);
+            if (TryTakeDamage(maxHealth, cause))
+                onLethalDamageEvent?.Invoke(cause);
         }
 
         public bool TryTakeDamage(int damage, DeathCauses cause)
