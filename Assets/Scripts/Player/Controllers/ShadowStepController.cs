@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using CameraScripts;
 using Events;
-using Events.Scriptables;
 using FSM;
 using Health;
 using Player.Properties;
@@ -17,6 +14,7 @@ namespace Player.Controllers
         [SerializeField] private GameObject bloodStepCollider;
         [SerializeField] private Vector3 displacementIfBlocked = new Vector3(0.01f, 0.01f, 0);
         [SerializeField] private VoidEventChannelSO onShadowStep;
+        [SerializeField] private VoidEventChannelSO onShadowStepStop;
 
         private PlayerMovement _playerMovement;
         private MouseLook _mouseLook;
@@ -38,6 +36,8 @@ namespace Player.Controllers
         {
             if (_shadowstepCoroutine != null) StopCoroutine(_shadowstepCoroutine);
             _shadowstepCoroutine = StartCoroutine(Shadowstep());
+
+            onShadowStepStop.onEvent.AddListener(StopShadowstep);
         }
 
         public override void OnUpdate()
@@ -48,7 +48,7 @@ namespace Player.Controllers
         {
             Debug.Log("START Shadowstep");
             onShadowStep?.RaiseEvent();
-            
+
             float timer = 0;
             Vector2 direction = _mouseLook.CursorDir.normalized;
             bool changedToWallslide = false;
@@ -123,6 +123,14 @@ namespace Player.Controllers
                 Debug.Log("Grounded!");
                 agent.ChangeStateToGrounded();
             }
+
+            onShadowStepStop.onEvent.RemoveListener(StopShadowstep);
+        }
+
+        private void StopShadowstep()
+        {
+            if (_shadowstepCoroutine != null) StopCoroutine(_shadowstepCoroutine);
+            ExitShadowstep();
         }
     }
 }

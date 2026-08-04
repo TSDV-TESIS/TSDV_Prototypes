@@ -1888,6 +1888,7 @@ MonoBehaviour:
   leftPivot: {fileID: 5184694367219061925}
   rightPivot: {fileID: 3945674624744664852}
   onSoulAbsorb: {fileID: 11400000, guid: 9ac2211cac777044db77b3e649143a4f, type: 2}
+  isInitialized: 1
 --- !u!114 &1910949050508808167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,6 +1906,7 @@ MonoBehaviour:
   bloodStepCollider: {fileID: 0}
   displacementIfBlocked: {x: 0.01, y: 0.01, z: 0}
   onShadowStep: {fileID: 11400000, guid: ed6c7d331b21c5f45ac4d68ae9274f2c, type: 2}
+  onShadowStepStop: {fileID: 11400000, guid: 7ccf6a5776bfa154684ad0d65de48779, type: 2}
 --- !u!114 &8298738303673191818
 MonoBehaviour:
   m_ObjectHideFlags: 0

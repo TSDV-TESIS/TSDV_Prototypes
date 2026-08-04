@@ -6,7 +6,7 @@ namespace Objects.Traps
     {
         [SerializeField] private BaseTrap baseTrap;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if(other.CompareTag("Player"))
                 baseTrap.onTrapContact?.Invoke();

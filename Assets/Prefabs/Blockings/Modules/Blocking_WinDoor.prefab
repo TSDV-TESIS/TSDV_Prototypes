@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.5368564, y: 4, z: 5}
-  m_Center: {x: -0.99242365, y: 2, z: 0}
+  m_Size: {x: 4.986743, y: 4, z: 5}
+  m_Center: {x: 0.23251963, y: 2, z: 0}
 --- !u!114 &3374577702686094360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   openDoor: {fileID: 5851007752525197216}
   nextLevel: Level3
   onEnemiesDisabled: {fileID: 11400000, guid: 25b58448612f2044a84eaa70f96c0331, type: 2}
+  stopShadowStep: {fileID: 11400000, guid: 7ccf6a5776bfa154684ad0d65de48779, type: 2}
   onWinSequenceStart: {fileID: 11400000, guid: 2d30fb831ac82d74197c4833f769aec5, type: 2}
   onChangeLevel: {fileID: 11400000, guid: d81519110d2fd764a913e78827d9b25b, type: 2}
   onDoorPosition: {fileID: 11400000, guid: a30e8b5ac8160044b8a8c1e7b00ec593, type: 2}
