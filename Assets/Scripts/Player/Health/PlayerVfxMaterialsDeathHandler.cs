@@ -1,101 +1,129 @@
 using System;
 using System.Collections;
-using Events;
-using Unity.Mathematics;
+using Health;
 using UnityEngine;
 using UnityEngine.VFX;
 
 namespace Player.Health
 {
+    [RequireComponent(typeof(HealthPoints))]
     public class PlayerVfxMaterialsDeathHandler : MonoBehaviour
     {
         [SerializeField] private PlayerDeathProperties playerDeathProperties;
-        [SerializeField] private VoidEventChannelSO onPlayerDeath;
         [SerializeField] private Material playerMaterial;
         [SerializeField] private VisualEffect fireEffect;
 
         private static readonly int DissolveAmount = Shader.PropertyToID("_Dissolve_Amount");
-        private static readonly int DissolveGradientLight = Shader.PropertyToID("_Dissolve_GradientLight");
+        private static readonly int DissolveGradientHeight = Shader.PropertyToID("_Dissolve_GradientHeight");
         private static readonly int Dead = Shader.PropertyToID("_Dead");
 
-        private Coroutine _dissolveCoroutine;
-        private Coroutine _obscureCoroutine;
+        private HealthPoints _healthPoints;
+        private Coroutine _deathSequenceCoroutine;
+
+        private void Awake()
+        {
+            _healthPoints = GetComponent<HealthPoints>();
+        }
 
         private void OnEnable()
         {
             SetPlayerMaterialValues();
 
-            onPlayerDeath?.onEvent.AddListener(HandleDeath);
+            if (_healthPoints != null && _healthPoints.OnDeathEvent != null)
+            {
+                _healthPoints.OnDeathEvent.onTypedEvent.AddListener(HandleDeath);
+            }
         }
 
         private void OnDisable()
         {
-            onPlayerDeath?.onEvent.RemoveListener(HandleDeath);
-        }
-
-        private void HandleDeath()
-        {
-            fireEffect.SendEvent(playerDeathProperties.stopVfxEventName);
-            playerMaterial.SetInt(Dead, 1);
-
-            if (_dissolveCoroutine != null) StopCoroutine(_dissolveCoroutine);
-            _dissolveCoroutine = StartCoroutine(DissolveCoroutine());
-
-            if (_obscureCoroutine != null) StopCoroutine(_obscureCoroutine);
-            _obscureCoroutine = StartCoroutine(ObscureCoroutine());
-        }
-
-        private IEnumerator ObscureCoroutine()
-        {
-            float timeInCoroutine = 0f;
-
-            while (timeInCoroutine < playerDeathProperties.deathObscuringTime)
+            if (_healthPoints != null && _healthPoints.OnDeathEvent != null)
             {
-                float timeLerp =
-                    playerDeathProperties.obscuringCurve.Evaluate(timeInCoroutine /
-                                                                  playerDeathProperties.deathObscuringTime);
+                _healthPoints.OnDeathEvent.onTypedEvent.RemoveListener(HandleDeath);
+            }
+        }
 
-                float value = Mathf.Lerp(playerDeathProperties.obscureMinValue, playerDeathProperties.obscureMaxValue,
-                    timeLerp);
+        [ContextMenu("Test Trigger Death (Manual)")]
+        public void ForceTestDeath()
+        {
+            HandleDeath(DeathCauses.Spikes);
+        }
 
-                playerMaterial.SetFloat(DissolveGradientLight, value);
-                timeInCoroutine += Time.deltaTime;
+        private void HandleDeath(DeathCauses cause)
+        {
+            if (fireEffect != null)
+            {
+                fireEffect.SendEvent(playerDeathProperties.stopVfxEventName);
+            }
+
+            if (_deathSequenceCoroutine != null) StopCoroutine(_deathSequenceCoroutine);
+            _deathSequenceCoroutine = StartCoroutine(DeathSequenceCoroutine());
+        }
+
+        private IEnumerator DeathSequenceCoroutine()
+        {
+            if (playerMaterial != null)
+            {
+                playerMaterial.SetFloat(Dead, 1f);
+            }
+
+            float timeInObscure = 0f;
+            while (timeInObscure < playerDeathProperties.deathObscuringTime)
+            {
+                float timeLerp = playerDeathProperties.obscuringCurve.Evaluate(
+                    timeInObscure / playerDeathProperties.deathObscuringTime);
+
+                float value = Mathf.Lerp(playerDeathProperties.obscureMaxValue, playerDeathProperties.obscureMinValue, timeLerp);
+
+                if (playerMaterial != null)
+                {
+                    playerMaterial.SetFloat(DissolveGradientHeight, value);
+                }
+
+                timeInObscure += Time.deltaTime;
                 yield return null;
             }
 
-            playerMaterial.SetFloat(DissolveGradientLight, playerDeathProperties.obscureMinValue);
-        }
-
-        private IEnumerator DissolveCoroutine()
-        {
-            yield return new WaitForSeconds(playerDeathProperties.deathDissolvingStartTime);
-
-            float timeInCoroutine = 0f;
-
-            while (timeInCoroutine < playerDeathProperties.deathDissolvingTime)
+            if (playerMaterial != null)
             {
-                float timeLerp =
-                    playerDeathProperties.dissolvingCurve.Evaluate(timeInCoroutine /
-                                                                   playerDeathProperties.deathDissolvingTime);
+                playerMaterial.SetFloat(DissolveGradientHeight, playerDeathProperties.obscureMinValue);
+            }
 
-                float value = Mathf.Lerp(playerDeathProperties.dissolvingMaxValue, playerDeathProperties.dissolvingMinValue,
-                    timeLerp);
+            if (playerDeathProperties.deathDissolvingStartTime > 0f)
+            {
+                yield return new WaitForSeconds(playerDeathProperties.deathDissolvingStartTime);
+            }
 
-                Debug.Log($"DISSOLVING {value}");
+            float timeInDissolve = 0f;
+            while (timeInDissolve < playerDeathProperties.deathDissolvingTime)
+            {
+                float timeLerp = playerDeathProperties.dissolvingCurve.Evaluate(
+                    timeInDissolve / playerDeathProperties.deathDissolvingTime);
 
-                playerMaterial.SetFloat(DissolveAmount, value);
-                timeInCoroutine += Time.deltaTime;
+                float value = Mathf.Lerp(playerDeathProperties.dissolvingMinValue, playerDeathProperties.dissolvingMaxValue, timeLerp);
+
+                if (playerMaterial != null)
+                {
+                    playerMaterial.SetFloat(DissolveAmount, value);
+                }
+
+                timeInDissolve += Time.deltaTime;
                 yield return null;
             }
 
-            playerMaterial.SetFloat(DissolveAmount, playerDeathProperties.dissolvingMaxValue);
+            if (playerMaterial != null)
+            {
+                playerMaterial.SetFloat(DissolveAmount, playerDeathProperties.dissolvingMaxValue);
+            }
         }
 
         private void SetPlayerMaterialValues()
         {
-            playerMaterial.SetInt(Dead, 0);
+            if (playerMaterial == null) return;
+
+            playerMaterial.SetFloat(Dead, 0f);
             playerMaterial.SetFloat(DissolveAmount, playerDeathProperties.dissolvingMinValue);
-            playerMaterial.SetFloat(DissolveGradientLight, playerDeathProperties.obscureMaxValue);
+            playerMaterial.SetFloat(DissolveGradientHeight, playerDeathProperties.obscureMaxValue);
         }
     }
 }

@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeathProperties: {fileID: 11400000, guid: 650625ef0b0e8aa47a89b5f35338b74e, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: 22935ebca27667842b100ca2831ca89e, type: 2}
+  onPlayerDeath: {fileID: 11400000, guid: 23f77a340fe29d949816e46eec845536, type: 2}
   playerMaterial: {fileID: 2100000, guid: aeb953dbb4f9bb24b974b27d970ac785, type: 2}
   fireEffect: {fileID: 1212672894942375179}
 --- !u!114 &7152759952958382513
