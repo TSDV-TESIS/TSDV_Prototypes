@@ -13,6 +13,8 @@ namespace Managers
         [SerializeField] private string nextLevel;
 
         [Header("Events")] [SerializeField] private VoidEventChannelSO onEnemiesDisabled;
+        [SerializeField] private VoidEventChannelSO stopShadowStep;
+
         [SerializeField] private VoidEventChannelSO onWinSequenceStart;
         [SerializeField] private VoidEventChannelSO onChangeLevel;
 
@@ -60,6 +62,7 @@ namespace Managers
                 if (other.gameObject.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
                     playerMovement.Stop();
 
+                stopShadowStep.RaiseEvent();
                 _canWin = false;
             }
         }
