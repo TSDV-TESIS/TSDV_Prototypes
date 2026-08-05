@@ -5,7 +5,7 @@ using UnityEngine.VFX;
 
 namespace Enemy.Attack
 {
-    [RequireComponent(typeof(CapsuleCollider))]
+    [RequireComponent(typeof(Collider))]
     public class ArrowAttack : MonoBehaviour
     {
         [SerializeField] private int damage = 1000;
@@ -16,7 +16,7 @@ namespace Enemy.Attack
         [SerializeField] private VisualEffect hitVFX;
         [SerializeField] private GameObject decalPrefab;
 
-        private CapsuleCollider _collider;
+        private Collider _collider;
         private Coroutine _arrowDestroyCoroutine;
         private Coroutine _hitCoroutine;
         private Coroutine _lightDimCoroutine;
@@ -29,7 +29,7 @@ namespace Enemy.Attack
         private void OnEnable()
         {
             _isTraveling = false;
-            _collider ??= GetComponent<CapsuleCollider>();
+            _collider ??= GetComponent<Collider>();
             arrowVFX.SendEvent(properties.vfxStartEvent);
         }
 

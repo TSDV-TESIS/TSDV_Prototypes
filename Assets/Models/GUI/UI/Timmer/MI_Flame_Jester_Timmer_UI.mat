@@ -114,7 +114,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Health: 0.985
+    - _Health: 1
     - _Inside_Shade: 3
     - _Metallic: 0
     - _OcclusionStrength: 1

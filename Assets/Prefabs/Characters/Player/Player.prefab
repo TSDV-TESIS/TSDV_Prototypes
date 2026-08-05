@@ -2088,7 +2088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeathProperties: {fileID: 11400000, guid: 650625ef0b0e8aa47a89b5f35338b74e, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: 23f77a340fe29d949816e46eec845536, type: 2}
   playerMaterial: {fileID: 2100000, guid: aeb953dbb4f9bb24b974b27d970ac785, type: 2}
   fireEffect: {fileID: 1212672894942375179}
 --- !u!114 &7152759952958382513
@@ -2562,6 +2561,10 @@ PrefabInstance:
     - target: {fileID: 1531866805323583940, guid: 66634b1a9dbb26248825f77e0900702f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.2619703
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654721614722136950, guid: 66634b1a9dbb26248825f77e0900702f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1687065346377960425, guid: 66634b1a9dbb26248825f77e0900702f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3471,6 +3474,10 @@ PrefabInstance:
     - target: {fileID: 4677442631895686070, guid: 9150683b6851d3b4b90c72bfea5c9284, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[8].m_Value
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677442631895686071, guid: 9150683b6851d3b4b90c72bfea5c9284, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
