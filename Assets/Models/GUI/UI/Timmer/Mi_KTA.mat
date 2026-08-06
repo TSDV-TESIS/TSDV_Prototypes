@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MI_Flame_Jester_Timmer_UI
-  m_Shader: {fileID: -6465566751694194690, guid: 330f05e4fe031eb4b9fc932b777e41a3, type: 3}
+  m_Name: Mi_KTA
+  m_Shader: {fileID: -6465566751694194690, guid: 02ac7eb6fd15e9a4aaee4f03ea1faaa3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fa440c8edf88d1f4a955b37fd7c183aa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Noise:
-        m_Texture: {fileID: 2800000, guid: 140af51ed361e8247b3d4b2da477b1f4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 24cdb780fee150d4ea1c2925a4232d99, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -73,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_Mask:
-        m_Texture: {fileID: 2800000, guid: 490848ce5d351f747a43746c0f4d26c0, type: 3}
+        m_Texture: {fileID: 2800000, guid: fa440c8edf88d1f4a955b37fd7c183aa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_Stars:
@@ -100,56 +100,66 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _ChaosSpeed_Stars: -0.28
+    - _ChaosSpeed_Stars: 0.015
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorMask: 15
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Distortion_Stars: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge_Shade: 0
+    - _Edge_Shade: 3.42
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Health: 1
-    - _Inside_Shade: 3
+    - _Health: 0
+    - _Inside_Shade: 4
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Power_Edge: 1.09
-    - _Power_Noise: 4
+    - _Power_Edge: 2
+    - _Power_Noise: -2.31
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smooth_Max: 1
-    - _Smooth_Min: 2.34
+    - _Smooth_Max: 0.29
+    - _Smooth_Min: 2.24
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Stars_Shade: 4
+    - _Stars_Shade: 5
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _Surface: 0
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Distortion_Stars: {r: 0, g: 0.5, b: 0, a: 0}
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.40509614, g: 0.17948598, b: 2.1624815, a: 1}
+    - _Distortion_Stars: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InsideColor: {r: 0.8615012, g: 0.5093554, b: 6.8831816, a: 1}
-    - _Noise_fire: {r: 0, g: -0.25, b: 0, a: 0}
-    - _Panner_Velocity: {r: 0, g: -0.41, b: 0, a: 0}
+    - _InsideColor: {r: 0.36827987, g: 0.23053168, b: 2.5722487, a: 1}
+    - _Noise_fire: {r: 0, g: -0.2, b: 0, a: 0}
+    - _Panner_Velocity: {r: 0, g: -0.5, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Star_Color: {r: 3.0819833, g: 1.3602685, b: 10.680626, a: 1}
-    - _Tile_Noise: {r: 0, g: 1, b: 0, a: 0}
+    - _Star_Color: {r: 1.0820963, g: 0.57095987, b: 3.66, a: 1}
+    - _Tile_Noise: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Tiling_noise: {r: 0.5, g: 1, b: 0, a: 0}
-    - _inside_edge_color: {r: 1.2668371, g: 0.6475264, b: 3.3901906, a: 1}
+    - _inside_edge_color: {r: 0.5380044, g: 0.2330781, b: 2.0626376, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &846699755512881825
+--- !u!114 &3935203840387355421
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
