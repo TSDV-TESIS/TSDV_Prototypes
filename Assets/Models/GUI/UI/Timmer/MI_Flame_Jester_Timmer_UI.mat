@@ -114,7 +114,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Health: 0.985
+    - _Health: 1
     - _Inside_Shade: 3
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -130,7 +130,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Stars_Shade: 4.01
+    - _Stars_Shade: 4
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -143,7 +143,7 @@ Material:
     - _Noise_fire: {r: 0, g: -0.25, b: 0, a: 0}
     - _Panner_Velocity: {r: 0, g: -0.41, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Star_Color: {r: 1.5409917, g: 0.6801343, b: 5.3403134, a: 1}
+    - _Star_Color: {r: 3.0819833, g: 1.3602685, b: 10.680626, a: 1}
     - _Tile_Noise: {r: 0, g: 1, b: 0, a: 0}
     - _Tiling_noise: {r: 0.5, g: 1, b: 0, a: 0}
     - _inside_edge_color: {r: 1.2668371, g: 0.6475264, b: 3.3901906, a: 1}
